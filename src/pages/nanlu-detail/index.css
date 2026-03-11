@@ -1,0 +1,146 @@
+.nanlu-detail-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 32px;
+}
+
+/* 敬请期待容器 */
+.coming-soon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.coming-soon-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.coming-soon-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2f6f4f;
+  letter-spacing: 4px;
+}
+
+/* 预计五月与大家见面 */
+.time-notice {
+  margin-bottom: 40px;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.time-notice-text {
+  font-size: 20px;
+  color: #495057;
+  font-weight: 500;
+}
+
+/* 底部图片容器 */
+.image-container {
+  width: 100%;
+  margin-bottom: 32px;
+  animation: fadeIn 1.2s ease-out 0.6s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.nanlu-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 咨询提示 */
+.consult-notice {
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out 0.9s both;
+}
+
+.consult-text {
+  display: block;
+  font-size: 18px;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.consult-text:last-child {
+  color: #2f6f4f;
+  font-weight: 500;
+}
+
+/* ========== 返回按钮 ========== */
+.back-button-container {
+  padding: 20px 24px 40px;
+}
+
+.back-button {
+  background: linear-gradient(135deg, #2f6f4f 0%, #1d3d2c 100%);
+  border-radius: 50px;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(47, 111, 79, 0.3);
+  transition: all 0.3s ease;
+}
+
+.back-button:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 8px 24px rgba(47, 111, 79, 0.4);
+}
+
+.back-button-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1px;
+}
+

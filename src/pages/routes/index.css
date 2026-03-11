@@ -1,0 +1,166 @@
+.routes-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* ========== 页面标题 ========== */
+.page-title-wrapper {
+  background: white;
+  padding: 60px 24px 30px;
+  animation: titleSlideDown 0.6s ease-out;
+  text-align: center;
+}
+
+@keyframes titleSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-title {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1d3d2c;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2f6f4f, transparent);
+  animation: lineExpand 0.8s ease-out 0.4s both;
+}
+
+@keyframes lineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 120px;
+  }
+}
+
+/* ========== 线路容器 ========== */
+.routes-container {
+  padding: 24px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ========== 线路卡片 ========== */
+.route-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* 卡片依次进入动画 */
+.card-enter-1 {
+  animation: cardEnter 0.5s ease-out 0.2s both;
+}
+
+.card-enter-2 {
+  animation: cardEnter 0.5s ease-out 0.3s both;
+}
+
+.card-enter-3 {
+  animation: cardEnter 0.5s ease-out 0.4s both;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.route-card:active {
+  transform: translateY(-4px) scale(0.98);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* ========== 图片区域 ========== */
+.image-wrapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.route-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.route-card:active .route-image {
+  transform: scale(1.03);
+}
+
+/* ========== 内容区域 ========== */
+.route-content {
+  padding: 20px 18px 22px;
+}
+
+.route-name {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1d3d2c;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.route-desc {
+  display: block;
+  font-size: 0.9rem;
+  color: #6b7f76;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.difficulty-badge {
+  display: inline-block;
+  background: #f5f5f5;
+  padding: 5px 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.route-card:active .difficulty-badge {
+  background: #2f6f4f;
+}
+
+.difficulty-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #2f6f4f;
+  letter-spacing: 0.5px;
+}
+
+.route-card:active .difficulty-text {
+  color: white;
+}
