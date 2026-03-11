@@ -2,348 +2,344 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>山渡户外 | 徒步俱乐部</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<title>山渡户外 · 徒步俱乐部</title>
 <style>
-/* 重置与基础 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', 'Segoe UI', Roboto, sans-serif;
-  background: #f5f5f5;
-  color: #1e2e28;
-  line-height: 1.5;
-}
-
-/* 头部 */
-header {
-  height: 90vh;
-  background: linear-gradient(rgba(20, 40, 30, 0.3), rgba(10, 30, 20, 0.4)),
-              url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b");
-  background-size: cover;
-  background-position: center 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  padding: 0 20px;
-}
-
-header h1 {
-  font-size: clamp(48px, 12vw, 80px);
-  font-weight: 600;
-  letter-spacing: 4px;
-  text-shadow: 0 4px 20px rgba(0, 20, 0, 0.5);
-  margin: 0;
-}
-
-header p {
-  font-size: clamp(18px, 4vw, 26px);
-  margin: 20px 0 30px;
-  font-weight: 300;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-}
-
-/* 按钮 */
-.btn {
-  display: inline-block;
-  padding: 16px 48px;
-  border: none;
-  background: #2f6f4f;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 40px;
-  box-shadow: 0 8px 20px rgba(30, 70, 40, 0.4);
-  transition: all 0.25s ease;
-  letter-spacing: 1.5px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: #3e8060;
-  transform: translateY(-4px);
-  box-shadow: 0 16px 28px rgba(30, 80, 40, 0.5);
-}
-
-.btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 6px 12px rgba(20, 60, 30, 0.4);
-}
-
-/* 通用区块 */
-section {
-  padding: 80px 5%;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-@media (min-width: 900px) {
-  section {
-    padding: 90px 8%;
+  /* ===== 重置与基础 ===== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-}
 
-.title {
-  font-size: 2.8rem;
-  text-align: center;
-  margin-bottom: 60px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  position: relative;
-  color: #1d3d2c;
-}
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f8faf8;
+    color: #1e2e28;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-.title::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: #2f6f4f;
-  margin: 20px auto 0;
-  border-radius: 4px;
-}
+  /* ===== 头部区域 ===== */
+  header {
+    height: 85vh;
+    background: linear-gradient(rgba(20, 40, 30, 0.3), rgba(10, 30, 20, 0.5)),
+                url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b");
+    background-size: cover;
+    background-position: center 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+  }
 
-/* 线路卡片区域 */
-.routes {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+  header h1 {
+    font-size: clamp(40px, 15vw, 70px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    margin: 0;
+    line-height: 1.2;
+  }
 
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  width: 320px;
-}
+  header p {
+    font-size: clamp(18px, 5vw, 24px);
+    margin: 15px 0 25px;
+    font-weight: 300;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
 
-.card {
-  background: white;
-  width: 100%;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 15px 30px -8px rgba(20, 60, 30, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  /* ===== 移动端大按钮 ===== */
+  .btn {
+    display: inline-block;
+    padding: 18px 48px;
+    background: #2f6f4f;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(30, 70, 40, 0.4);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-tap-highlight-color: transparent;
+  }
 
-.card-link:hover .card {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 35px -10px #1f4a33b3;
-}
+  .btn:active {
+    transform: scale(0.97);
+    background: #3d8c64;
+  }
 
-.card img {
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s;
-}
+  /* ===== 通用区块 ===== */
+  section {
+    padding: 50px 16px;
+  }
 
-.card-link:hover img {
-  transform: scale(1.02);
-}
-
-.card-content {
-  padding: 24px 22px 28px;
-}
-
-.card-content h3 {
-  font-size: 1.9rem;
-  font-weight: 500;
-  margin-bottom: 12px;
-  color: #1f4a2e;
-}
-
-.card-content p {
-  font-size: 1rem;
-  color: #2f4a3d;
-  margin: 8px 0;
-  line-height: 1.5;
-}
-
-.card-content p:last-child {
-  margin-top: 12px;
-  font-weight: 500;
-  color: #2f6f4f;
-  letter-spacing: 0.3px;
-  display: inline-block;
-  background: #e7f3eb;
-  padding: 4px 14px;
-  border-radius: 30px;
-  font-size: 0.9rem;
-}
-
-/* 关于我们 */
-.about {
-  text-align: center;
-  max-width: 850px;
-  margin: 0 auto;
-  font-size: 1.25rem;
-  line-height: 2;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 40px 30px;
-  border-radius: 48px 24px 48px 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  backdrop-filter: blur(2px);
-}
-
-.about p {
-  margin: 32px 0;
-}
-
-.about p:first-child {
-  margin-top: 0;
-}
-
-.about p:last-child {
-  margin-bottom: 0;
-}
-
-/* 联系方式 - 改为可点击链接 */
-.contact {
-  text-align: center;
-  background: white;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 40px 30px;
-  border-radius: 36px;
-  box-shadow: 0 15px 30px rgba(47, 111, 79, 0.12);
-  font-size: 1.3rem;
-  border: 1px solid rgba(80, 120, 100, 0.15);
-}
-
-.contact-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: all 0.2s ease;
-}
-
-.contact-link:hover {
-  color: #2f6f4f;
-  transform: translateX(5px);
-}
-
-.contact p {
-  margin: 22px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.contact p:first-child {
-  margin-top: 0;
-}
-.contact p:last-child {
-  margin-bottom: 0;
-}
-
-.contact p::before {
-  content: "▹";
-  color: #2f6f4f;
-  font-size: 2rem;
-  line-height: 1;
-  font-weight: 300;
-}
-
-/* 页脚 */
-footer {
-  background: #1f3329;
-  color: #dbefe2;
-  text-align: center;
-  padding: 36px 20px;
-  font-size: 1.1rem;
-  letter-spacing: 1.5px;
-  border-top: 4px solid #3b8b62;
-}
-
-/* 手机优化 */
-@media (max-width: 600px) {
   .title {
     font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 500;
+    color: #1d3d2c;
+    position: relative;
   }
+
+  .title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #2f6f4f;
+    margin: 15px auto 0;
+    border-radius: 4px;
+  }
+
+  /* ===== 线路卡片 - 移动端优化 ===== */
+  .routes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .card {
+    background: white;
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+  }
+
+  .card:active {
+    transform: scale(0.98);
+    background: #f5faf7;
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-content {
+    padding: 20px 18px 22px;
+  }
+
+  .card-content h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1f4a2e;
+  }
+
+  .card-content p {
+    font-size: 1rem;
+    color: #2f4a3d;
+    margin: 6px 0;
+    line-height: 1.5;
+  }
+
+  .card-content p:last-child {
+    margin-top: 12px;
+    font-weight: 500;
+    color: #2f6f4f;
+    display: inline-block;
+    background: #e7f3eb;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+  }
+
+  /* ===== 关于我们 - 手机卡片 ===== */
   .about {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
     font-size: 1.1rem;
-    padding: 30px 18px;
+    line-height: 1.9;
+    background: white;
+    padding: 40px 24px;
+    border-radius: 32px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(47, 111, 79, 0.1);
   }
+
+  .about p {
+    margin: 24px 0;
+  }
+
+  .about p:first-child {
+    margin-top: 0;
+  }
+
+  .about p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ===== 联系方式 - 移动端大按钮列表 ===== */
   .contact {
-    font-size: 1.15rem;
-    padding: 30px 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(47, 111, 79, 0.1);
   }
-  .btn {
-    padding: 14px 36px;
-    font-size: 1.1rem;
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 20px;
+    text-decoration: none;
+    color: #1e2e28;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background 0.2s;
+    -webkit-tap-highlight-color: transparent;
   }
-  header h1 {
-    font-size: 52px;
+
+  .contact-link:last-child {
+    border-bottom: none;
   }
-}
+
+  .contact-link:active {
+    background: #f0f7f2;
+  }
+
+  .contact-link::before {
+    content: "▹";
+    color: #2f6f4f;
+    font-size: 1.8rem;
+    margin-right: 12px;
+  }
+
+  /* ===== 底部固定导航栏 ===== */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0 20px; /* 底部留出安全区 */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 100;
+  }
+
+  .nav-item {
+    text-decoration: none;
+    color: #6b7f76;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    border-radius: 30px;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nav-item.active {
+    color: #2f6f4f;
+    font-weight: 500;
+  }
+
+  .nav-icon {
+    font-size: 1.5rem;
+  }
+
+  /* 底部留出空间，不被导航栏挡住 */
+  body {
+    padding-bottom: 80px;
+  }
+
+  footer {
+    display: none; /* 隐藏原来的底部，用导航栏替代 */
+  }
+
+  /* ===== 微信小程序兼容 ===== */
+  button, a {
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+  }
 </style>
 </head>
 <body>
 
+<!-- 头部区域 -->
 <header>
   <h1>山渡户外</h1>
   <p>走山渡心 · 走进真正的山野</p>
   <a href="#routes-section" class="btn">查看徒步线路</a>
 </header>
 
-<!-- 线路部分 -->
+<!-- 热门线路 -->
 <section id="routes-section">
-  <div class="title">热门徒步线路</div>
+  <div class="title">热门徒步</div>
   <div class="routes">
     
-    <!-- 雨崩卡片 - 可点击链接 -->
-    <a href="https://example.com/yubeng" target="_blank" rel="noopener" class="card-link">
+    <!-- 雨崩卡片 -->
+    <a href="#" class="card-link" onclick="alert('雨崩徒步详情(演示)'); return false;">
       <div class="card">
         <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b" alt="雨崩冰湖" loading="lazy">
         <div class="card-content">
           <h3>雨崩徒步</h3>
-          <p>4天高原徒步<br>冰湖 / 神瀑 / 梅里雪山</p>
+          <p>4天高原徒步 · 冰湖/神瀑/梅里雪山</p>
           <p>难度 ⭐⭐⭐</p>
         </div>
       </div>
     </a>
     
-    <!-- 虎跳峡卡片 - 可点击链接 -->
-    <a href="https://example.com/tiger-leaping-gorge" target="_blank" rel="noopener" class="card-link">
+    <!-- 虎跳峡卡片 -->
+    <a href="#" class="card-link" onclick="alert('虎跳峡徒步详情(演示)'); return false;">
       <div class="card">
         <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop"
-             alt="山野徒步风景"
-             loading="lazy">
+             alt="山野徒步风景" loading="lazy">
         <div class="card-content">
           <h3>虎跳峡徒步</h3>
-          <p>云南虎跳峡经典路线</p>
-          <p>1天轻徒步</p>
+          <p>云南虎跳峡经典路线 · 1天轻徒步</p>
           <p>难度 ⭐⭐</p>
         </div>
       </div>
     </a>
     
-    <!-- 南极洛卡片 - 可点击链接 -->
-    <a href="https://example.com/nanjiluo" target="_blank" rel="noopener" class="card-link">
+    <!-- 南极洛卡片 -->
+    <a href="#" class="card-link" onclick="alert('南极洛徒步详情(演示)'); return false;">
       <div class="card">
         <img src="https://images.unsplash.com/photo-1496080174650-637e3f22fa03?q=80&w=1972&auto=format&fit=crop" alt="南极洛高山湖泊" loading="lazy">
         <div class="card-content">
           <h3>南极洛徒步</h3>
-          <p>香格里拉秘境湖泊群</p>
-          <p>3天秘境徒步</p>
+          <p>香格里拉秘境湖泊群 · 3天徒步</p>
           <p>难度 ⭐⭐⭐</p>
         </div>
       </div>
     </a>
-    
   </div>
 </section>
 
@@ -357,28 +353,49 @@ footer {
   </div>
 </section>
 
-<!-- 联系报名 - 改为可点击链接 -->
+<!-- 联系报名 - 手机大按钮 -->
 <section>
   <div class="title">报名 / 联系</div>
   <div class="contact">
-    <a href="https://wa.me/8613988881260?text=我想咨询山渡户外徒步" target="_blank" rel="noopener" class="contact-link">
-      <p>微信：SDHW008</p>
-    </a>
-    <a href="https://maps.app.goo.gl/example" target="_blank" rel="noopener" class="contact-link">
-      <p>地址：丽江 · 束河古镇</p>
-    </a>
+    <a href="#" class="contact-link" onclick="alert('微信号：SDHW008 (复制演示)'); return false;">微信：SDHW008</a>
+    <a href="#" class="contact-link" onclick="alert('地址：丽江 · 束河古镇'); return false;">地址：丽江 · 束河古镇</a>
   </div>
 </section>
 
-<footer>
-  山渡户外 © 2026 · 山野不远，心近则达
-</footer>
+<!-- 底部固定导航栏 (适合手机) -->
+<div class="bottom-nav">
+  <a href="#" class="nav-item active" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+    <span class="nav-icon">🏠</span>
+    <span>首页</span>
+  </a>
+  <a href="#routes-section" class="nav-item" onclick="return false;">
+    <span class="nav-icon">🥾</span>
+    <span>线路</span>
+  </a>
+  <a href="#" class="nav-item" onclick="alert('联系客服：SDHW008'); return false;">
+    <span class="nav-icon">💬</span>
+    <span>联系</span>
+  </a>
+  <a href="#" class="nav-item" onclick="alert('关于我们'); return false;">
+    <span class="nav-icon">📋</span>
+    <span>关于</span>
+  </a>
+</div>
 
-<!-- 交互小功能（可选，现在主要是链接跳转） -->
 <script>
+  // 简单的交互，让导航栏高亮
   (function() {
-    console.log('山渡户外 — 山野不远，心近则达');
-    console.log('提示：所有卡片和联系方式都已添加可点击链接');
+    // 给所有卡片添加点击反馈
+    console.log('山渡户外移动版已加载');
+    
+    // 导航栏滚动高亮
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach((item, index) => {
+      item.addEventListener('click', function(e) {
+        navItems.forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
   })();
 </script>
 
