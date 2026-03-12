@@ -54,6 +54,12 @@ const RoutesPage: FC = () => {
     }
   }
 
+  const handleCustomPage = () => {
+    Taro.navigateTo({
+      url: '/pages/custom/index'
+    })
+  }
+
   return (
     <View className="routes-page">
       {/* 页面标题 */}
@@ -87,6 +93,21 @@ const RoutesPage: FC = () => {
             </View>
           </View>
         ))}
+      </View>
+
+      {/* 私人订制入口 */}
+      <View className="custom-section">
+        <Text className="custom-title">私人订制</Text>
+        <Text className="custom-subtitle">为您量身定制专属旅行体验</Text>
+
+        <View className="custom-card" onTap={handleCustomPage}>
+          <View className="custom-content">
+            <View className="custom-icon">✨</View>
+            <Text className="custom-main-text">专属行程定制</Text>
+            <Text className="custom-desc-text">根据您的需求，设计独一无二的外旅行计划</Text>
+            <View className="custom-arrow">→</View>
+          </View>
+        </View>
       </View>
     </View>
   )

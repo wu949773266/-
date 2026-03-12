@@ -164,3 +164,113 @@
 .route-card:active .difficulty-text {
   color: white;
 }
+
+/* ========== 私人订制入口 ========== */
+.custom-section {
+  padding: 20px 16px 60px;
+  animation: cardEnter 0.5s ease-out 0.6s both;
+}
+
+.custom-title {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1d3d2c;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.custom-subtitle {
+  display: block;
+  font-size: 1rem;
+  color: #6b7f76;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.custom-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9f8 100%);
+  border-radius: 24px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 20px rgba(47, 111, 79, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2f6f4f, #3d8f66, #2f6f4f);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.custom-card:active {
+  transform: translateY(-4px) scale(0.99);
+  box-shadow: 0 8px 28px rgba(47, 111, 79, 0.15);
+}
+
+.custom-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.custom-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.custom-main-text {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2f6f4f;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.custom-desc-text {
+  display: block;
+  font-size: 1rem;
+  color: #6b7f76;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.custom-arrow {
+  font-size: 2rem;
+  color: #2f6f4f;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.custom-card:active .custom-arrow {
+  transform: translateX(8px);
+}

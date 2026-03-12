@@ -2,6 +2,7 @@ export default {
   pages: [
     'pages/index/index',
     'pages/routes/index',
+    'pages/custom/index',
     'pages/contact/index',
     'pages/about/index'
   ],

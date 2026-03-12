@@ -1,0 +1,151 @@
+.custom-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8f9f8 0%, #ffffff 100%);
+}
+
+/* 头部图片 */
+.header-image {
+  position: relative;
+  width: 100%;
+  height: 500rpx;
+  overflow: hidden;
+}
+
+.header-image .image {
+  width: 100%;
+  height: 100%;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.header-title {
+  position: absolute;
+  bottom: 60rpx;
+  left: 40rpx;
+  font-size: 56rpx;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 4rpx;
+}
+
+/* 主要内容 */
+.content {
+  padding: 60rpx 40rpx;
+}
+
+/* 介绍部分 */
+.intro-section {
+  margin-bottom: 80rpx;
+}
+
+.intro-text {
+  display: block;
+  font-size: 32rpx;
+  line-height: 1.8;
+  color: #333333;
+  text-align: justify;
+}
+
+.intro-text-space {
+  margin-top: 40rpx;
+}
+
+.intro-text-highlight {
+  margin-top: 60rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #2f6f4f;
+  text-align: center;
+}
+
+/* 服务特色 */
+.features-section {
+  margin-bottom: 80rpx;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 40rpx;
+  background: #ffffff;
+  border-radius: 24rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.06);
+}
+
+.feature-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.feature-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.feature-desc {
+  font-size: 28rpx;
+  color: #666666;
+  text-align: center;
+}
+
+/* 联系方式 */
+.contact-section {
+  margin-bottom: 80rpx;
+}
+
+.section-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 32rpx 40rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.contact-text {
+  margin-left: 24rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+
+/* 按钮部分 */
+.button-section {
+  margin-top: 60rpx;
+}
+
+.contact-button {
+  width: 100%;
+  height: 96rpx;
+  background: linear-gradient(135deg, #2f6f4f 0%, #3d8f66 100%);
+  color: #ffffff;
+  font-size: 36rpx;
+  font-weight: 600;
+  border: none;
+  border-radius: 48rpx;
+  box-shadow: 0 8rpx 24rpx rgba(47, 111, 79, 0.3);
+}
+
+.contact-button::after {
+  border: none;
+}
