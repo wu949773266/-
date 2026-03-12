@@ -108,7 +108,7 @@ const HutiaoxiaDetailPage: FC = () => {
         <Image
           className="header-bg"
           mode="aspectFill"
-          src="https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2FDSCF6548.jpg&nonce=ee856198-c4a2-4960-b639-013c619d65f1&project_id=7616028140170690575&sign=8895be3f4296a598056af4822bc75d4e2ff88fda623d8ec4780f0ef94ce6d33d"
+          src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         />
         <View className="header-overlay" />
         <View className="header-content">
