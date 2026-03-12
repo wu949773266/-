@@ -1,6 +1,7 @@
 import { View, Text, Button } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import type { FC } from 'react'
+import { MessageCircle, Sparkles } from 'lucide-react-taro'
 import './index.css'
 
 const ContactPage: FC = () => {
@@ -22,6 +23,12 @@ const ContactPage: FC = () => {
     })
   }
 
+  const handleChatAI = () => {
+    Taro.navigateTo({
+      url: '/pages/chat/index'
+    })
+  }
+
   return (
     <View className="contact-page">
       <View className="page-header">
@@ -30,6 +37,20 @@ const ContactPage: FC = () => {
         </Text>
       </View>
       <View className="contact-container">
+        {/* AI 助手卡片 */}
+        <View className="ai-assistant-card" onClick={handleChatAI}>
+          <View className="ai-assistant-content">
+            <View className="ai-assistant-icon">
+              <Sparkles size={32} color="#2f6f4f" />
+            </View>
+            <View className="ai-assistant-text">
+              <Text className="ai-assistant-title">智能助手</Text>
+              <Text className="ai-assistant-desc">24小时在线，随时回答您的问题</Text>
+            </View>
+            <MessageCircle size={24} color="#2f6f4f" />
+          </View>
+        </View>
+
         <View className="contact-card card-fade-in">
           <View className="contact-item" onClick={handleCall}>
             <Text className="contact-label">📞 电话</Text>

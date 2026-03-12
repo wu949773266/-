@@ -1,7 +1,8 @@
 import { View, Text } from '@tarojs/components'
-import { useDidShow } from '@tarojs/taro'
+import { useDidShow, navigateTo } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
+import { Bot } from 'lucide-react-taro'
 import './index.css'
 
 const AboutPage: FC = () => {
@@ -96,6 +97,24 @@ const AboutPage: FC = () => {
               <Text className="value-desc">{value.desc}</Text>
             </View>
           ))}
+        </View>
+      </View>
+
+      {/* AI 助手入口 */}
+      <View
+        key={`ai-assistant-${animationTrigger}`}
+        className="ai-assistant-entry ai-enter-1"
+        onClick={() => navigateTo({ url: '/pages/chat/index' })}
+      >
+        <View className="ai-assistant-content">
+          <View className="ai-icon-wrapper">
+            <Bot size={48} color="#52c41a" />
+          </View>
+          <View className="ai-text-content">
+            <Text className="ai-title">AI 智能助手</Text>
+            <Text className="ai-desc">专业户外知识问答，为您提供路线推荐、装备建议</Text>
+          </View>
+          <View className="ai-arrow">→</View>
         </View>
       </View>
     </View>
