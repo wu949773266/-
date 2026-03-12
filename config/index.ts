@@ -98,16 +98,40 @@ export default defineConfig<'vite'>(async (merge, _env) => {
     copy: {
       patterns: [
         {
-          from: 'src/assets/images',
-          to: 'assets/images',
+          from: 'src/assets/tabbar',
+          to: 'assets/tabbar',
         },
         {
-          from: 'src/assets/*.jpg',
-          to: 'assets/[name][ext]',
+          from: 'src/assets/images/DSCF5976.webp',
+          to: 'assets/images/DSCF5976.webp',
         },
         {
-          from: 'src/assets/*.png',
-          to: 'assets/[name][ext]',
+          from: 'src/assets/images/DSCF6548.webp',
+          to: 'assets/images/DSCF6548.webp',
+        },
+        {
+          from: 'src/assets/images/IMG_8134.webp',
+          to: 'assets/images/IMG_8134.webp',
+        },
+        {
+          from: 'src/assets/images/微信图片_20260312004502.webp',
+          to: 'assets/images/微信图片_20260312004502.webp',
+        },
+        {
+          from: 'src/assets/images/微信图片_20260312004510.webp',
+          to: 'assets/images/微信图片_20260312004510.webp',
+        },
+        {
+          from: 'src/assets/images/微信图片_20260312004514.webp',
+          to: 'assets/images/微信图片_20260312004514.webp',
+        },
+        {
+          from: 'src/assets/images/微信图片_20260312004518.webp',
+          to: 'assets/images/微信图片_20260312004518.webp',
+        },
+        {
+          from: 'src/assets/images/微信图片_20260312035527_5_87.webp',
+          to: 'assets/images/微信图片_20260312035527_5_87.webp',
         },
       ],
       options: {},
