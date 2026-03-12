@@ -101,38 +101,6 @@ export default defineConfig<'vite'>(async (merge, _env) => {
           from: 'src/assets/tabbar',
           to: 'assets/tabbar',
         },
-        {
-          from: 'src/package-detail/assets/images/DSCF5976.jpg',
-          to: 'package-detail/assets/images/DSCF5976.jpg',
-        },
-        {
-          from: 'src/package-detail/assets/images/DSCF6548.jpg',
-          to: 'package-detail/assets/images/DSCF6548.jpg',
-        },
-        {
-          from: 'src/package-detail/assets/images/IMG_8134.jpg',
-          to: 'package-detail/assets/images/IMG_8134.jpg',
-        },
-        {
-          from: 'src/package-detail/assets/images/微信图片_20260312004502.jpg',
-          to: 'package-detail/assets/images/微信图片_20260312004502.jpg',
-        },
-        {
-          from: 'src/package-detail/assets/images/微信图片_20260312004510.jpg',
-          to: 'package-detail/assets/images/微信图片_20260312004510.jpg',
-        },
-        {
-          from: 'src/package-detail/assets/images/微信图片_20260312004514.jpg',
-          to: 'package-detail/assets/images/微信图片_20260312004514.jpg',
-        },
-        {
-          from: 'src/package-detail/assets/images/微信图片_20260312004518.jpg',
-          to: 'package-detail/assets/images/微信图片_20260312004518.jpg',
-        },
-        {
-          from: 'src/package-detail/assets/images/微信图片_20260312035527_5_87.jpg',
-          to: 'package-detail/assets/images/微信图片_20260312035527_5_87.jpg',
-        },
       ],
       options: {},
     },
