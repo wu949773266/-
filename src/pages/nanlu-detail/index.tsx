@@ -22,7 +22,7 @@ const NanluDetailPage = () => {
           <Image
             className="nanlu-image"
             mode="widthFix"
-            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            src="https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2FIMG_8134.jpg&nonce=88649429-fcd8-40ed-8af3-a3f455db65b3&project_id=7616065616637886464&sign=ea6000fa120c48095e662a844881d5f05660d7f135d8fc61b7b9255411efd0d6"
           />
         </View>
 
