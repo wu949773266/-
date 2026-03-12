@@ -19,21 +19,21 @@ const RoutesPage: FC = () => {
       name: '虎跳峡徒步',
       description: '云南虎跳峡经典路线 · 1天摄影徒步',
       difficulty: '难度 ⭐',
-      image: 'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2FDSCF5976.jpg&nonce=48990956-2185-49cd-ac74-0b332a5535fe&project_id=7616065616637886464&sign=b11028e3175e345d1fac414f7553a6f653bbbc3f99b7fe74859eeddabbccc8fc'
+      image: '/assets/images/DSCF5976.jpg'
     },
     {
       id: 1,
       name: '雨崩徒步',
       description: '云南梅里秘境 · 4天摄影徒步',
       difficulty: '难度 ⭐⭐',
-      image: 'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260312035527_5_87.jpg&nonce=1da479bf-2979-4703-9b93-5e078a1d3841&project_id=7616065616637886464&sign=7410c9ccec960645164cdac0ce5bf89eede0c9aaf965eec1f81927184cfac40a'
+      image: '/assets/images/微信图片_20260312035527_5_87.jpg'
     },
     {
       id: 3,
       name: '南极洛徒步',
       description: '秘境湖泊群 · 3天徒步',
       difficulty: '难度 ⭐⭐',
-      image: 'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2FIMG_8134.jpg&nonce=88649429-fcd8-40ed-8af3-a3f455db65b3&project_id=7616065616637886464&sign=ea6000fa120c48095e662a844881d5f05660d7f135d8fc61b7b9255411efd0d6'
+      image: '/assets/images/IMG_8134.jpg'
     }
   ])
 
