@@ -749,3 +749,52 @@ create(@Body() body: unknown) {
   return this.userService.create(result.data);
 }
 ```
+
+## 真机预览配置
+
+### 快速开始
+
+1. **查看详细配置指南**
+   ```bash
+   cat PREVIEW_GUIDE.md
+   ```
+
+2. **测试后端接口**
+   ```bash
+   ./scripts/test-api.sh
+   ```
+
+3. **使用内网穿透（推荐）**
+   ```bash
+   # 启动 ngrok
+   ngrok http 3000
+
+   # 在 .env.local 中配置
+   PROJECT_DOMAIN=https://xxxx-xxxx.ngrok-free.app
+
+   # 重启开发服务
+   pnpm dev
+   ```
+
+### 常见问题
+
+**Q: 真机预览时网络请求失败？**
+
+A: 需要配置 `PROJECT_DOMAIN`，让小程序可以访问后端服务器。
+
+详细配置方法请查看 [PREVIEW_GUIDE.md](./PREVIEW_GUIDE.md)
+
+## 附录
+
+### 相关文档
+
+- [Taro 官方文档](https://docs.taro.zone/)
+- [NestJS 官方文档](https://nestjs.com/)
+- [Zod 官方文档](https://zod.dev/)
+- [Drizzle ORM 官方文档](https://orm.drizzle.team/)
+- [TailwindCSS 官方文档](https://tailwindcss.com/)
+- [lucide-react-taro 图标库](https://lucide.dev/)
+
+### LICENSE
+
+MIT
