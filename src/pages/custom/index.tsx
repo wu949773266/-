@@ -1,5 +1,5 @@
-import { View, Text, Image, Button } from '@tarojs/components'
-import Taro, { useDidShow } from '@tarojs/taro'
+import { View, Text, Image } from '@tarojs/components'
+import { useDidShow } from '@tarojs/taro'
 import { useState } from 'react'
 import './index.css'
 
@@ -10,13 +10,6 @@ const CustomPage = () => {
   useDidShow(() => {
     setAnimationTrigger(prev => prev + 1)
   })
-
-  // 拨打电话
-  const handleCall = () => {
-    Taro.makePhoneCall({
-      phoneNumber: '13800138000', // 替换为实际电话号码
-    })
-  }
 
   return (
     <View className="custom-page">
@@ -78,13 +71,6 @@ const CustomPage = () => {
             <Text className="feature-title">品质保障</Text>
             <Text className="feature-desc">精选路线，贴心服务，安全无忧</Text>
           </View>
-        </View>
-
-        {/* 联系按钮 */}
-        <View className="button-section">
-          <Button className="contact-button" onClick={handleCall}>
-            立即咨询
-          </Button>
         </View>
       </View>
     </View>

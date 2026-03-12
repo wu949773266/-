@@ -68,7 +68,7 @@
   align-items: center;
   text-align: center;
   padding: 0 20px;
-  animation: contentSlideUp 0.8s ease-out 0.2s both;
+  animation: contentSlideUp 0.8s ease-out 0.2s forwards;
 }
 
 @keyframes contentSlideUp {
@@ -107,7 +107,7 @@
   color: white;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
   margin-bottom: 40px;
-  animation: subtitleFadeIn 0.6s ease-out 0.4s both;
+  animation: subtitleFadeIn 0.6s ease-out 0.4s forwards;
 }
 
 @keyframes subtitleFadeIn {
@@ -130,7 +130,7 @@
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 24px rgba(30, 70, 40, 0.4);
-  animation: buttonScale 0.5s ease-out 0.6s both;
+  animation: buttonScale 0.5s ease-out 0.6s forwards;
   transition: all 0.3s ease;
   min-width: 280px;
 }

@@ -1,8 +1,17 @@
 import { View, Text } from '@tarojs/components'
+import { useDidShow } from '@tarojs/taro'
+import { useState } from 'react'
 import type { FC } from 'react'
 import './index.css'
 
 const AboutPage: FC = () => {
+  const [animationTrigger, setAnimationTrigger] = useState(0)
+
+  // 每次页面显示时触发动画
+  useDidShow(() => {
+    setAnimationTrigger(prev => prev + 1)
+  })
+
   const stats = [
     { value: '3000+', label: '累计带队', icon: '👥' },
     { value: '2023', label: '成立年份', icon: '🎯' },
@@ -28,7 +37,7 @@ const AboutPage: FC = () => {
   ]
 
   return (
-    <View className="about-page">
+    <View key={`about-${animationTrigger}`} className="about-page">
       {/* 页面头部 */}
       <View className="page-header">
         <View className="header-decoration" />
@@ -46,7 +55,7 @@ const AboutPage: FC = () => {
           <View className="stats-grid">
             {stats.map((stat, index) => (
               <View
-                key={index}
+                key={`stat-${index}-${animationTrigger}`}
                 className={`stat-item stat-enter-${index + 1}`}
               >
                 <View className="stat-icon">{stat.icon}</View>
@@ -77,7 +86,7 @@ const AboutPage: FC = () => {
         <View className="values-container">
           {values.map((value, index) => (
             <View
-              key={index}
+              key={`value-${index}-${animationTrigger}`}
               className={`value-card value-enter-${index + 1}`}
             >
               <View className="value-icon-wrapper">
