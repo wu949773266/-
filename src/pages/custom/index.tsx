@@ -1,9 +1,16 @@
 import { View, Text, Image, Button } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import { Phone, Mail, MapPin } from 'lucide-react-taro'
+import Taro, { useDidShow } from '@tarojs/taro'
+import { useState } from 'react'
 import './index.css'
 
 const CustomPage = () => {
+  const [animationTrigger, setAnimationTrigger] = useState(0)
+
+  // 每次页面显示时触发动画
+  useDidShow(() => {
+    setAnimationTrigger(prev => prev + 1)
+  })
+
   // 拨打电话
   const handleCall = () => {
     Taro.makePhoneCall({
@@ -42,42 +49,34 @@ const CustomPage = () => {
 
         {/* 服务特色 */}
         <View className="features-section">
-          <View className="feature-item">
+          <View
+            key={`feature-1-${animationTrigger}`}
+            className="feature-item"
+            style={{ animationDelay: '0.2s' }}
+          >
             <View className="feature-icon">🎯</View>
             <Text className="feature-title">量身定制</Text>
             <Text className="feature-desc">根据您的需求，设计专属行程</Text>
           </View>
 
-          <View className="feature-item">
+          <View
+            key={`feature-2-${animationTrigger}`}
+            className="feature-item"
+            style={{ animationDelay: '0.3s' }}
+          >
             <View className="feature-icon">🏔️</View>
             <Text className="feature-title">专业向导</Text>
             <Text className="feature-desc">经验丰富的户外领队全程陪伴</Text>
           </View>
 
-          <View className="feature-item">
+          <View
+            key={`feature-3-${animationTrigger}`}
+            className="feature-item"
+            style={{ animationDelay: '0.4s' }}
+          >
             <View className="feature-icon">⭐</View>
             <Text className="feature-title">品质保障</Text>
             <Text className="feature-desc">精选路线，贴心服务，安全无忧</Text>
-          </View>
-        </View>
-
-        {/* 联系方式 */}
-        <View className="contact-section">
-          <Text className="section-title">联系我们</Text>
-
-          <View className="contact-item" onClick={handleCall}>
-            <Phone size={20} color="#2f6f4f" />
-            <Text className="contact-text">13800138000</Text>
-          </View>
-
-          <View className="contact-item">
-            <Mail size={20} color="#2f6f4f" />
-            <Text className="contact-text">contact@shandu.com</Text>
-          </View>
-
-          <View className="contact-item">
-            <MapPin size={20} color="#2f6f4f" />
-            <Text className="contact-text">云南省丽江市古城区</Text>
           </View>
         </View>
 

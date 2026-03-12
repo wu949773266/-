@@ -1,5 +1,5 @@
 import { View, Text, Image } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import Taro, { useDidShow } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
 import { IMAGE_CONFIG } from '@/config/images'
@@ -38,6 +38,13 @@ const RoutesPage: FC = () => {
     }
   ])
 
+  const [animationTrigger, setAnimationTrigger] = useState(0)
+
+  // 每次页面显示时触发动画
+  useDidShow(() => {
+    setAnimationTrigger(prev => prev + 1)
+  })
+
   const handleRouteDetail = (id: number) => {
     if (id === 1) {
       Taro.navigateTo({
@@ -71,7 +78,7 @@ const RoutesPage: FC = () => {
       <View className="routes-container">
         {routes.map((route, index) => (
           <View
-            key={route.id}
+            key={`${route.id}-${animationTrigger}`}
             className={`route-card card-enter-${index + 1}`}
             onTap={() => handleRouteDetail(route.id)}
           >
@@ -96,7 +103,7 @@ const RoutesPage: FC = () => {
       </View>
 
       {/* 私人订制入口 */}
-      <View className="custom-section">
+      <View key={`custom-${animationTrigger}`} className="custom-section">
         <Text className="custom-title">私人订制</Text>
         <Text className="custom-subtitle">为您量身定制专属旅行体验</Text>
 

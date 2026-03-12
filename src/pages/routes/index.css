@@ -42,7 +42,7 @@
   width: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, #2f6f4f, transparent);
-  animation: lineExpand 0.8s ease-out 0.4s both;
+  animation: lineExpand 0.8s ease-out 0.4s forwards;
 }
 
 @keyframes lineExpand {
@@ -75,15 +75,15 @@
 
 /* 卡片依次进入动画 */
 .card-enter-1 {
-  animation: cardEnter 0.5s ease-out 0.2s both;
+  animation: cardEnter 0.5s ease-out 0.2s forwards;
 }
 
 .card-enter-2 {
-  animation: cardEnter 0.5s ease-out 0.3s both;
+  animation: cardEnter 0.5s ease-out 0.3s forwards;
 }
 
 .card-enter-3 {
-  animation: cardEnter 0.5s ease-out 0.4s both;
+  animation: cardEnter 0.5s ease-out 0.4s forwards;
 }
 
 @keyframes cardEnter {
@@ -168,7 +168,7 @@
 /* ========== 私人订制入口 ========== */
 .custom-section {
   padding: 20px 16px 60px;
-  animation: cardEnter 0.5s ease-out 0.6s both;
+  animation: cardEnter 0.5s ease-out 0.6s forwards;
 }
 
 .custom-title {
