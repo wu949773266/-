@@ -2,6 +2,7 @@ import { View, Text, Image } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
+import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
 interface RouteItem {
@@ -19,21 +20,21 @@ const RoutesPage: FC = () => {
       name: '虎跳峡徒步',
       description: '云南虎跳峡经典路线 · 1天摄影徒步',
       difficulty: '难度 ⭐',
-      image: '/package-detail/assets/images/DSCF5976.jpg'
+      image: IMAGE_CONFIG.HUTIAOXIA_CARD
     },
     {
       id: 1,
       name: '雨崩徒步',
       description: '云南梅里秘境 · 4天摄影徒步',
       difficulty: '难度 ⭐⭐',
-      image: '/package-detail/assets/images/微信图片_20260312035527_5_87.jpg'
+      image: IMAGE_CONFIG.YUBENG_CARD
     },
     {
       id: 3,
       name: '南极洛徒步',
       description: '秘境湖泊群 · 3天徒步',
       difficulty: '难度 ⭐⭐',
-      image: '/package-detail/assets/images/IMG_8134.jpg'
+      image: IMAGE_CONFIG.NANLU_CARD
     }
   ])
 

@@ -1,14 +1,15 @@
 import { View, Text, Image, ScrollView } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import type { FC } from 'react'
+import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
 const YubengDetailPage: FC = () => {
   const posterImages = [
-    '/package-detail/assets/images/微信图片_20260312004502.jpg',
-    '/package-detail/assets/images/微信图片_20260312004510.jpg',
-    '/package-detail/assets/images/微信图片_20260312004514.jpg',
-    '/package-detail/assets/images/微信图片_20260312004518.jpg'
+    IMAGE_CONFIG.YUBENG_POSTER_1,
+    IMAGE_CONFIG.YUBENG_POSTER_2,
+    IMAGE_CONFIG.YUBENG_POSTER_3,
+    IMAGE_CONFIG.YUBENG_POSTER_4
   ]
 
   return (
