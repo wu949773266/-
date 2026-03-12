@@ -2,7 +2,6 @@ import { View, Text, Image, ScrollView } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
-import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
 interface CheckPoint {
@@ -109,7 +108,7 @@ const HutiaoxiaDetailPage: FC = () => {
         <Image
           className="header-bg"
           mode="aspectFill"
-          src={IMAGE_CONFIG.HUTIAOXIA_DETAIL_BG}
+          src="/assets/images/DSCF6548.jpg"
         />
         <View className="header-overlay" />
         <View className="header-content">

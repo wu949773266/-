@@ -1,6 +1,5 @@
 import { View, Text, Image } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
 const NanluDetailPage = () => {
@@ -23,7 +22,7 @@ const NanluDetailPage = () => {
           <Image
             className="nanlu-image"
             mode="widthFix"
-            src={IMAGE_CONFIG.NANLU_IMAGE}
+            src="/assets/images/IMG_8134.jpg"
           />
         </View>
 
