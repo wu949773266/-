@@ -3,10 +3,17 @@ export default {
     'pages/index/index',
     'pages/routes/index',
     'pages/contact/index',
-    'pages/about/index',
-    'pages/yubeng-detail/index',
-    'pages/hutiaoxia-detail/index',
-    'pages/nanlu-detail/index'
+    'pages/about/index'
+  ],
+  subPackages: [
+    {
+      root: 'package-detail',
+      pages: [
+        'pages/yubeng-detail/index',
+        'pages/hutiaoxia-detail/index',
+        'pages/nanlu-detail/index'
+      ]
+    }
   ],
   window: {
     backgroundTextStyle: 'light',

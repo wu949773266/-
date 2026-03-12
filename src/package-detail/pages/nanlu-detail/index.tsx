@@ -22,7 +22,7 @@ const NanluDetailPage = () => {
           <Image
             className="nanlu-image"
             mode="widthFix"
-            src="/assets/images/IMG_8134.jpg"
+            src="/package-detail/assets/images/IMG_8134.jpg"
           />
         </View>
 

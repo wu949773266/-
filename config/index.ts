@@ -98,16 +98,12 @@ export default defineConfig<'vite'>(async (merge, _env) => {
     copy: {
       patterns: [
         {
-          from: 'src/assets/images',
-          to: 'assets/images',
+          from: 'src/assets/tabbar',
+          to: 'assets/tabbar',
         },
         {
-          from: 'src/assets/*.jpg',
-          to: 'assets/[name][ext]',
-        },
-        {
-          from: 'src/assets/*.png',
-          to: 'assets/[name][ext]',
+          from: 'src/package-detail/assets/images',
+          to: 'package-detail/assets/images',
         },
       ],
       options: {},

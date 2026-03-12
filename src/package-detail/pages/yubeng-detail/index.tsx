@@ -5,10 +5,10 @@ import './index.css'
 
 const YubengDetailPage: FC = () => {
   const posterImages = [
-    '/assets/images/微信图片_20260312004502.jpg',
-    '/assets/images/微信图片_20260312004510.jpg',
-    '/assets/images/微信图片_20260312004514.jpg',
-    '/assets/images/微信图片_20260312004518.jpg'
+    '/package-detail/assets/images/微信图片_20260312004502.jpg',
+    '/package-detail/assets/images/微信图片_20260312004510.jpg',
+    '/package-detail/assets/images/微信图片_20260312004514.jpg',
+    '/package-detail/assets/images/微信图片_20260312004518.jpg'
   ]
 
   return (

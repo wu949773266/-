@@ -108,7 +108,7 @@ const HutiaoxiaDetailPage: FC = () => {
         <Image
           className="header-bg"
           mode="aspectFill"
-          src="/assets/images/DSCF6548.jpg"
+          src="/package-detail/assets/images/DSCF6548.jpg"
         />
         <View className="header-overlay" />
         <View className="header-content">
