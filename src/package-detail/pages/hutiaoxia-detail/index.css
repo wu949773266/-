@@ -283,25 +283,25 @@
 
 /* FAQ 问答区 */
 .faq-section {
-  margin-top: 32px;
+  margin-top: 64px;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 56px;
 }
 
 .section-title {
   font-size: 56px;
   font-weight: 700;
   color: #2f6f4f;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   display: block;
   line-height: 1.4;
 }
 
 .section-subtitle {
-  font-size: 14px;
+  font-size: 28px;
   color: #6b7f76;
   font-weight: 500;
   display: block;
@@ -316,13 +316,13 @@
   font-size: 56px;
   font-weight: 700;
   color: #2f6f4f;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   display: block;
   line-height: 1.4;
 }
 
 .section-subtitle {
-  font-size: 14px;
+  font-size: 28px;
   color: #6b7f76;
   font-weight: 500;
   display: block;
@@ -332,14 +332,14 @@
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 32px;
   padding-bottom: 32px;
 }
 
 .faq-card {
   background: #ffffff;
   border-radius: 16px;
-  padding: 20px;
+  padding: 32px;
   box-shadow: 0 2px 12px rgba(47, 111, 79, 0.08);
   border: 1px solid rgba(107, 127, 118, 0.1);
   animation: fadeInUp 0.6s ease-out;
@@ -359,7 +359,7 @@
 .faq-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 24px;
 }
 
 .faq-icon {
@@ -392,11 +392,11 @@
 .faq-divider {
   height: 1px;
   background: linear-gradient(90deg, #6b7f76 0%, rgba(107, 127, 118, 0.2) 100%);
-  margin: 16px 0;
+  margin: 32px 0;
 }
 
 .faq-answer-box {
-  padding-left: 36px;
+  padding-left: 72px;
   animation: fadeIn 0.3s ease-out;
 }
 
