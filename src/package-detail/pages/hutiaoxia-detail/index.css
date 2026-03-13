@@ -44,12 +44,12 @@
 }
 
 .page-title {
-  font-size: 42px;
+  font-size: 52px;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 16px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 /* 小标签样式 */
@@ -116,19 +116,21 @@
 }
 
 .card-title {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 700;
   color: #2f6f4f;
+  line-height: 1.3;
 }
 
 .card-subtitle {
-  font-size: 20px;
+  font-size: 22px;
   color: #6b7f76;
   font-weight: 500;
+  line-height: 1.4;
 }
 
 .card-price {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   color: #e85d04;
 }
@@ -176,17 +178,19 @@
 }
 
 .check-point-name {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   color: #2f6f4f;
   margin-bottom: 4px;
   display: block;
+  line-height: 1.4;
 }
 
 .check-point-desc {
-  font-size: 18px;
+  font-size: 20px;
   color: #6b7f76;
   display: block;
+  line-height: 1.5;
 }
 
 .arrow {
@@ -225,9 +229,9 @@
 }
 
 .timeline-text {
-  font-size: 16px;
+  font-size: 18px;
   color: #4a5549;
-  line-height: 1.6;
+  line-height: 1.7;
   flex: 1;
   padding-top: 10px;
 }
@@ -246,7 +250,7 @@
 }
 
 .price-label {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: #2f6f4f;
 }
@@ -254,13 +258,13 @@
 .include-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .include-item {
-  font-size: 16px;
+  font-size: 18px;
   color: #4a5549;
-  line-height: 1.6;
+  line-height: 1.7;
   padding-left: 8px;
 }
 
@@ -272,9 +276,9 @@
 }
 
 .note-text {
-  font-size: 15px;
+  font-size: 17px;
   color: #b45309;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* FAQ 问答区 */
@@ -288,11 +292,12 @@
 }
 
 .section-title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   color: #2f6f4f;
   margin-bottom: 4px;
   display: block;
+  line-height: 1.4;
 }
 
 .section-subtitle {
@@ -308,11 +313,12 @@
 }
 
 .section-title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   color: #2f6f4f;
   margin-bottom: 4px;
   display: block;
+  line-height: 1.4;
 }
 
 .section-subtitle {

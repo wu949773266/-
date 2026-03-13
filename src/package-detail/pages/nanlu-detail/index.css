@@ -45,10 +45,11 @@
 }
 
 .coming-soon-title {
-  font-size: 32px;
+  font-size: 38px;
   font-weight: bold;
   color: #2f6f4f;
   letter-spacing: 4px;
+  line-height: 1.4;
 }
 
 /* 预计五月与大家见面 */
@@ -69,9 +70,10 @@
 }
 
 .time-notice-text {
-  font-size: 20px;
+  font-size: 22px;
   color: #495057;
   font-weight: 500;
+  line-height: 1.6;
 }
 
 /* 底部图片容器 */
