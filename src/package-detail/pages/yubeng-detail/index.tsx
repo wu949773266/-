@@ -1,19 +1,10 @@
-import { View, Text, Image, ScrollView, Button } from '@tarojs/components'
-import Taro, { useShareAppMessage } from '@tarojs/taro'
+import { View, Text, Image, ScrollView } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import type { FC } from 'react'
 import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
 const YubengDetailPage: FC = () => {
-  // 配置微信分享功能
-  useShareAppMessage(() => {
-    return {
-      title: '雨崩徒步 - 香格里拉秘境四天四晚',
-      path: '/pages/package-detail/pages/yubeng-detail/index?route=yubeng',
-      imageUrl: IMAGE_CONFIG.YUBENG_POSTER_1
-    }
-  })
-
   const posterImages = [
     IMAGE_CONFIG.YUBENG_POSTER_1,
     IMAGE_CONFIG.YUBENG_POSTER_2,
@@ -26,11 +17,6 @@ const YubengDetailPage: FC = () => {
       <View className="page-header">
         <Text className="page-title">雨崩徒步</Text>
         <Text className="page-subtitle">香格里拉秘境 · 四天四晚轻奢小团</Text>
-
-        {/* 分享按钮 */}
-        <Button className="share-button" openType="share">
-          <Text className="share-icon">📤</Text>
-        </Button>
       </View>
 
       <View className="posters-container">
