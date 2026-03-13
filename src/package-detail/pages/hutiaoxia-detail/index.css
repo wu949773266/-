@@ -44,7 +44,7 @@
 }
 
 .page-title {
-  font-size: 52px;
+  font-size: 104px;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 16px;
@@ -69,7 +69,7 @@
 }
 
 .tag-small-text {
-  font-size: 17px;
+  font-size: 34px;
   color: #ffffff;
   font-weight: 600;
 }
@@ -104,7 +104,7 @@
 }
 
 .card-icon {
-  font-size: 28px;
+  font-size: 56px;
   flex-shrink: 0;
 }
 
@@ -116,27 +116,27 @@
 }
 
 .card-title {
-  font-size: 30px;
+  font-size: 60px;
   font-weight: 700;
   color: #2f6f4f;
   line-height: 1.3;
 }
 
 .card-subtitle {
-  font-size: 22px;
+  font-size: 44px;
   color: #6b7f76;
   font-weight: 500;
   line-height: 1.4;
 }
 
 .card-price {
-  font-size: 28px;
+  font-size: 56px;
   font-weight: 700;
   color: #e85d04;
 }
 
 .expand-icon {
-  font-size: 14px;
+  font-size: 28px;
   color: #6b7f76;
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -169,7 +169,7 @@
 }
 
 .check-point-icon {
-  font-size: 28px;
+  font-size: 56px;
   flex-shrink: 0;
 }
 
@@ -178,7 +178,7 @@
 }
 
 .check-point-name {
-  font-size: 22px;
+  font-size: 44px;
   font-weight: 600;
   color: #2f6f4f;
   margin-bottom: 4px;
@@ -187,14 +187,14 @@
 }
 
 .check-point-desc {
-  font-size: 20px;
+  font-size: 40px;
   color: #6b7f76;
   display: block;
   line-height: 1.5;
 }
 
 .arrow {
-  font-size: 18px;
+  font-size: 36px;
   color: #6b7f76;
   font-weight: bold;
 }
@@ -221,7 +221,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 24px;
   color: #ffffff;
   font-weight: 600;
   flex-shrink: 0;
@@ -229,7 +229,7 @@
 }
 
 .timeline-text {
-  font-size: 18px;
+  font-size: 36px;
   color: #4a5549;
   line-height: 1.7;
   flex: 1;
@@ -250,7 +250,7 @@
 }
 
 .price-label {
-  font-size: 18px;
+  font-size: 36px;
   font-weight: 600;
   color: #2f6f4f;
 }
@@ -262,7 +262,7 @@
 }
 
 .include-item {
-  font-size: 18px;
+  font-size: 36px;
   color: #4a5549;
   line-height: 1.7;
   padding-left: 8px;
@@ -276,7 +276,7 @@
 }
 
 .note-text {
-  font-size: 17px;
+  font-size: 34px;
   color: #b45309;
   line-height: 1.7;
 }
@@ -292,7 +292,7 @@
 }
 
 .section-title {
-  font-size: 28px;
+  font-size: 56px;
   font-weight: 700;
   color: #2f6f4f;
   margin-bottom: 4px;
@@ -313,7 +313,7 @@
 }
 
 .section-title {
-  font-size: 28px;
+  font-size: 56px;
   font-weight: 700;
   color: #2f6f4f;
   margin-bottom: 4px;
@@ -363,7 +363,7 @@
 }
 
 .faq-icon {
-  font-size: 24px;
+  font-size: 48px;
   flex-shrink: 0;
 }
 
@@ -372,14 +372,14 @@
 }
 
 .faq-question {
-  font-size: 18px;
+  font-size: 36px;
   font-weight: 600;
   color: #2f6f4f;
   line-height: 1.5;
 }
 
 .expand-icon {
-  font-size: 14px;
+  font-size: 28px;
   color: #6b7f76;
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -401,7 +401,7 @@
 }
 
 .faq-answer {
-  font-size: 16px;
+  font-size: 32px;
   color: #4a5549;
   line-height: 1.8;
 }
@@ -416,14 +416,14 @@
 }
 
 .tip-text {
-  font-size: 14px;
+  font-size: 28px;
   color: #6b7f76;
   display: block;
   margin-bottom: 8px;
 }
 
 .contact-text {
-  font-size: 15px;
+  font-size: 30px;
   color: #2f6f4f;
   font-weight: 600;
   display: block;
@@ -527,7 +527,7 @@
 }
 
 .back-button-text {
-  font-size: 16px;
+  font-size: 32px;
   font-weight: 600;
   color: white;
   letter-spacing: 1px;
