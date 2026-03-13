@@ -5,10 +5,47 @@
 
 /* ========== 页面头部 ========== */
 .page-header {
+  position: relative;
   padding: 40px 20px 20px;
   background: transparent;
   color: #2f6f4f;
   animation: headerSlideDown 0.6s ease-out;
+}
+
+/* 分享按钮 */
+.share-button {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  width: 72px;
+  height: 72px;
+  background: rgba(47, 111, 79, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(47, 111, 79, 0.3);
+  box-shadow: 0 4px 16px rgba(47, 111, 79, 0.15);
+  z-index: 10;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.share-button::after {
+  border: none;
+}
+
+.share-button:active {
+  transform: scale(0.9);
+  background: rgba(47, 111, 79, 0.2);
+}
+
+.share-icon {
+  font-size: 40px;
 }
 
 @keyframes headerSlideDown {

@@ -1,5 +1,5 @@
-import { View, Text, Image, ScrollView } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import { View, Text, Image, ScrollView, Button } from '@tarojs/components'
+import Taro, { useShareAppMessage } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
 import { IMAGE_CONFIG } from '@/config/images'
@@ -18,6 +18,15 @@ interface FAQItem {
 }
 
 const HutiaoxiaDetailPage: FC = () => {
+  // 配置微信分享功能
+  useShareAppMessage(() => {
+    return {
+      title: '虎跳峡人生照片徒步 - 山渡户外',
+      path: '/pages/package-detail/pages/hutiaoxia-detail/index?route=hutiaoxia',
+      imageUrl: IMAGE_CONFIG.HUTIAOXIA_DETAIL_BG
+    }
+  })
+
   const [expandedSection, setExpandedSection] = useState<Record<string, boolean>>({
     checkpoint: true,
     schedule: true,
@@ -112,6 +121,12 @@ const HutiaoxiaDetailPage: FC = () => {
           src={IMAGE_CONFIG.HUTIAOXIA_DETAIL_BG}
         />
         <View className="header-overlay" />
+
+        {/* 分享按钮 */}
+        <Button className="share-button" openType="share">
+          <Text className="share-icon">📤</Text>
+        </Button>
+
         <View className="header-content">
           <View className="tag">
             <Text className="tag-text">一日精华版</Text>
