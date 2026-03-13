@@ -44,7 +44,7 @@
 }
 
 .page-title {
-  font-size: 104px;
+  font-size: 48px;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 16px;
@@ -69,7 +69,7 @@
 }
 
 .tag-small-text {
-  font-size: 34px;
+  font-size: 24px;
   color: #ffffff;
   font-weight: 600;
 }
@@ -104,7 +104,7 @@
 }
 
 .card-icon {
-  font-size: 56px;
+  font-size: 32px;
   flex-shrink: 0;
 }
 
@@ -116,27 +116,27 @@
 }
 
 .card-title {
-  font-size: 60px;
+  font-size: 28px;
   font-weight: 700;
   color: #2f6f4f;
   line-height: 1.3;
 }
 
 .card-subtitle {
-  font-size: 44px;
+  font-size: 20px;
   color: #6b7f76;
   font-weight: 500;
   line-height: 1.4;
 }
 
 .card-price {
-  font-size: 56px;
+  font-size: 32px;
   font-weight: 700;
   color: #e85d04;
 }
 
 .expand-icon {
-  font-size: 28px;
+  font-size: 20px;
   color: #6b7f76;
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -169,7 +169,7 @@
 }
 
 .check-point-icon {
-  font-size: 56px;
+  font-size: 32px;
   flex-shrink: 0;
 }
 
@@ -178,7 +178,7 @@
 }
 
 .check-point-name {
-  font-size: 44px;
+  font-size: 22px;
   font-weight: 600;
   color: #2f6f4f;
   margin-bottom: 4px;
@@ -187,14 +187,14 @@
 }
 
 .check-point-desc {
-  font-size: 40px;
+  font-size: 18px;
   color: #6b7f76;
   display: block;
   line-height: 1.5;
 }
 
 .arrow {
-  font-size: 36px;
+  font-size: 20px;
   color: #6b7f76;
   font-weight: bold;
 }
@@ -229,7 +229,7 @@
 }
 
 .timeline-text {
-  font-size: 36px;
+  font-size: 18px;
   color: #4a5549;
   line-height: 1.7;
   flex: 1;
@@ -250,7 +250,7 @@
 }
 
 .price-label {
-  font-size: 36px;
+  font-size: 20px;
   font-weight: 600;
   color: #2f6f4f;
 }
@@ -262,7 +262,7 @@
 }
 
 .include-item {
-  font-size: 36px;
+  font-size: 18px;
   color: #4a5549;
   line-height: 1.7;
   padding-left: 8px;
@@ -276,23 +276,23 @@
 }
 
 .note-text {
-  font-size: 34px;
+  font-size: 18px;
   color: #b45309;
   line-height: 1.7;
 }
 
 /* FAQ 问答区 */
 .faq-section {
-  margin-top: 64px;
+  margin-top: 48px;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 32px;
 }
 
 .section-title {
-  font-size: 56px;
+  font-size: 28px;
   font-weight: 700;
   color: #2f6f4f;
   margin-bottom: 8px;
@@ -301,7 +301,7 @@
 }
 
 .section-subtitle {
-  font-size: 28px;
+  font-size: 18px;
   color: #6b7f76;
   font-weight: 500;
   display: block;
@@ -313,7 +313,7 @@
 }
 
 .section-title {
-  font-size: 56px;
+  font-size: 28px;
   font-weight: 700;
   color: #2f6f4f;
   margin-bottom: 8px;
@@ -322,7 +322,7 @@
 }
 
 .section-subtitle {
-  font-size: 28px;
+  font-size: 18px;
   color: #6b7f76;
   font-weight: 500;
   display: block;
@@ -332,14 +332,14 @@
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
   padding-bottom: 32px;
 }
 
 .faq-card {
   background: #ffffff;
   border-radius: 16px;
-  padding: 32px;
+  padding: 24px;
   box-shadow: 0 2px 12px rgba(47, 111, 79, 0.08);
   border: 1px solid rgba(107, 127, 118, 0.1);
   animation: fadeInUp 0.6s ease-out;
@@ -363,7 +363,7 @@
 }
 
 .faq-icon {
-  font-size: 48px;
+  font-size: 28px;
   flex-shrink: 0;
 }
 
@@ -372,14 +372,14 @@
 }
 
 .faq-question {
-  font-size: 36px;
+  font-size: 20px;
   font-weight: 600;
   color: #2f6f4f;
   line-height: 1.5;
 }
 
 .expand-icon {
-  font-size: 28px;
+  font-size: 20px;
   color: #6b7f76;
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -392,16 +392,16 @@
 .faq-divider {
   height: 1px;
   background: linear-gradient(90deg, #6b7f76 0%, rgba(107, 127, 118, 0.2) 100%);
-  margin: 32px 0;
+  margin: 20px 0;
 }
 
 .faq-answer-box {
-  padding-left: 72px;
+  padding-left: 52px;
   animation: fadeIn 0.3s ease-out;
 }
 
 .faq-answer {
-  font-size: 32px;
+  font-size: 18px;
   color: #4a5549;
   line-height: 1.8;
 }
@@ -416,14 +416,14 @@
 }
 
 .tip-text {
-  font-size: 28px;
+  font-size: 16px;
   color: #6b7f76;
   display: block;
   margin-bottom: 8px;
 }
 
 .contact-text {
-  font-size: 30px;
+  font-size: 18px;
   color: #2f6f4f;
   font-weight: 600;
   display: block;
@@ -527,7 +527,7 @@
 }
 
 .back-button-text {
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 600;
   color: white;
   letter-spacing: 1px;
