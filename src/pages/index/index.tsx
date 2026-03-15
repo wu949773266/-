@@ -2,7 +2,6 @@ import { View, Text, Image, Button } from '@tarojs/components'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
-import { Bot } from 'lucide-react-taro'
 import './index.css'
 
 const IndexPage: FC = () => {
@@ -16,12 +15,6 @@ const IndexPage: FC = () => {
   const handleViewRoutes = () => {
     Taro.switchTab({
       url: '/pages/routes/index'
-    })
-  }
-
-  const handleOpenAiAssistant = () => {
-    Taro.navigateTo({
-      url: '/pages/ai-assistant/index'
     })
   }
 
@@ -45,11 +38,6 @@ const IndexPage: FC = () => {
             查看徒步线路
           </Button>
         </View>
-      </View>
-
-      {/* AI 助手悬浮按钮 */}
-      <View className="ai-float-btn" onClick={handleOpenAiAssistant}>
-        <Bot size={24} color="#fff" />
       </View>
     </View>
   )

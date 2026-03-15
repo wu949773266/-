@@ -104,7 +104,7 @@ const AboutPage: FC = () => {
       <View
         key={`ai-assistant-${animationTrigger}`}
         className="ai-assistant-entry ai-enter-1"
-        onClick={() => navigateTo({ url: '/pages/chat/index' })}
+        onClick={() => navigateTo({ url: '/pages/ai-assistant/index' })}
       >
         <View className="ai-assistant-content">
           <View className="ai-icon-wrapper">
