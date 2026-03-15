@@ -4,7 +4,8 @@ export default {
     'pages/routes/index',
     'pages/custom/index',
     'pages/contact/index',
-    'pages/about/index'
+    'pages/about/index',
+    'pages/ai-assistant/index'
   ],
   subpackages: [
     {

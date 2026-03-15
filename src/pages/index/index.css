@@ -159,3 +159,37 @@
     transform: scale(1);
   }
 }
+
+/* ========== AI 助手悬浮按钮 ========== */
+.ai-float-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2f6f4f 0%, #1a4a32 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(47, 111, 79, 0.4);
+  z-index: 100;
+  animation: fadeInUp 0.5s ease-out 1s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ai-float-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 2px 8px rgba(47, 111, 79, 0.3);
+}

@@ -1,0 +1,128 @@
+.ai-assistant-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8f0e8 100%);
+}
+
+.header {
+  padding: 24px 16px 16px;
+  background: linear-gradient(135deg, #2f6f4f 0%, #1a4a32 100%);
+  text-align: center;
+}
+
+.header-title {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.header-subtitle {
+  display: block;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.message-list {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.message-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.message-user {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar-bot {
+  background: linear-gradient(135deg, #2f6f4f 0%, #1a4a32 100%);
+  margin-right: 12px;
+}
+
+.avatar-user {
+  background: linear-gradient(135deg, #4a90a4 0%, #357089 100%);
+  margin-left: 12px;
+}
+
+.message-content {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.message-user .message-content {
+  background: linear-gradient(135deg, #2f6f4f 0%, #1a4a32 100%);
+  border-radius: 16px 4px 16px 16px;
+}
+
+.message-assistant .message-content {
+  border-radius: 4px 16px 16px 16px;
+}
+
+.message-text {
+  display: block;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.message-user .message-text {
+  color: #fff;
+}
+
+.input-area {
+  padding: 12px 16px;
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 24px;
+  padding: 4px 4px 4px 16px;
+}
+
+.message-input {
+  flex: 1;
+  font-size: 15px;
+  background: transparent;
+}
+
+.send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  transition: background 0.2s;
+}
+
+.send-btn.active {
+  background: linear-gradient(135deg, #2f6f4f 0%, #1a4a32 100%);
+}
