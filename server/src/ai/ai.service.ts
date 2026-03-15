@@ -1,18 +1,29 @@
 import { Injectable } from '@nestjs/common';
-import { LLMClient, Config, HeaderUtils } from 'coze-coding-dev-sdk';
+import { LLMClient, Config } from 'coze-coding-dev-sdk';
+import { KnowledgeService } from '@/knowledge/knowledge.service';
 
 @Injectable()
 export class AiService {
   private client: LLMClient;
   private config: Config;
 
-  constructor() {
+  constructor(private readonly knowledgeService: KnowledgeService) {
     this.config = new Config();
     this.client = new LLMClient(this.config);
   }
 
   async chat(message: string, history: Array<{ role: string; content: string }> = []) {
-    // 系统提示词 - 山渡户外徒步助手
+    // 1. 先搜索知识库获取相关内容
+    const knowledgeResults = await this.knowledgeService.search(message, 3);
+    
+    // 2. 构建知识库上下文
+    let knowledgeContext = '';
+    if (knowledgeResults.length > 0) {
+      knowledgeContext = '\n\n【知识库参考内容】\n' + 
+        knowledgeResults.map((r, i) => `${i + 1}. ${r.content}`).join('\n\n');
+    }
+
+    // 3. 系统提示词
     const systemPrompt = `你是山渡户外徒步俱乐部的智能助手，专注于为用户提供专业的户外徒步建议和服务。
 
 你的职责：
@@ -25,17 +36,15 @@ export class AiService {
 回答风格：
 - 热情友好，像一位经验丰富的户外向导
 - 回答简洁实用，突出重点
-- 适时推荐山渡户外的线路和服务
+- 优先使用知识库中的信息来回答问题
+- 如果知识库中有相关内容，请参考并结合你的理解给出回答
 - 对于复杂问题，给出详细的分步建议
 
-山渡户外主要线路：
-1. 虎跳峡徒步：2-3天，经典入门线路，风景壮观
-2. 雨崩徒步：4-5天，梅里雪山神域，中等难度
-3. 南极洛徒步：3-4天，高山湖泊群，进阶线路
+${knowledgeContext}
 
-如果用户问的问题与户外徒步无关，可以礼貌地引导回徒步话题。`;
+如果用户问的问题与户外徒步无关，可以礼貌地引导回徒步话题。如果知识库中没有相关信息，请基于你的一般知识回答，但要说明这些建议仅供参考。`;
 
-    // 构建消息数组
+    // 4. 构建消息数组
     const messages = [
       { role: 'system' as const, content: systemPrompt },
       ...history.map(h => ({
@@ -46,7 +55,7 @@ export class AiService {
     ];
 
     try {
-      // 使用 DeepSeek 模型
+      // 5. 调用 LLM 生成回复
       const response = await this.client.invoke(messages, {
         model: 'deepseek-v3-2-251201',
         temperature: 0.7
@@ -56,7 +65,8 @@ export class AiService {
         code: 200,
         msg: 'success',
         data: {
-          content: response.content
+          content: response.content,
+          knowledgeUsed: knowledgeResults.length > 0
         }
       };
     } catch (error) {
