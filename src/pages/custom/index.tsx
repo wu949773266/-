@@ -1,6 +1,7 @@
 import { View, Text, Image } from '@tarojs/components'
 import { useDidShow } from '@tarojs/taro'
 import { useState } from 'react'
+import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
 const CustomPage = () => {
@@ -16,7 +17,7 @@ const CustomPage = () => {
       {/* 头部图片 */}
       <View className="header-image">
         <Image
-          src="https://in-1410277589.cos.ap-chongqing.myqcloud.com/images/%E5%8D%97%E6%9E%81%E6%B4%9B.jpg"
+          src={IMAGE_CONFIG.NANLU_IMAGE}
           mode="aspectFill"
           className="image"
         />

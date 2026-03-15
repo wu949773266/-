@@ -2,6 +2,7 @@ import { View, Text, Image, Button } from '@tarojs/components'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
+import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
 const IndexPage: FC = () => {
@@ -25,7 +26,7 @@ const IndexPage: FC = () => {
         <Image
           className="hero-bg"
           mode="aspectFill"
-          src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b"
+          src={IMAGE_CONFIG.HUTIAOXIA_DETAIL_BG}
         />
         <View className="hero-overlay" />
         <View className="hero-content">
