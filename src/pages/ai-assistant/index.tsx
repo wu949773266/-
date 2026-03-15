@@ -3,7 +3,7 @@ import Taro, { useReady } from '@tarojs/taro'
 import { useState, useRef } from 'react'
 import type { FC } from 'react'
 import { Network } from '@/network'
-import { Send, Bot, User, Mountain, Sparkles } from 'lucide-react-taro'
+import { Send, Bot, User, Mountain, Sparkles, X } from 'lucide-react-taro'
 import './index.css'
 
 interface Message {
@@ -31,6 +31,16 @@ const AiAssistantPage: FC = () => {
 
   const scrollToBottom = () => {
     scrollTop.current = 99999
+  }
+
+  // 关闭页面
+  const handleClose = () => {
+    Taro.navigateBack({
+      fail: () => {
+        // 如果无法返回，则跳转到首页
+        Taro.switchTab({ url: '/pages/index/index' })
+      }
+    })
   }
 
   // 发送消息
@@ -111,6 +121,9 @@ const AiAssistantPage: FC = () => {
           <View className="header-text">
             <Text className="header-title">AI 徒步助手</Text>
             <Text className="header-subtitle">山渡户外智能客服</Text>
+          </View>
+          <View className="close-btn" onClick={handleClose}>
+            <X size={20} color="#fff" />
           </View>
         </View>
       </View>
