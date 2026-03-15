@@ -1,9 +1,9 @@
-import { View, Text, Input, ScrollView } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import { useState, useRef, useEffect } from 'react'
+import { View, Text, Textarea, ScrollView } from '@tarojs/components'
+import Taro, { useReady } from '@tarojs/taro'
+import { useState, useRef } from 'react'
 import type { FC } from 'react'
 import { Network } from '@/network'
-import { Send, Bot, User } from 'lucide-react-taro'
+import { Send, Bot, User, Mountain, Sparkles } from 'lucide-react-taro'
 import './index.css'
 
 interface Message {
@@ -22,16 +22,16 @@ const AiAssistantPage: FC = () => {
   ])
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const scrollViewRef = useRef<string>('')
+  const scrollTop = useRef(0)
 
   // 滚动到底部
-  const scrollToBottom = () => {
-    scrollViewRef.current = `scroll-${Date.now()}`
-  }
-
-  useEffect(() => {
+  useReady(() => {
     scrollToBottom()
-  }, [messages])
+  })
+
+  const scrollToBottom = () => {
+    scrollTop.current = 99999
+  }
 
   // 发送消息
   const handleSend = async () => {
@@ -47,6 +47,7 @@ const AiAssistantPage: FC = () => {
     setMessages(prev => [...prev, userMessage])
     setInputValue('')
     setIsLoading(true)
+    scrollToBottom()
 
     try {
       // 构建历史消息
@@ -72,6 +73,7 @@ const AiAssistantPage: FC = () => {
           content: res.data.data.content
         }
         setMessages(prev => [...prev, assistantMessage])
+        scrollToBottom()
       } else {
         throw new Error(res.data?.msg || '请求失败')
       }
@@ -86,72 +88,121 @@ const AiAssistantPage: FC = () => {
     }
   }
 
+  // 快捷问题
+  const quickQuestions = [
+    '虎跳峡需要什么装备？',
+    '雨崩徒步几天合适？',
+    '哪个线路适合新手？'
+  ]
+
+  const handleQuickQuestion = (question: string) => {
+    setInputValue(question)
+  }
+
   return (
-    <View className="ai-assistant-page">
+    <View className="ai-page">
       {/* 头部 */}
-      <View className="header">
-        <Text className="header-title">AI 徒步助手</Text>
-        <Text className="header-subtitle">山渡户外智能客服</Text>
+      <View className="ai-header">
+        <View className="header-bg" />
+        <View className="header-content">
+          <View className="header-icon">
+            <Mountain size={24} color="#fff" />
+          </View>
+          <View className="header-text">
+            <Text className="header-title">AI 徒步助手</Text>
+            <Text className="header-subtitle">山渡户外智能客服</Text>
+          </View>
+        </View>
       </View>
 
       {/* 消息列表 */}
       <ScrollView
         className="message-list"
         scrollY
-        scrollIntoView={scrollViewRef.current}
+        scrollTop={scrollTop.current}
         scrollWithAnimation
       >
         {messages.map((msg) => (
           <View
             key={msg.id}
-            id={msg.id}
-            className={`message-item ${msg.role === 'user' ? 'message-user' : 'message-assistant'}`}
+            className={`msg-wrap ${msg.role === 'user' ? 'msg-user' : 'msg-bot'}`}
           >
             {msg.role === 'assistant' && (
-              <View className="avatar avatar-bot">
-                <Bot size={20} color="#fff" />
+              <View className="avatar bot-avatar">
+                <Bot size={18} color="#fff" />
               </View>
             )}
-            <View className="message-content">
-              <Text className="message-text">{msg.content}</Text>
+            <View className={`msg-bubble ${msg.role === 'user' ? 'bubble-user' : 'bubble-bot'}`}>
+              <Text className="msg-text">{msg.content}</Text>
             </View>
             {msg.role === 'user' && (
-              <View className="avatar avatar-user">
-                <User size={20} color="#fff" />
+              <View className="avatar user-avatar">
+                <User size={18} color="#fff" />
               </View>
             )}
           </View>
         ))}
+        
         {isLoading && (
-          <View className="message-item message-assistant">
-            <View className="avatar avatar-bot">
-              <Bot size={20} color="#fff" />
+          <View className="msg-wrap msg-bot">
+            <View className="avatar bot-avatar">
+              <Bot size={18} color="#fff" />
             </View>
-            <View className="message-content">
-              <Text className="message-text">正在思考中...</Text>
+            <View className="msg-bubble bubble-bot">
+              <View className="typing-indicator">
+                <View className="dot" />
+                <View className="dot" />
+                <View className="dot" />
+              </View>
             </View>
           </View>
         )}
+
+        <View style={{ height: '20px' }} />
       </ScrollView>
+
+      {/* 快捷问题 */}
+      {messages.length === 1 && (
+        <View className="quick-questions">
+          <View className="quick-title">
+            <Sparkles size={14} color="#2f6f4f" />
+            <Text className="quick-title-text">试试问我</Text>
+          </View>
+          <View className="quick-list">
+            {quickQuestions.map((q, i) => (
+              <View
+                key={i}
+                className="quick-item"
+                onClick={() => handleQuickQuestion(q)}
+              >
+                <Text className="quick-item-text">{q}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+      )}
 
       {/* 输入区域 */}
       <View className="input-area">
-        <View className="input-wrapper">
-          <Input
-            className="message-input"
+        <View className="input-box">
+          <Textarea
+            className="input-field"
             placeholder="输入你的问题..."
             value={inputValue}
             onInput={(e) => setInputValue(e.detail.value)}
-            onConfirm={handleSend}
-            confirmType="send"
+            autoHeight
+            maxlength={500}
+            showCount={false}
+            cursorSpacing={20}
           />
           <View
-            className={`send-btn ${inputValue.trim() && !isLoading ? 'active' : ''}`}
+            className={`send-btn ${inputValue.trim() && !isLoading ? 'can-send' : ''}`}
             onClick={handleSend}
           >
-            <Send size={20} color={inputValue.trim() && !isLoading ? '#fff' : '#999'} />
+            <Send size={18} color={inputValue.trim() && !isLoading ? '#fff' : '#bbb'} />
           </View>
         </View>
+        <View className="input-safe" />
       </View>
     </View>
   )
