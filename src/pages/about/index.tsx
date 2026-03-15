@@ -1,8 +1,8 @@
 import { View, Text } from '@tarojs/components'
-import { useDidShow, navigateTo } from '@tarojs/taro'
+import Taro, { useDidShow } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
-import { Bot } from 'lucide-react-taro'
+import { LogOut } from 'lucide-react-taro'
 import './index.css'
 
 const AboutPage: FC = () => {
@@ -12,6 +12,15 @@ const AboutPage: FC = () => {
   useDidShow(() => {
     setAnimationTrigger(prev => prev + 1)
   })
+
+  // 关闭小程序
+  const handleCloseMiniProgram = () => {
+    Taro.exitMiniProgram({
+      success: () => {
+        console.log('小程序已关闭')
+      }
+    })
+  }
 
   const stats = [
     { value: '3000+', label: '累计带队', icon: '👥' },
@@ -100,21 +109,21 @@ const AboutPage: FC = () => {
         </View>
       </View>
 
-      {/* AI 助手入口 */}
+      {/* 关闭小程序按钮 */}
       <View
-        key={`ai-assistant-${animationTrigger}`}
-        className="ai-assistant-entry ai-enter-1"
-        onClick={() => navigateTo({ url: '/pages/ai-assistant/index' })}
+        key={`close-btn-${animationTrigger}`}
+        className="close-mini-btn ai-enter-1"
+        onClick={handleCloseMiniProgram}
       >
-        <View className="ai-assistant-content">
-          <View className="ai-icon-wrapper">
-            <Bot size={48} color="#52c41a" />
+        <View className="close-btn-content">
+          <View className="close-icon-wrapper">
+            <LogOut size={48} color="#2f6f4f" />
           </View>
-          <View className="ai-text-content">
-            <Text className="ai-title">AI 智能助手</Text>
-            <Text className="ai-desc">专业户外知识问答，为您提供路线推荐、装备建议</Text>
+          <View className="close-text-content">
+            <Text className="close-title">关闭小程序</Text>
+            <Text className="close-desc">点击返回微信</Text>
           </View>
-          <View className="ai-arrow">→</View>
+          <View className="close-arrow">→</View>
         </View>
       </View>
     </View>
