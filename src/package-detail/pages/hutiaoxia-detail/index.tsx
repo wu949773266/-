@@ -23,7 +23,7 @@ const HutiaoxiaDetailPage: FC = () => {
     return {
       title: '虎跳峡徒步 - 山渡户外',
       path: '/package-detail/pages/hutiaoxia-detail/index',
-      imageUrl: IMAGE_CONFIG.HUTIAOXIA_CARD
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 
@@ -32,7 +32,7 @@ const HutiaoxiaDetailPage: FC = () => {
     return {
       title: '虎跳峡徒步 - 人生照片打卡',
       query: '',
-      imageUrl: IMAGE_CONFIG.HUTIAOXIA_CARD
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
   const [expandedSection, setExpandedSection] = useState<Record<string, boolean>>({

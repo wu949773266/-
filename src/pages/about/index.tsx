@@ -17,7 +17,8 @@ const AboutPage: FC = () => {
   useShareAppMessage(() => {
     return {
       title: '山渡户外 - 关于我们',
-      path: '/pages/about/index'
+      path: '/pages/about/index',
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 
@@ -25,7 +26,8 @@ const AboutPage: FC = () => {
   useShareTimeline(() => {
     return {
       title: '山渡户外 - 走山渡心，走进真正的山野',
-      query: ''
+      query: '',
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 

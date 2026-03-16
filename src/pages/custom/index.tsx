@@ -17,7 +17,7 @@ const CustomPage = () => {
     return {
       title: '山渡户外 - 私人订制',
       path: '/pages/custom/index',
-      imageUrl: IMAGE_CONFIG.NANLU_IMAGE
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 
@@ -26,7 +26,7 @@ const CustomPage = () => {
     return {
       title: '山渡户外 - 私人订制',
       query: '',
-      imageUrl: IMAGE_CONFIG.NANLU_IMAGE
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 

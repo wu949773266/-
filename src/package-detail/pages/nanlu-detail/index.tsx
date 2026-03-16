@@ -9,7 +9,7 @@ const NanluDetailPage = () => {
     return {
       title: '南极洛徒步 - 山渡户外',
       path: '/package-detail/pages/nanlu-detail/index',
-      imageUrl: IMAGE_CONFIG.NANLU_IMAGE
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 
@@ -18,7 +18,7 @@ const NanluDetailPage = () => {
     return {
       title: '南极洛徒步 - 云南最后的秘境',
       query: '',
-      imageUrl: IMAGE_CONFIG.NANLU_IMAGE
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 

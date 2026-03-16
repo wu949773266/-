@@ -50,7 +50,7 @@ const RoutesPage: FC = () => {
     return {
       title: '山渡户外 - 热门徒步线路',
       path: '/pages/routes/index',
-      imageUrl: IMAGE_CONFIG.HUTIAOXIA_CARD
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 
@@ -59,7 +59,7 @@ const RoutesPage: FC = () => {
     return {
       title: '山渡户外 - 热门徒步线路',
       query: '',
-      imageUrl: IMAGE_CONFIG.HUTIAOXIA_CARD
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 

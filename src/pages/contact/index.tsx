@@ -9,7 +9,8 @@ const ContactPage: FC = () => {
   useShareAppMessage(() => {
     return {
       title: '山渡户外 - 联系我们',
-      path: '/pages/contact/index'
+      path: '/pages/contact/index',
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 
@@ -17,7 +18,8 @@ const ContactPage: FC = () => {
   useShareTimeline(() => {
     return {
       title: '山渡户外 - 联系我们',
-      query: ''
+      query: '',
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
     }
   })
 
