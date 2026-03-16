@@ -18,7 +18,7 @@ const AboutPage: FC = () => {
     return {
       title: '山渡户外 - 关于我们',
       path: '/pages/about/index',
-      imageUrl: '/assets/share/index-cover.jpg'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 
@@ -27,7 +27,7 @@ const AboutPage: FC = () => {
     return {
       title: '山渡户外 - 走山渡心，走进真正的山野',
       query: '',
-      imageUrl: '/assets/share/index-cover.jpg'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 

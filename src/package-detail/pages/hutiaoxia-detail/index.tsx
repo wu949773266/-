@@ -23,7 +23,7 @@ const HutiaoxiaDetailPage: FC = () => {
     return {
       title: '虎跳峡徒步 - 山渡户外',
       path: '/package-detail/pages/hutiaoxia-detail/index',
-      imageUrl: '/assets/share/hutiaoxia-cover.jpg'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 
@@ -32,7 +32,7 @@ const HutiaoxiaDetailPage: FC = () => {
     return {
       title: '虎跳峡徒步 - 人生照片打卡',
       query: '',
-      imageUrl: '/assets/share/hutiaoxia-cover.jpg'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
   const [expandedSection, setExpandedSection] = useState<Record<string, boolean>>({

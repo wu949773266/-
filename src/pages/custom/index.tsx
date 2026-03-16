@@ -17,7 +17,7 @@ const CustomPage = () => {
     return {
       title: '山渡户外 - 私人订制',
       path: '/pages/custom/index',
-      imageUrl: '/assets/share/nanlu-cover.jpg'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 
@@ -26,7 +26,7 @@ const CustomPage = () => {
     return {
       title: '山渡户外 - 私人订制',
       query: '',
-      imageUrl: '/assets/share/nanlu-cover.jpg'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 

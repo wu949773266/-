@@ -9,7 +9,7 @@ const NanluDetailPage = () => {
     return {
       title: '南极洛徒步 - 山渡户外',
       path: '/package-detail/pages/nanlu-detail/index',
-      imageUrl: '/assets/share/nanlu-cover.jpg'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 
@@ -18,7 +18,7 @@ const NanluDetailPage = () => {
     return {
       title: '南极洛徒步 - 云南最后的秘境',
       query: '',
-      imageUrl: '/assets/share/nanlu-cover.jpg'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 
