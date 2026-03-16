@@ -17,7 +17,7 @@ const IndexPage: FC = () => {
     return {
       title: '山渡户外 - 走山渡心，走进真正的山野',
       path: '/pages/index/index',
-      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 
@@ -26,7 +26,7 @@ const IndexPage: FC = () => {
     return {
       title: '山渡户外 - 走山渡心，走进真正的山野',
       query: '',
-      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 

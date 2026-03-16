@@ -10,7 +10,7 @@ const YubengDetailPage: FC = () => {
     return {
       title: '雨崩徒步 - 山渡户外',
       path: '/package-detail/pages/yubeng-detail/index',
-      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 
@@ -19,7 +19,7 @@ const YubengDetailPage: FC = () => {
     return {
       title: '雨崩徒步 - 香格里拉秘境',
       query: '',
-      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
+      imageUrl: '/assets/share/share-cover.jpg'
     }
   })
 
