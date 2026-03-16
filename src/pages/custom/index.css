@@ -79,9 +79,9 @@
   border-radius: 24rpx;
   margin-bottom: 32rpx;
   box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.06);
-  animation: cardEnter 0.5s ease-out forwards;
+  animation: cardEnter 0.4s ease-out forwards;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(15px);
 }
 
 .feature-icon {
@@ -105,7 +105,7 @@
 @keyframes cardEnter {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;

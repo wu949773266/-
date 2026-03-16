@@ -40,7 +40,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  animation: slideUp 0.8s ease-out;
+  animation: slideUp 0.5s ease-out;
 }
 
 .page-title {
@@ -451,47 +451,39 @@
 }
 
 .card-fade-in-1 {
-  animation-delay: 0.1s;
+  animation-delay: 0s;
 }
 
 .card-fade-in-2 {
-  animation-delay: 0.2s;
+  animation-delay: 0.05s;
 }
 
 .card-fade-in-3 {
-  animation-delay: 0.3s;
+  animation-delay: 0.1s;
 }
 
 .card-fade-in-4 {
-  animation-delay: 0.4s;
+  animation-delay: 0.15s;
 }
 
 .card-fade-in-5 {
-  animation-delay: 0.5s;
-}
-
-.card-fade-in-4 {
-  animation-delay: 0.4s;
-}
-
-.card-fade-in-5 {
-  animation-delay: 0.5s;
+  animation-delay: 0.2s;
 }
 
 .card-fade-in-6 {
-  animation-delay: 0.6s;
+  animation-delay: 0.25s;
 }
 
 .card-fade-in-7 {
-  animation-delay: 0.7s;
+  animation-delay: 0.3s;
 }
 
 .card-fade-in-8 {
-  animation-delay: 0.8s;
+  animation-delay: 0.35s;
 }
 
 .card-fade-in-9 {
-  animation-delay: 0.9s;
+  animation-delay: 0.4s;
 }
 
 @keyframes slideUp {

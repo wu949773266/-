@@ -8,14 +8,14 @@
 .page-title-wrapper {
   background: white;
   padding: 60px 24px 30px;
-  animation: titleSlideDown 0.6s ease-out;
+  animation: titleSlideDown 0.3s ease-out;
   text-align: center;
 }
 
 @keyframes titleSlideDown {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -42,7 +42,7 @@
   width: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, #2f6f4f, transparent);
-  animation: lineExpand 0.8s ease-out 0.4s forwards;
+  animation: lineExpand 0.4s ease-out 0.15s forwards;
 }
 
 @keyframes lineExpand {
@@ -75,15 +75,15 @@
 
 /* 卡片依次进入动画 */
 .card-enter-1 {
-  animation: cardEnter 0.5s ease-out 0.2s forwards;
+  animation: cardEnter 0.4s ease-out 0.1s forwards;
 }
 
 .card-enter-2 {
-  animation: cardEnter 0.5s ease-out 0.3s forwards;
+  animation: cardEnter 0.4s ease-out 0.15s forwards;
 }
 
 .card-enter-3 {
-  animation: cardEnter 0.5s ease-out 0.4s forwards;
+  animation: cardEnter 0.4s ease-out 0.2s forwards;
 }
 
 @keyframes cardEnter {
