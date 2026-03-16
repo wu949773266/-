@@ -17,7 +17,7 @@ const IndexPage: FC = () => {
     return {
       title: '山渡户外 - 走山渡心，走进真正的山野',
       path: '/pages/index/index',
-      imageUrl: '/assets/share/share-cover.jpg'
+      imageUrl: '/assets/share/index.jpg'
     }
   })
 
@@ -26,7 +26,7 @@ const IndexPage: FC = () => {
     return {
       title: '山渡户外 - 走山渡心，走进真正的山野',
       query: '',
-      imageUrl: '/assets/share/share-cover.jpg'
+      imageUrl: '/assets/share/index.jpg'
     }
   })
 

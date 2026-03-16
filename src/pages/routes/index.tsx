@@ -50,7 +50,7 @@ const RoutesPage: FC = () => {
     return {
       title: '山渡户外 - 热门徒步线路',
       path: '/pages/routes/index',
-      imageUrl: '/assets/share/share-cover.jpg'
+      imageUrl: '/assets/share/routes.jpg'
     }
   })
 
@@ -59,7 +59,7 @@ const RoutesPage: FC = () => {
     return {
       title: '山渡户外 - 热门徒步线路',
       query: '',
-      imageUrl: '/assets/share/share-cover.jpg'
+      imageUrl: '/assets/share/routes.jpg'
     }
   })
 

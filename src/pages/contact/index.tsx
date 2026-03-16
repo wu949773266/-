@@ -10,7 +10,7 @@ const ContactPage: FC = () => {
     return {
       title: '山渡户外 - 联系我们',
       path: '/pages/contact/index',
-      imageUrl: '/assets/share/share-cover.jpg'
+      imageUrl: '/assets/share/contact.jpg'
     }
   })
 
@@ -19,7 +19,7 @@ const ContactPage: FC = () => {
     return {
       title: '山渡户外 - 联系我们',
       query: '',
-      imageUrl: '/assets/share/share-cover.jpg'
+      imageUrl: '/assets/share/contact.jpg'
     }
   })
 
