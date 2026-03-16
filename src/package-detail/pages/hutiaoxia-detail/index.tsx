@@ -18,21 +18,19 @@ interface FAQItem {
 }
 
 const HutiaoxiaDetailPage: FC = () => {
-  // 配置分享给朋友
+  // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
       title: '虎跳峡徒步 - 山渡户外',
-      path: '/package-detail/pages/hutiaoxia-detail/index',
-      imageUrl: '/assets/share/hutiaoxia.jpg'
+      path: '/package-detail/pages/hutiaoxia-detail/index'
     }
   })
 
-  // 配置分享到朋友圈
+  // 配置分享到朋友圈（自动截取当前页面）
   useShareTimeline(() => {
     return {
       title: '虎跳峡徒步 - 人生照片打卡',
-      query: '',
-      imageUrl: '/assets/share/hutiaoxia.jpg'
+      query: ''
     }
   })
   const [expandedSection, setExpandedSection] = useState<Record<string, boolean>>({

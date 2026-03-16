@@ -12,21 +12,19 @@ const IndexPage: FC = () => {
     setAnimationTrigger(prev => prev + 1)
   })
 
-  // 配置分享给朋友
+  // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
       title: '山渡户外 - 走山渡心，走进真正的山野',
-      path: '/pages/index/index',
-      imageUrl: '/assets/share/index.jpg'
+      path: '/pages/index/index'
     }
   })
 
-  // 配置分享到朋友圈
+  // 配置分享到朋友圈（自动截取当前页面）
   useShareTimeline(() => {
     return {
       title: '山渡户外 - 走山渡心，走进真正的山野',
-      query: '',
-      imageUrl: '/assets/share/index.jpg'
+      query: ''
     }
   })
 

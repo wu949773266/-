@@ -5,21 +5,19 @@ import { MessageCircle, Sparkles } from 'lucide-react-taro'
 import './index.css'
 
 const ContactPage: FC = () => {
-  // 配置分享给朋友
+  // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
       title: '山渡户外 - 联系我们',
-      path: '/pages/contact/index',
-      imageUrl: '/assets/share/contact.jpg'
+      path: '/pages/contact/index'
     }
   })
 
-  // 配置分享到朋友圈
+  // 配置分享到朋友圈（自动截取当前页面）
   useShareTimeline(() => {
     return {
       title: '山渡户外 - 联系我们',
-      query: '',
-      imageUrl: '/assets/share/contact.jpg'
+      query: ''
     }
   })
 

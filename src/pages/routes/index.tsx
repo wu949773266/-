@@ -45,21 +45,19 @@ const RoutesPage: FC = () => {
     setAnimationTrigger(prev => prev + 1)
   })
 
-  // 配置分享给朋友
+  // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
       title: '山渡户外 - 热门徒步线路',
-      path: '/pages/routes/index',
-      imageUrl: '/assets/share/routes.jpg'
+      path: '/pages/routes/index'
     }
   })
 
-  // 配置分享到朋友圈
+  // 配置分享到朋友圈（自动截取当前页面）
   useShareTimeline(() => {
     return {
       title: '山渡户外 - 热门徒步线路',
-      query: '',
-      imageUrl: '/assets/share/routes.jpg'
+      query: ''
     }
   })
 

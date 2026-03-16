@@ -4,21 +4,19 @@ import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
 const NanluDetailPage = () => {
-  // 配置分享给朋友
+  // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
       title: '南极洛徒步 - 山渡户外',
-      path: '/package-detail/pages/nanlu-detail/index',
-      imageUrl: '/assets/share/nanlu.jpg'
+      path: '/package-detail/pages/nanlu-detail/index'
     }
   })
 
-  // 配置分享到朋友圈
+  // 配置分享到朋友圈（自动截取当前页面）
   useShareTimeline(() => {
     return {
       title: '南极洛徒步 - 云南最后的秘境',
-      query: '',
-      imageUrl: '/assets/share/nanlu.jpg'
+      query: ''
     }
   })
 

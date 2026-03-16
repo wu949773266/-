@@ -5,21 +5,19 @@ import { YUBENG_IMAGES } from '../../config/images'
 import './index.css'
 
 const YubengDetailPage: FC = () => {
-  // 配置分享给朋友
+  // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
       title: '雨崩徒步 - 山渡户外',
-      path: '/package-detail/pages/yubeng-detail/index',
-      imageUrl: '/assets/share/yubeng.jpg'
+      path: '/package-detail/pages/yubeng-detail/index'
     }
   })
 
-  // 配置分享到朋友圈
+  // 配置分享到朋友圈（自动截取当前页面）
   useShareTimeline(() => {
     return {
       title: '雨崩徒步 - 香格里拉秘境',
-      query: '',
-      imageUrl: '/assets/share/yubeng.jpg'
+      query: ''
     }
   })
 
