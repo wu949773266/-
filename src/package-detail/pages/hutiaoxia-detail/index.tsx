@@ -1,5 +1,5 @@
 import { View, Text, Image, ScrollView } from '@tarojs/components'
-import Taro, { useShareAppMessage } from '@tarojs/taro'
+import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
 import { IMAGE_CONFIG } from '@/config/images'
@@ -18,11 +18,20 @@ interface FAQItem {
 }
 
 const HutiaoxiaDetailPage: FC = () => {
-  // 配置分享功能
+  // 配置分享给朋友
   useShareAppMessage(() => {
     return {
       title: '虎跳峡徒步 - 山渡户外',
       path: '/package-detail/pages/hutiaoxia-detail/index',
+      imageUrl: IMAGE_CONFIG.HUTIAOXIA_CARD
+    }
+  })
+
+  // 配置分享到朋友圈
+  useShareTimeline(() => {
+    return {
+      title: '虎跳峡徒步 - 人生照片打卡',
+      query: '',
       imageUrl: IMAGE_CONFIG.HUTIAOXIA_CARD
     }
   })

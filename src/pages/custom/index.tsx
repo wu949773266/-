@@ -1,5 +1,5 @@
 import { View, Text, Image } from '@tarojs/components'
-import { useDidShow, useShareAppMessage } from '@tarojs/taro'
+import { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
@@ -12,11 +12,20 @@ const CustomPage = () => {
     setAnimationTrigger(prev => prev + 1)
   })
 
-  // 配置分享功能
+  // 配置分享给朋友
   useShareAppMessage(() => {
     return {
       title: '山渡户外 - 私人订制',
       path: '/pages/custom/index',
+      imageUrl: IMAGE_CONFIG.NANLU_IMAGE
+    }
+  })
+
+  // 配置分享到朋友圈
+  useShareTimeline(() => {
+    return {
+      title: '山渡户外 - 私人订制',
+      query: '',
       imageUrl: IMAGE_CONFIG.NANLU_IMAGE
     }
   })

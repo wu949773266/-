@@ -1,15 +1,23 @@
 import { View, Text, Button } from '@tarojs/components'
-import Taro, { useShareAppMessage } from '@tarojs/taro'
+import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import type { FC } from 'react'
 import { MessageCircle, Sparkles } from 'lucide-react-taro'
 import './index.css'
 
 const ContactPage: FC = () => {
-  // 配置分享功能
+  // 配置分享给朋友
   useShareAppMessage(() => {
     return {
       title: '山渡户外 - 联系我们',
       path: '/pages/contact/index'
+    }
+  })
+
+  // 配置分享到朋友圈
+  useShareTimeline(() => {
+    return {
+      title: '山渡户外 - 联系我们',
+      query: ''
     }
   })
 

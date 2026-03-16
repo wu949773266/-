@@ -1,15 +1,24 @@
 import { View, Text, Image, ScrollView } from '@tarojs/components'
-import Taro, { useShareAppMessage } from '@tarojs/taro'
+import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import type { FC } from 'react'
 import { YUBENG_IMAGES } from '../../config/images'
 import './index.css'
 
 const YubengDetailPage: FC = () => {
-  // 配置分享功能
+  // 配置分享给朋友
   useShareAppMessage(() => {
     return {
       title: '雨崩徒步 - 山渡户外',
       path: '/package-detail/pages/yubeng-detail/index',
+      imageUrl: YUBENG_IMAGES.YUBENG_POSTER_1
+    }
+  })
+
+  // 配置分享到朋友圈
+  useShareTimeline(() => {
+    return {
+      title: '雨崩徒步 - 香格里拉秘境',
+      query: '',
       imageUrl: YUBENG_IMAGES.YUBENG_POSTER_1
     }
   })

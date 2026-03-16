@@ -1,5 +1,5 @@
 import { View, Text, Image } from '@tarojs/components'
-import Taro, { useDidShow, useShareAppMessage } from '@tarojs/taro'
+import Taro, { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
 import { IMAGE_CONFIG } from '@/config/images'
@@ -45,11 +45,20 @@ const RoutesPage: FC = () => {
     setAnimationTrigger(prev => prev + 1)
   })
 
-  // 配置分享功能
+  // 配置分享给朋友
   useShareAppMessage(() => {
     return {
       title: '山渡户外 - 热门徒步线路',
       path: '/pages/routes/index',
+      imageUrl: IMAGE_CONFIG.HUTIAOXIA_CARD
+    }
+  })
+
+  // 配置分享到朋友圈
+  useShareTimeline(() => {
+    return {
+      title: '山渡户外 - 热门徒步线路',
+      query: '',
       imageUrl: IMAGE_CONFIG.HUTIAOXIA_CARD
     }
   })

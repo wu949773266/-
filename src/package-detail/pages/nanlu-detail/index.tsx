@@ -1,14 +1,23 @@
 import { View, Text, Image } from '@tarojs/components'
-import Taro, { useShareAppMessage } from '@tarojs/taro'
+import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
 const NanluDetailPage = () => {
-  // 配置分享功能
+  // 配置分享给朋友
   useShareAppMessage(() => {
     return {
       title: '南极洛徒步 - 山渡户外',
       path: '/package-detail/pages/nanlu-detail/index',
+      imageUrl: IMAGE_CONFIG.NANLU_IMAGE
+    }
+  })
+
+  // 配置分享到朋友圈
+  useShareTimeline(() => {
+    return {
+      title: '南极洛徒步 - 云南最后的秘境',
+      query: '',
       imageUrl: IMAGE_CONFIG.NANLU_IMAGE
     }
   })
