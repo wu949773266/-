@@ -1,10 +1,19 @@
 import { View, Text, Image, ScrollView } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import Taro, { useShareAppMessage } from '@tarojs/taro'
 import type { FC } from 'react'
 import { YUBENG_IMAGES } from '../../config/images'
 import './index.css'
 
 const YubengDetailPage: FC = () => {
+  // 配置分享功能
+  useShareAppMessage(() => {
+    return {
+      title: '雨崩徒步 - 山渡户外',
+      path: '/package-detail/pages/yubeng-detail/index',
+      imageUrl: YUBENG_IMAGES.YUBENG_POSTER_1
+    }
+  })
+
   const posterImages = [
     YUBENG_IMAGES.YUBENG_POSTER_1,
     YUBENG_IMAGES.YUBENG_POSTER_2,

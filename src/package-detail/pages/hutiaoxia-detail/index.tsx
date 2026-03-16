@@ -1,5 +1,5 @@
 import { View, Text, Image, ScrollView } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import Taro, { useShareAppMessage } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
 import { IMAGE_CONFIG } from '@/config/images'
@@ -18,6 +18,14 @@ interface FAQItem {
 }
 
 const HutiaoxiaDetailPage: FC = () => {
+  // 配置分享功能
+  useShareAppMessage(() => {
+    return {
+      title: '虎跳峡徒步 - 山渡户外',
+      path: '/package-detail/pages/hutiaoxia-detail/index',
+      imageUrl: IMAGE_CONFIG.HUTIAOXIA_CARD
+    }
+  })
   const [expandedSection, setExpandedSection] = useState<Record<string, boolean>>({
     checkpoint: true,
     schedule: true,

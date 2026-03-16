@@ -1,5 +1,5 @@
 import { View, Text } from '@tarojs/components'
-import Taro, { useDidShow } from '@tarojs/taro'
+import Taro, { useDidShow, useShareAppMessage } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
 import { LogOut } from 'lucide-react-taro'
@@ -11,6 +11,14 @@ const AboutPage: FC = () => {
   // 每次页面显示时触发动画
   useDidShow(() => {
     setAnimationTrigger(prev => prev + 1)
+  })
+
+  // 配置分享功能
+  useShareAppMessage(() => {
+    return {
+      title: '山渡户外 - 关于我们',
+      path: '/pages/about/index'
+    }
   })
 
   // 关闭小程序

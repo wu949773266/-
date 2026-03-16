@@ -1,3 +1,9 @@
 export default typeof definePageConfig === 'function'
-  ? definePageConfig({ navigationBarTitleText: '山渡户外' })
-  : { navigationBarTitleText: '山渡户外' }
+  ? definePageConfig({ 
+      navigationBarTitleText: '线路',
+      enableShareAppMessage: true
+    })
+  : { 
+      navigationBarTitleText: '线路',
+      enableShareAppMessage: true
+    }

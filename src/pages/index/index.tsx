@@ -1,5 +1,5 @@
 import { View, Text, Image, Button } from '@tarojs/components'
-import Taro, { useDidShow } from '@tarojs/taro'
+import Taro, { useDidShow, useShareAppMessage } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
 import './index.css'
@@ -10,6 +10,15 @@ const IndexPage: FC = () => {
   // 每次页面显示时触发动画
   useDidShow(() => {
     setAnimationTrigger(prev => prev + 1)
+  })
+
+  // 配置分享功能
+  useShareAppMessage(() => {
+    return {
+      title: '山渡户外 - 走山渡心，走进真正的山野',
+      path: '/pages/index/index',
+      imageUrl: 'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=500&q=80'
+    }
   })
 
   const handleViewRoutes = () => {

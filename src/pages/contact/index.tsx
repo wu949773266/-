@@ -1,10 +1,18 @@
 import { View, Text, Button } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import Taro, { useShareAppMessage } from '@tarojs/taro'
 import type { FC } from 'react'
 import { MessageCircle, Sparkles } from 'lucide-react-taro'
 import './index.css'
 
 const ContactPage: FC = () => {
+  // 配置分享功能
+  useShareAppMessage(() => {
+    return {
+      title: '山渡户外 - 联系我们',
+      path: '/pages/contact/index'
+    }
+  })
+
   const handleCopyWechat = () => {
     Taro.setClipboardData({
       data: 'SDHW008',

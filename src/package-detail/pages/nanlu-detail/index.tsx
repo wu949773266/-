@@ -1,9 +1,18 @@
 import { View, Text, Image } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import Taro, { useShareAppMessage } from '@tarojs/taro'
 import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
 const NanluDetailPage = () => {
+  // 配置分享功能
+  useShareAppMessage(() => {
+    return {
+      title: '南极洛徒步 - 山渡户外',
+      path: '/package-detail/pages/nanlu-detail/index',
+      imageUrl: IMAGE_CONFIG.NANLU_IMAGE
+    }
+  })
+
   return (
     <View className="nanlu-detail-page">
       <View className="content-container">
