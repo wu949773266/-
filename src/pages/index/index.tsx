@@ -15,7 +15,7 @@ const IndexPage: FC = () => {
   // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
-      title: '山渡户外 - 走山渡心，走进真正的山野',
+      title: 'FLY户外 - 放飞心野，走进真正的山野',
       path: '/pages/index/index'
     }
   })
@@ -23,7 +23,7 @@ const IndexPage: FC = () => {
   // 配置分享到朋友圈（自动截取当前页面）
   useShareTimeline(() => {
     return {
-      title: '山渡户外 - 走山渡心，走进真正的山野',
+      title: 'FLY户外 - 放飞心野，走进真正的山野',
       query: ''
     }
   })
@@ -45,8 +45,8 @@ const IndexPage: FC = () => {
         />
         <View className="hero-overlay" />
         <View className="hero-content">
-          <Text className="hero-title">山渡户外</Text>
-          <Text className="hero-subtitle">走山渡心 · 走进真正的山野</Text>
+          <Text className="hero-title">FLY户外</Text>
+          <Text className="hero-subtitle">放飞心野 · 走进真正的山野</Text>
           <Button
             className="hero-btn"
             onClick={handleViewRoutes}

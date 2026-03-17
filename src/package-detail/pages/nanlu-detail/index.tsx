@@ -7,7 +7,7 @@ const NanluDetailPage = () => {
   // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
-      title: '南极洛徒步 - 山渡户外',
+      title: '南极洛徒步 - FLY户外',
       path: '/package-detail/pages/nanlu-detail/index'
     }
   })

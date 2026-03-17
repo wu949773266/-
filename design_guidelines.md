@@ -1,4 +1,4 @@
-# 山渡户外小程序设计指南
+# FLY户外小程序设计指南
 
 ## 品牌定位
 **应用类型**：户外徒步俱乐部
@@ -194,8 +194,8 @@ tabBar: {
   />
   <View className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50" />
   <View className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-    <Text className="block text-5xl font-bold mb-4">山渡户外</Text>
-    <Text className="block text-2xl font-light mb-8">走山渡心 · 走进真正的山野</Text>
+    <Text className="block text-5xl font-bold mb-4">FLY户外</Text>
+    <Text className="block text-2xl font-light mb-8">放飞心野 · 走进真正的山野</Text>
     <Button className="bg-[#2f6f4f] text-white rounded-full px-12 py-4 text-base font-medium">
       查看徒步线路
     </Button>

@@ -21,7 +21,7 @@ const HutiaoxiaDetailPage: FC = () => {
   // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
-      title: '虎跳峡徒步 - 山渡户外',
+      title: '虎跳峡徒步 - FLY户外',
       path: '/package-detail/pages/hutiaoxia-detail/index'
     }
   })
