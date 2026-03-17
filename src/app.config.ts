@@ -20,7 +20,7 @@ export default {
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#ffffff',
-    navigationBarTitleText: 'FLY户外',
+    navigationBarTitleText: '山渡户外',
     navigationBarTextStyle: 'black'
   },
   tabBar: {

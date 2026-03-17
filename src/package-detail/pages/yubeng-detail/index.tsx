@@ -8,7 +8,7 @@ const YubengDetailPage: FC = () => {
   // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
-      title: '雨崩徒步 - FLY户外',
+      title: '雨崩徒步 - 山渡户外',
       path: '/package-detail/pages/yubeng-detail/index'
     }
   })

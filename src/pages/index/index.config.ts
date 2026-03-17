@@ -1,5 +1,5 @@
 export default definePageConfig({
-  navigationBarTitleText: 'FLY户外',
+  navigationBarTitleText: '山渡户外',
   enableShareAppMessage: true,
   enableShareTimeline: true
 })

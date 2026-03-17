@@ -15,7 +15,7 @@ const CustomPage = () => {
   // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
-      title: 'FLY户外 - 私人订制',
+      title: '山渡户外 - 私人订制',
       path: '/pages/custom/index'
     }
   })
@@ -23,7 +23,7 @@ const CustomPage = () => {
   // 配置分享到朋友圈（自动截取当前页面）
   useShareTimeline(() => {
     return {
-      title: 'FLY户外 - 私人订制',
+      title: '山渡户外 - 私人订制',
       query: ''
     }
   })

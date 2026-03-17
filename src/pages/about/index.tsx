@@ -16,7 +16,7 @@ const AboutPage: FC = () => {
   // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
     return {
-      title: 'FLY户外 - 关于我们',
+      title: '山渡户外 - 关于我们',
       path: '/pages/about/index'
     }
   })
@@ -24,7 +24,7 @@ const AboutPage: FC = () => {
   // 配置分享到朋友圈（自动截取当前页面）
   useShareTimeline(() => {
     return {
-      title: 'FLY户外 - 放飞心野，走进真正的山野',
+      title: '山渡户外 - 走山渡心，走进真正的山野',
       query: ''
     }
   })
@@ -69,7 +69,7 @@ const AboutPage: FC = () => {
         <View className="header-decoration" />
         <View className="header-content">
           <Text className="page-subtitle">ABOUT US</Text>
-          <Text className="page-title">关于FLY</Text>
+          <Text className="page-title">关于山渡</Text>
           <Text className="page-desc">走进山野，也找回自己</Text>
         </View>
         <View className="header-gradient" />
@@ -97,11 +97,11 @@ const AboutPage: FC = () => {
       <View className="philosophy-section">
         <Text className="section-title">品牌理念</Text>
         <Text className="philosophy-text">
-          FLY户外成立于2023年，我们相信真正的旅行不是逃离城市，而是走进山野，重新认识自己。
+          山渡户外成立于2023年，我们相信真正的旅行不是逃离城市，而是走进山野，重新认识自己。
         </Text>
         <View className="philosophy-decoration">
           <Text className="quote-mark">&ldquo;</Text>
-          <Text className="quote-text">放飞心野</Text>
+          <Text className="quote-text">走山渡心</Text>
           <Text className="quote-mark">&rdquo;</Text>
         </View>
       </View>
