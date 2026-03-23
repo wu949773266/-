@@ -4,10 +4,10 @@
 // 推广模式下的联系方式（你的个人联系方式）
 // ★★★ 修改这里来设置你的个人推广信息 ★★★
 const PROMO_CONFIG = {
-  wechat: 'YOUR_WECHAT',           // 你的微信号
-  phone: 'YOUR_PHONE',             // 你的电话
+  wechat: 'YOUR_WECHAT',           // 你的微信号 ← 修改这里
+  phone: 'YOUR_PHONE',             // 你的电话 ← 修改这里
   location: '丽江 · 束河古镇',      // 地址（可保持不变）
-  name: '户外领队'                  // 你的推广名称
+  name: '户外领队'                  // 你的推广名称 ← 修改这里
 }
 
 // 正式版本的联系方式（公司联系方式）
