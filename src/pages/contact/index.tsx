@@ -1,7 +1,8 @@
 import { View, Text, Button } from '@tarojs/components'
 import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import type { FC } from 'react'
-import { MessageCircle, Sparkles } from 'lucide-react-taro'
+import { MessageCircle, Sparkles, User } from 'lucide-react-taro'
+import { CONTACT_CONFIG, isPromoMode, getPromoterInfo } from '@/config/contact'
 import './index.css'
 
 const ContactPage: FC = () => {
@@ -21,9 +22,11 @@ const ContactPage: FC = () => {
     }
   })
 
+  const promoterInfo = getPromoterInfo()
+
   const handleCopyWechat = () => {
     Taro.setClipboardData({
-      data: 'SDHW008',
+      data: CONTACT_CONFIG.wechat,
       success: () => {
         Taro.showToast({
           title: '微信号已复制',
@@ -35,7 +38,7 @@ const ContactPage: FC = () => {
 
   const handleCall = () => {
     Taro.makePhoneCall({
-      phoneNumber: '18623355672'
+      phoneNumber: CONTACT_CONFIG.phone
     })
   }
 
@@ -53,6 +56,19 @@ const ContactPage: FC = () => {
         </Text>
       </View>
       <View className="contact-container">
+        {/* 推广者信息卡片（仅在推广模式下显示） */}
+        {isPromoMode && promoterInfo && (
+          <View className="promoter-card">
+            <View className="promoter-icon">
+              <User size={24} color="#ff6b35" />
+            </View>
+            <View className="promoter-info">
+              <Text className="promoter-label">推荐人</Text>
+              <Text className="promoter-name">{promoterInfo.name}</Text>
+            </View>
+          </View>
+        )}
+
         {/* AI 助手卡片 */}
         <View className="ai-assistant-card" onClick={handleChatAI}>
           <View className="ai-assistant-content">
@@ -70,17 +86,17 @@ const ContactPage: FC = () => {
         <View className="contact-card card-fade-in">
           <View className="contact-item" onClick={handleCall}>
             <Text className="contact-label">📞 电话</Text>
-            <Text className="contact-value">18623355672</Text>
+            <Text className="contact-value">{CONTACT_CONFIG.phone}</Text>
           </View>
           <View className="contact-divider" />
           <View className="contact-item">
             <Text className="contact-label">💬 微信</Text>
-            <Text className="contact-value">SDHW008</Text>
+            <Text className="contact-value">{CONTACT_CONFIG.wechat}</Text>
           </View>
           <View className="contact-divider" />
           <View className="contact-item">
             <Text className="contact-label">📍 地址</Text>
-            <Text className="contact-value">丽江 · 束河古镇</Text>
+            <Text className="contact-value">{CONTACT_CONFIG.location}</Text>
           </View>
         </View>
         <Button

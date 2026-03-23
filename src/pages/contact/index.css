@@ -290,3 +290,63 @@
   color: #6b7f76;
   line-height: 1.4;
 }
+
+/* ========== 推广者卡片 ========== */
+.promoter-card {
+  width: 100%;
+  max-width: 400px;
+  background: linear-gradient(135deg, #fff5f0 0%, #fff 100%);
+  border-radius: 24px;
+  padding: 20px 24px;
+  border: 2px solid #ff6b35;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: promoterCardFadeIn 0.5s ease-out 0.1s both;
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.15);
+}
+
+@keyframes promoterCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.promoter-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8f5a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.promoter-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.promoter-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #ff6b35;
+  font-weight: 500;
+}
+
+.promoter-name {
+  display: block;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
