@@ -492,3 +492,103 @@
   font-weight: 600;
   opacity: 0.7;
 }
+
+/* ========== 招贤纳士 ========== */
+.recruit-section {
+  padding: 0 20px 40px;
+  text-align: center;
+}
+
+.recruit-team-intro {
+  margin-bottom: 24px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, rgba(47, 111, 79, 0.1) 0%, rgba(47, 111, 79, 0.05) 100%);
+  border-radius: 16px;
+}
+
+.recruit-team-text {
+  font-size: 1rem;
+  color: #2f6f4f;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.recruit-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.recruit-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 28px -6px rgba(47, 111, 79, 0.1),
+              0 2px 8px -4px rgba(47, 111, 79, 0.05);
+  text-align: left;
+}
+
+.recruit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e8f0e9;
+}
+
+.recruit-position {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1d3d2c;
+  letter-spacing: 1px;
+}
+
+.recruit-tag {
+  font-size: 0.75rem;
+  color: #2f6f4f;
+  background: rgba(47, 111, 79, 0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.recruit-requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.requirement-item {
+  font-size: 0.95rem;
+  color: #5a6b61;
+  line-height: 1.6;
+}
+
+.requirement-item.highlight {
+  color: #2f6f4f;
+  font-weight: 500;
+}
+
+.recruit-contact {
+  background: linear-gradient(135deg, #2f6f4f 0%, #3a8a65 100%);
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+}
+
+.recruit-contact-text {
+  display: block;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8px;
+}
+
+.recruit-contact-way {
+  display: block;
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+}

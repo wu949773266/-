@@ -125,6 +125,44 @@ const AboutPage: FC = () => {
         </View>
       </View>
 
+      {/* 招贤纳士 */}
+      <View className="recruit-section">
+        <Text className="section-title">招贤纳士</Text>
+        <View className="recruit-team-intro">
+          <Text className="recruit-team-text">年轻人的团队 · 透明化 · 人性化</Text>
+        </View>
+        <View className="recruit-cards">
+          <View className="recruit-card">
+            <View className="recruit-card-header">
+              <Text className="recruit-position">助理</Text>
+              <Text className="recruit-tag">招募中</Text>
+            </View>
+            <View className="recruit-requirements">
+              <Text className="requirement-item">· 男生，能吃苦</Text>
+              <Text className="requirement-item">· 会开车</Text>
+              <Text className="requirement-item">· 有审美</Text>
+              <Text className="requirement-item highlight">· 形象好、会摄影优先</Text>
+            </View>
+          </View>
+          <View className="recruit-card">
+            <View className="recruit-card-header">
+              <Text className="recruit-position">领队</Text>
+              <Text className="recruit-tag">招募中</Text>
+            </View>
+            <View className="recruit-requirements">
+              <Text className="requirement-item">· 男生，能吃苦</Text>
+              <Text className="requirement-item">· 会开车</Text>
+              <Text className="requirement-item">· 有审美</Text>
+              <Text className="requirement-item highlight">· 形象好、会摄影优先</Text>
+            </View>
+          </View>
+        </View>
+        <View className="recruit-contact">
+          <Text className="recruit-contact-text">有意者请联系我们</Text>
+          <Text className="recruit-contact-way">微信号：SDHW008</Text>
+        </View>
+      </View>
+
       {/* 关闭小程序按钮 */}
       <View
         key={`close-btn-${animationTrigger}`}
