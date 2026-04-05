@@ -570,25 +570,3 @@
   color: #2f6f4f;
   font-weight: 500;
 }
-
-.recruit-contact {
-  background: linear-gradient(135deg, #2f6f4f 0%, #3a8a65 100%);
-  border-radius: 20px;
-  padding: 24px;
-  text-align: center;
-}
-
-.recruit-contact-text {
-  display: block;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 8px;
-}
-
-.recruit-contact-way {
-  display: block;
-  font-size: 1.3rem;
-  color: white;
-  font-weight: 600;
-  letter-spacing: 1px;
-}

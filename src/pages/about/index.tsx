@@ -157,10 +157,6 @@ const AboutPage: FC = () => {
             </View>
           </View>
         </View>
-        <View className="recruit-contact">
-          <Text className="recruit-contact-text">有意者请联系我们</Text>
-          <Text className="recruit-contact-way">微信号：SDHW008</Text>
-        </View>
       </View>
 
       {/* 关闭小程序按钮 */}
