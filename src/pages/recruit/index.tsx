@@ -1,7 +1,7 @@
 import { View, Text } from '@tarojs/components'
 import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import type { FC } from 'react'
-import { ArrowLeft } from 'lucide-react-taro'
+import { ArrowLeft, Camera, Car, Mountain, Sparkles } from 'lucide-react-taro'
 import './index.css'
 
 const RecruitPage: FC = () => {
@@ -25,80 +25,109 @@ const RecruitPage: FC = () => {
     Taro.navigateBack()
   }
 
+  const requirements = [
+    {
+      icon: Mountain,
+      title: '户外魂',
+      desc: '能吃苦，执行力强，身体里藏着对山野的热爱'
+    },
+    {
+      icon: Car,
+      title: '会驾驶',
+      desc: '山路上的掌舵者，确保每一次出发的安全'
+    },
+    {
+      icon: Camera,
+      title: '懂摄影',
+      desc: '审美在线，能捕捉旅途中的高光时刻',
+      highlight: true
+    }
+  ]
+
   return (
     <View className="recruit-page">
       {/* 背景图 */}
-      <View className="bg-image-container">
+      <View className="bg-container">
         <View 
           className="bg-image"
           style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&q=80)' }}
         />
-        <View className="bg-overlay" />
+        <View className="bg-gradient" />
       </View>
 
       {/* 返回按钮 */}
-      <View className="back-header" onClick={handleBack}>
-        <ArrowLeft size={24} color="#2f6f4f" />
-        <Text className="back-text">返回</Text>
+      <View className="back-btn" onClick={handleBack}>
+        <ArrowLeft size={20} color="rgba(255,255,255,0.9)" />
       </View>
 
-      {/* 主标题 */}
-      <View className="recruit-hero">
-        <Text className="hero-title">进山去！</Text>
-        <Text className="hero-subtitle">山渡户外招助理了</Text>
+      {/* 主视觉区 */}
+      <View className="hero-section">
+        <View className="hero-badge">
+          <Sparkles size={14} color="#2f6f4f" />
+          <Text className="badge-text">RECRUITING</Text>
+        </View>
+        <Text className="hero-title">进山去</Text>
+        <Text className="hero-subtitle">山渡户外招募同行者</Text>
       </View>
 
-      {/* 招聘内容 */}
-      <View className="recruit-content">
-        {/* 我们在找你 */}
+      {/* 内容区 */}
+      <View className="content-section">
+        {/* 我们在找谁 */}
         <View className="section">
-          <Text className="section-title">我们在找你</Text>
-          
-          <View className="requirement-card">
-            <View className="requirement-header">
-              <Text className="requirement-role">一名全能型选手（男）</Text>
-            </View>
-            <Text className="requirement-desc">
-              身体里藏着户外魂，能吃苦，执行力强。
-            </Text>
-          </View>
+          <Text className="section-label">WHO WE NEED</Text>
+          <Text className="section-title">我们在找谁</Text>
+          <Text className="section-intro">
+            一名全能型伙伴（男），一起在山野间创造风景。
+          </Text>
 
-          <View className="requirement-card">
-            <View className="requirement-header">
-              <Text className="requirement-role">山路上的掌舵者</Text>
-            </View>
-            <Text className="requirement-desc">
-              熟练驾驶，确保每一次出发的安全。
-            </Text>
-          </View>
-
-          <View className="requirement-card highlight">
-            <View className="requirement-header">
-              <Text className="requirement-role">视觉系的捕手</Text>
-              <Text className="priority-tag">优先</Text>
-            </View>
-            <Text className="requirement-desc">
-              审美水平在线，懂构图、会摄影。我们将优先考虑能拍出高质感影像的伙伴。
-            </Text>
+          <View className="requirement-list">
+            {requirements.map((item, index) => (
+              <View key={index} className={`requirement-item ${item.highlight ? 'highlight' : ''}`}>
+                <View className="req-icon-wrap">
+                  <item.icon size={22} color={item.highlight ? '#2f6f4f' : '#5a6b61'} />
+                </View>
+                <View className="req-content">
+                  <View className="req-header">
+                    <Text className="req-title">{item.title}</Text>
+                    {item.highlight && <Text className="req-tag">优先</Text>}
+                  </View>
+                  <Text className="req-desc">{item.desc}</Text>
+                </View>
+              </View>
+            ))}
           </View>
         </View>
 
         {/* 关于山渡 */}
         <View className="section about-section">
+          <Text className="section-label">ABOUT US</Text>
           <Text className="section-title">关于山渡</Text>
-          <View className="about-content">
-            <Text className="about-text">
-              我们是一群在云南深耕线路的年轻人。
-            </Text>
-            <Text className="about-text">
-              这里薪酬透明、管理人性，拒绝无效内耗。
-            </Text>
-            <View className="about-highlight">
-              <Text className="highlight-text">
-                与其在城市里远眺，{'\n'}不如来山里和我们一起设计风景。
-              </Text>
+          
+          <View className="about-card">
+            <View className="about-point">
+              <View className="point-dot" />
+              <Text className="point-text">一群在云南深耕线路的年轻人</Text>
+            </View>
+            <View className="about-point">
+              <View className="point-dot" />
+              <Text className="point-text">薪酬透明，管理人性</Text>
+            </View>
+            <View className="about-point">
+              <View className="point-dot" />
+              <Text className="point-text">拒绝无效内耗，专注品质出行</Text>
             </View>
           </View>
+
+          <View className="quote-card">
+            <Text className="quote-text">
+              与其在城市远眺{'\n'}不如来山里设计风景
+            </Text>
+          </View>
+        </View>
+
+        {/* 底部 */}
+        <View className="footer-section">
+          <Text className="footer-hint">期待与你同行</Text>
         </View>
       </View>
     </View>
