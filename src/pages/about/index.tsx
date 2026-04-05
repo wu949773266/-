@@ -2,7 +2,7 @@ import { View, Text } from '@tarojs/components'
 import Taro, { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
-import { LogOut } from 'lucide-react-taro'
+import { LogOut, Mountain } from 'lucide-react-taro'
 import './index.css'
 
 const AboutPage: FC = () => {
@@ -35,6 +35,13 @@ const AboutPage: FC = () => {
       success: () => {
         console.log('小程序已关闭')
       }
+    })
+  }
+
+  // 跳转到招聘页面
+  const handleGoToRecruit = () => {
+    Taro.navigateTo({
+      url: '/pages/recruit/index'
     })
   }
 
@@ -125,37 +132,20 @@ const AboutPage: FC = () => {
         </View>
       </View>
 
-      {/* 招贤纳士 */}
-      <View className="recruit-section">
-        <Text className="section-title">招贤纳士</Text>
-        <View className="recruit-team-intro">
-          <Text className="recruit-team-text">年轻人的团队 · 透明化 · 人性化</Text>
-        </View>
-        <View className="recruit-cards">
-          <View className="recruit-card">
-            <View className="recruit-card-header">
-              <Text className="recruit-position">助理</Text>
-              <Text className="recruit-tag">招募中</Text>
-            </View>
-            <View className="recruit-requirements">
-              <Text className="requirement-item">· 男生，能吃苦</Text>
-              <Text className="requirement-item">· 会开车</Text>
-              <Text className="requirement-item">· 有审美</Text>
-              <Text className="requirement-item highlight">· 形象好、会摄影优先</Text>
-            </View>
+      {/* 招贤纳士入口 */}
+      <View 
+        className="recruit-entry-section"
+        onClick={handleGoToRecruit}
+      >
+        <View className="recruit-entry-card">
+          <View className="recruit-entry-icon">
+            <Mountain size={40} color="#2f6f4f" />
           </View>
-          <View className="recruit-card">
-            <View className="recruit-card-header">
-              <Text className="recruit-position">领队</Text>
-              <Text className="recruit-tag">招募中</Text>
-            </View>
-            <View className="recruit-requirements">
-              <Text className="requirement-item">· 男生，能吃苦</Text>
-              <Text className="requirement-item">· 会开车</Text>
-              <Text className="requirement-item">· 有审美</Text>
-              <Text className="requirement-item highlight">· 形象好、会摄影优先</Text>
-            </View>
+          <View className="recruit-entry-content">
+            <Text className="recruit-entry-title">招贤纳士</Text>
+            <Text className="recruit-entry-desc">年轻人的团队 · 透明化 · 人性化</Text>
           </View>
+          <View className="recruit-entry-arrow">→</View>
         </View>
       </View>
 

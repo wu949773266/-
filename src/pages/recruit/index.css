@@ -1,0 +1,255 @@
+.recruit-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8faf8 0%, #e8f0e9 50%, #f0f4f1 100%);
+  padding-bottom: 60px;
+}
+
+/* ========== 返回按钮 ========== */
+.back-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 24px;
+  position: sticky;
+  top: 0;
+  background: rgba(248, 250, 248, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.back-text {
+  font-size: 1rem;
+  color: #2f6f4f;
+  font-weight: 500;
+}
+
+/* ========== 主标题 ========== */
+.recruit-hero {
+  padding: 40px 24px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-title {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2f6f4f;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+  animation: titleFadeIn 0.6s ease-out;
+}
+
+.hero-subtitle {
+  display: block;
+  font-size: 1.2rem;
+  color: #5a6b61;
+  letter-spacing: 1px;
+  font-weight: 400;
+  animation: subtitleFadeIn 0.6s ease-out 0.2s both;
+}
+
+@keyframes titleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== 内容区域 ========== */
+.recruit-content {
+  padding: 0 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1d3d2c;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  background: #2f6f4f;
+  border-radius: 2px;
+}
+
+/* ========== 要求卡片 ========== */
+.requirement-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 20px rgba(47, 111, 79, 0.08);
+  animation: cardSlideUp 0.5s ease-out both;
+}
+
+.requirement-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.requirement-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.requirement-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.requirement-card.highlight {
+  background: linear-gradient(135deg, rgba(47, 111, 79, 0.08) 0%, rgba(47, 111, 79, 0.03) 100%);
+  border: 1px solid rgba(47, 111, 79, 0.2);
+}
+
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.requirement-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.requirement-role {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1d3d2c;
+  letter-spacing: 0.5px;
+}
+
+.priority-tag {
+  font-size: 0.75rem;
+  color: white;
+  background: #2f6f4f;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.requirement-desc {
+  font-size: 0.95rem;
+  color: #5a6b61;
+  line-height: 1.8;
+}
+
+/* ========== 关于山渡 ========== */
+.about-section {
+  animation: fadeIn 0.6s ease-out 0.4s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.about-content {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(47, 111, 79, 0.08);
+}
+
+.about-text {
+  display: block;
+  font-size: 1rem;
+  color: #5a6b61;
+  line-height: 2;
+  margin-bottom: 8px;
+}
+
+.about-highlight {
+  margin-top: 24px;
+  padding: 24px;
+  background: linear-gradient(135deg, #2f6f4f 0%, #3a8a65 100%);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.highlight-text {
+  font-size: 1.1rem;
+  color: white;
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 1px;
+}
+
+/* ========== 联系方式 ========== */
+.contact-section {
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 0.6s ease-out 0.5s both;
+}
+
+.contact-hint {
+  display: block;
+  font-size: 0.95rem;
+  color: #6b7f76;
+  margin-bottom: 16px;
+}
+
+.contact-way {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(47, 111, 79, 0.12);
+}
+
+.contact-label {
+  font-size: 0.9rem;
+  color: #6b7f76;
+}
+
+.contact-value {
+  font-size: 1.2rem;
+  color: #2f6f4f;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
