@@ -91,15 +91,6 @@ const RecruitPage: FC = () => {
             </View>
           </View>
         </View>
-
-        {/* 联系方式 */}
-        <View className="contact-section">
-          <Text className="contact-hint">有意者请联系</Text>
-          <View className="contact-way">
-            <Text className="contact-label">微信</Text>
-            <Text className="contact-value">SDHW008</Text>
-          </View>
-        </View>
       </View>
     </View>
   )
