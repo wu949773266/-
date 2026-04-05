@@ -27,6 +27,15 @@ const RecruitPage: FC = () => {
 
   return (
     <View className="recruit-page">
+      {/* 背景图 */}
+      <View className="bg-image-container">
+        <View 
+          className="bg-image"
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&q=80)' }}
+        />
+        <View className="bg-overlay" />
+      </View>
+
       {/* 返回按钮 */}
       <View className="back-header" onClick={handleBack}>
         <ArrowLeft size={24} color="#2f6f4f" />
