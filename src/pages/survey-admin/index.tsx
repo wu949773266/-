@@ -223,8 +223,37 @@ export default function SurveyAdminPage() {
     setFormDesc('')
   }
 
-  const addQuestion = () => {
-    // 标准满意度问卷模板：3个问题
+  const addQuestion = (type: 'single_choice' | 'multi_choice' | 'rating' | 'text' = 'rating') => {
+    const templates: Record<string, any> = {
+      single_choice: {
+        question_text: '',
+        question_type: 'single_choice',
+        options: ['选项1', '选项2', '选项3'],
+        required: true,
+      },
+      multi_choice: {
+        question_text: '',
+        question_type: 'multi_choice',
+        options: ['选项1', '选项2', '选项3'],
+        required: true,
+      },
+      rating: {
+        question_text: '',
+        question_type: 'rating',
+        options: ['非常满意', '满意', '一般', '不满意'],
+        required: true,
+      },
+      text: {
+        question_text: '',
+        question_type: 'text',
+        required: false,
+      },
+    }
+    setQuestions([...questions, templates[type]])
+  }
+
+  // 一键使用默认问卷模板
+  const useDefaultTemplate = () => {
     setQuestions([
       {
         question_text: '您对本次活动的整体满意度如何？',
@@ -428,49 +457,91 @@ export default function SurveyAdminPage() {
             <View className="questions-section">
               <View className="questions-header">
                 <Text className="form-label">问题列表</Text>
-                <Button className="small-add-btn" onClick={addQuestion}>+ 添加问题</Button>
+              </View>
+
+              {/* 快捷操作 */}
+              <View className="quick-actions">
+                <Button className="template-btn" onClick={useDefaultTemplate}>
+                  使用默认问卷
+                </Button>
+                <View className="add-type-btns">
+                  <Button className="type-add-btn" onClick={() => addQuestion('single_choice')}>+ 单选</Button>
+                  <Button className="type-add-btn" onClick={() => addQuestion('multi_choice')}>+ 多选</Button>
+                  <Button className="type-add-btn" onClick={() => addQuestion('rating')}>+ 评分</Button>
+                  <Button className="type-add-btn" onClick={() => addQuestion('text')}>+ 文本</Button>
+                </View>
               </View>
               
-              {questions.map((q, index) => (
-                <View key={index} className="question-item">
-                  <View className="question-header">
-                    <Text className="question-num">Q{index + 1}</Text>
-                    <View className="question-type-select">
-                      <Text 
-                        className={`type-tag ${q.question_type === 'rating' ? 'active' : ''}`}
-                        onClick={() => updateQuestion(index, { question_type: 'rating' })}
-                      >
-                        打分
-                      </Text>
-                      <Text 
-                        className={`type-tag ${q.question_type === 'text' ? 'active' : ''}`}
-                        onClick={() => updateQuestion(index, { question_type: 'text' })}
-                      >
-                        文本
-                      </Text>
-                    </View>
-                    <Text className="remove-btn" onClick={() => removeQuestion(index)}>删除</Text>
-                  </View>
-                  <Input
-                    className="question-input"
-                    placeholder="输入问题内容"
-                    value={q.question_text}
-                    onInput={(e) => updateQuestion(index, { question_text: e.detail.value })}
-                  />
-                  {q.question_type === 'rating' && (
-                    <View className="rating-options">
-                      <Input
-                        className="option-input"
-                        placeholder="如: 1-5分 或 非常满意-不满意"
-                        value={(q.options || []).join(',')}
-                        onInput={(e) => updateQuestion(index, { 
-                          options: e.detail.value.split(',').map(s => s.trim()).filter(Boolean)
-                        })}
-                      />
-                    </View>
-                  )}
+              {questions.length === 0 ? (
+                <View className="empty-questions">
+                  <Text className="empty-tip">点击上方按钮添加题目</Text>
+                  <Text className="empty-tip-sub">或直接使用「默认问卷」快速创建</Text>
                 </View>
-              ))}
+              ) : (
+                questions.map((q, index) => (
+                  <View key={index} className="question-item">
+                    <View className="question-header">
+                      <Text className="question-num">Q{index + 1}</Text>
+                      <View className="question-type-select">
+                        <Text 
+                          className={`type-tag ${q.question_type === 'single_choice' ? 'active' : ''}`}
+                          onClick={() => updateQuestion(index, { question_type: 'single_choice', options: ['选项1', '选项2', '选项3'] })}
+                        >
+                          单选
+                        </Text>
+                        <Text 
+                          className={`type-tag ${q.question_type === 'multi_choice' ? 'active' : ''}`}
+                          onClick={() => updateQuestion(index, { question_type: 'multi_choice', options: ['选项1', '选项2', '选项3'] })}
+                        >
+                          多选
+                        </Text>
+                        <Text 
+                          className={`type-tag ${q.question_type === 'rating' ? 'active' : ''}`}
+                          onClick={() => updateQuestion(index, { question_type: 'rating', options: ['非常满意', '满意', '一般', '不满意'] })}
+                        >
+                          评分
+                        </Text>
+                        <Text 
+                          className={`type-tag ${q.question_type === 'text' ? 'active' : ''}`}
+                          onClick={() => updateQuestion(index, { question_type: 'text' })}
+                        >
+                          文本
+                        </Text>
+                      </View>
+                      <Text className="remove-btn" onClick={() => removeQuestion(index)}>删除</Text>
+                    </View>
+                    <Input
+                      className="question-input"
+                      placeholder="输入问题内容"
+                      value={q.question_text}
+                      onInput={(e) => updateQuestion(index, { question_text: e.detail.value })}
+                    />
+                    {q.question_type !== 'text' && (
+                      <View className="rating-options">
+                        <Input
+                          className="option-input"
+                          placeholder="选项（逗号分隔），如: 非常满意,满意,一般,不满意"
+                          value={(q.options || []).join(',')}
+                          onInput={(e) => updateQuestion(index, { 
+                            options: e.detail.value.split(',').map(s => s.trim()).filter(Boolean)
+                          })}
+                        />
+                      </View>
+                    )}
+                    {/* 必答开关 */}
+                    {q.question_type !== 'text' && (
+                      <View className="required-row">
+                        <Text 
+                          className={`required-toggle ${q.required ? 'active' : ''}`}
+                          onClick={() => updateQuestion(index, { required: !q.required })}
+                        >
+                          {q.required ? '✓ 必答' : '○ 选答'}
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                ))
+              )}
             </View>
 
             <View className="modal-actions">

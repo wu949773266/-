@@ -373,3 +373,80 @@
   border-radius: 6px;
   font-size: 24px;
 }
+
+/* 快捷操作按钮 */
+.quick-actions {
+  margin-bottom: 20px;
+}
+
+.template-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #2f6f4f, #4a9f7a);
+  color: #fff;
+  font-size: 28px;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 12px;
+}
+
+.template-btn::after {
+  border: none;
+}
+
+.add-type-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.type-add-btn {
+  flex: 1;
+  min-width: 70px;
+  padding: 10px 8px;
+  background: #e8f5e9;
+  color: #2f6f4f;
+  font-size: 22px;
+  border-radius: 8px;
+  border: none;
+}
+
+.type-add-btn::after {
+  border: none;
+}
+
+/* 空问题状态 */
+.empty-questions {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f5f8f6;
+  border-radius: 12px;
+}
+
+.empty-tip {
+  font-size: 28px;
+  color: #666;
+  display: block;
+}
+
+.empty-tip-sub {
+  font-size: 22px;
+  color: #999;
+  display: block;
+  margin-top: 8px;
+}
+
+/* 必答开关 */
+.required-row {
+  margin-top: 8px;
+}
+
+.required-toggle {
+  font-size: 24px;
+  color: #999;
+  padding: 4px 0;
+}
+
+.required-toggle.active {
+  color: #2f6f4f;
+}
