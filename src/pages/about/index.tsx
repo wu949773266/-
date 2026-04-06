@@ -2,7 +2,7 @@ import { View, Text } from '@tarojs/components'
 import Taro, { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
-import { LogOut, Mountain, ClipboardList } from 'lucide-react-taro'
+import { Mountain } from 'lucide-react-taro'
 import './index.css'
 
 const AboutPage: FC = () => {
@@ -13,7 +13,7 @@ const AboutPage: FC = () => {
     setAnimationTrigger(prev => prev + 1)
   })
 
-  // 配置分享给朋友（自动截取当前页面）
+  // 配置分享给朋友
   useShareAppMessage(() => {
     return {
       title: '山渡户外 - 关于我们',
@@ -21,7 +21,7 @@ const AboutPage: FC = () => {
     }
   })
 
-  // 配置分享到朋友圈（自动截取当前页面）
+  // 配置分享到朋友圈
   useShareTimeline(() => {
     return {
       title: '山渡户外 - 走山渡心，走进真正的山野',
@@ -29,26 +29,10 @@ const AboutPage: FC = () => {
     }
   })
 
-  // 关闭小程序
-  const handleCloseMiniProgram = () => {
-    Taro.exitMiniProgram({
-      success: () => {
-        console.log('小程序已关闭')
-      }
-    })
-  }
-
   // 跳转到招聘页面
   const handleGoToRecruit = () => {
     Taro.navigateTo({
       url: '/pages/recruit/index'
-    })
-  }
-
-  // 跳转到评价问卷（活动管理后台）
-  const handleGoToSurveyAdmin = () => {
-    Taro.navigateTo({
-      url: '/pages/survey-admin/index'
     })
   }
 
@@ -153,41 +137,6 @@ const AboutPage: FC = () => {
             <Text className="recruit-entry-desc">年轻人的团队 · 透明化 · 人性化</Text>
           </View>
           <View className="recruit-entry-arrow">→</View>
-        </View>
-      </View>
-
-      {/* 满意度调查管理入口 */}
-      <View 
-        className="recruit-entry-section"
-        onClick={handleGoToSurveyAdmin}
-      >
-        <View className="recruit-entry-card">
-          <View className="recruit-entry-icon">
-            <ClipboardList size={40} color="#2f6f4f" />
-          </View>
-          <View className="recruit-entry-content">
-            <Text className="recruit-entry-title">满意度调查管理</Text>
-            <Text className="recruit-entry-desc">创建活动问卷 · 查看评价数据</Text>
-          </View>
-          <View className="recruit-entry-arrow">→</View>
-        </View>
-      </View>
-
-      {/* 关闭小程序按钮 */}
-      <View
-        key={`close-btn-${animationTrigger}`}
-        className="close-mini-btn ai-enter-1"
-        onClick={handleCloseMiniProgram}
-      >
-        <View className="close-btn-content">
-          <View className="close-icon-wrapper">
-            <LogOut size={48} color="#2f6f4f" />
-          </View>
-          <View className="close-text-content">
-            <Text className="close-title">关闭小程序</Text>
-            <Text className="close-desc">点击返回微信</Text>
-          </View>
-          <View className="close-arrow">→</View>
         </View>
       </View>
     </View>

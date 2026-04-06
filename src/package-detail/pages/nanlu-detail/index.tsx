@@ -53,7 +53,7 @@ const NanluDetailPage = () => {
         <View className="back-button-container">
           <View
             className="back-button"
-            onClick={() => Taro.navigateBack()}
+            onClick={() => Taro.switchTab({ url: '/pages/routes/index' })}
           >
             <Text className="back-button-text">← 返回线路列表</Text>
           </View>
