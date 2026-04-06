@@ -224,12 +224,26 @@ export default function SurveyAdminPage() {
   }
 
   const addQuestion = () => {
-    setQuestions([...questions, {
-      question_text: '',
-      question_type: 'rating',
-      options: ['1分', '2分', '3分', '4分', '5分'],
-      required: true,
-    }])
+    // 标准满意度问卷模板：3个问题
+    setQuestions([
+      {
+        question_text: '您对本次活动的整体满意度如何？',
+        question_type: 'rating',
+        options: ['非常满意', '满意', '一般', '不满意'],
+        required: true,
+      },
+      {
+        question_text: '您对领队的服务满意吗？',
+        question_type: 'rating',
+        options: ['非常满意', '满意', '一般', '不满意'],
+        required: true,
+      },
+      {
+        question_text: '您有什么建议或想法？',
+        question_type: 'text',
+        required: false,
+      },
+    ])
   }
 
   const updateQuestion = (index: number, updates: Partial<Question>) => {
