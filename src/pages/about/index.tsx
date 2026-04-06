@@ -45,10 +45,10 @@ const AboutPage: FC = () => {
     })
   }
 
-  // 跳转到评价问卷
-  const handleGoToSurvey = () => {
+  // 跳转到评价问卷（活动管理后台）
+  const handleGoToSurveyAdmin = () => {
     Taro.navigateTo({
-      url: '/pages/survey/index'
+      url: '/pages/survey-admin/index'
     })
   }
 
@@ -156,18 +156,18 @@ const AboutPage: FC = () => {
         </View>
       </View>
 
-      {/* 满意度调查入口 */}
+      {/* 满意度调查管理入口 */}
       <View 
         className="recruit-entry-section"
-        onClick={handleGoToSurvey}
+        onClick={handleGoToSurveyAdmin}
       >
         <View className="recruit-entry-card">
           <View className="recruit-entry-icon">
             <ClipboardList size={40} color="#2f6f4f" />
           </View>
           <View className="recruit-entry-content">
-            <Text className="recruit-entry-title">满意度调查</Text>
-            <Text className="recruit-entry-desc">您的反馈是我们改进的动力</Text>
+            <Text className="recruit-entry-title">满意度调查管理</Text>
+            <Text className="recruit-entry-desc">创建活动问卷 · 查看评价数据</Text>
           </View>
           <View className="recruit-entry-arrow">→</View>
         </View>

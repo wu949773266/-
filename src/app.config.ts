@@ -6,7 +6,9 @@ export default {
     'pages/contact/index',
     'pages/about/index',
     'pages/recruit/index',
-    'pages/survey/index'
+    'pages/survey/index',
+    'pages/survey-admin/index',
+    'pages/survey-responses/index'
   ],
   subpackages: [
     {

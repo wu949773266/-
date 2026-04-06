@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { View, Text, Input, Radio, RadioGroup, Checkbox, CheckboxGroup, Button, Textarea } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import { View, Text, Radio, RadioGroup, Checkbox, CheckboxGroup, Button, Textarea } from '@tarojs/components'
+import Taro, { useRouter } from '@tarojs/taro'
 import { Network } from '@/network'
 import './index.css'
 
@@ -14,46 +14,33 @@ interface Question {
 
 interface Survey {
   id: number
+  activity_id: number
   title: string
   description: string
   questions: Question[]
 }
 
 export default function SurveyPage() {
+  const router = useRouter()
+  const activityId = router.params.activityId
+
   const [survey, setSurvey] = useState<Survey | null>(null)
-  const [userName, setUserName] = useState('')
   const [answers, setAnswers] = useState<Record<string, any>>({})
   const [loading, setLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
-  // 获取用户昵称
   useEffect(() => {
-    const getUserInfo = async () => {
-      try {
-        const res = await Taro.getUserProfile({
-          desc: '用于填写问卷调查',
-        })
-        if (res.userInfo?.nickName) {
-          setUserName(res.userInfo.nickName)
-        }
-      } catch (e) {
-        console.log('获取用户信息失败，使用默认昵称')
-      }
+    if (activityId) {
+      loadSurvey()
     }
-    getUserInfo()
-  }, [])
-
-  // 加载问卷
-  useEffect(() => {
-    loadSurvey()
-  }, [])
+  }, [activityId])
 
   const loadSurvey = async () => {
     try {
       setLoading(true)
       const res = await Network.request({
-        url: '/api/survey',
+        url: `/api/activity-survey/survey/activity/${activityId}`,
         method: 'GET',
       })
       console.log('获取问卷:', res)
@@ -100,19 +87,15 @@ export default function SurveyPage() {
   }
 
   const handleSubmit = async () => {
-    if (!userName.trim()) {
-      Taro.showToast({ title: '请输入您的称呼', icon: 'none' })
-      return
-    }
     if (!validateForm()) return
 
     try {
       setSubmitting(true)
       const res = await Network.request({
-        url: '/api/survey/response',
+        url: '/api/activity-survey/response',
         method: 'POST',
         data: {
-          userName: userName.trim(),
+          activityId: parseInt(activityId || '0'),
           answers,
         },
       })
@@ -204,7 +187,7 @@ export default function SurveyPage() {
       <View className="text-input-wrapper">
         <Textarea
           className="text-input"
-          placeholder={`请输入您的${question.question_text.replace(/^您/, '')}`}
+          placeholder="请输入您的反馈"
           value={answers[String(question.id)] || ''}
           onInput={(e) => handleAnswer(question.id, e.detail.value)}
           maxlength={500}
@@ -243,9 +226,9 @@ export default function SurveyPage() {
     return (
       <View className="container empty-container">
         <Text className="empty-text">暂无问卷</Text>
-        <Text className="empty-subtext">敬请期待后续活动</Text>
+        <Text className="empty-subtext">该活动暂无可用问卷</Text>
         <Button className="back-btn" onClick={() => Taro.navigateBack()}>
-          返回首页
+          返回
         </Button>
       </View>
     )
@@ -258,7 +241,7 @@ export default function SurveyPage() {
         <Text className="success-title">提交成功</Text>
         <Text className="success-text">感谢您的反馈，我们将不断改进</Text>
         <Button className="back-btn" onClick={() => Taro.navigateBack()}>
-          返回首页
+          返回
         </Button>
       </View>
     )
@@ -273,21 +256,7 @@ export default function SurveyPage() {
         )}
       </View>
 
-      <View className="user-name-section">
-        <Text className="section-label">您的称呼</Text>
-        <View className="name-input-wrapper">
-          <Input
-            className="name-input"
-            placeholder="请输入您的称呼（用于统计分析）"
-            value={userName}
-            onInput={(e) => setUserName(e.detail.value)}
-            maxlength={20}
-          />
-        </View>
-      </View>
-
       <View className="questions-section">
-        <Text className="section-label">问卷内容</Text>
         {survey.questions.map((q, index) => renderQuestion(q, index))}
       </View>
 
@@ -298,7 +267,7 @@ export default function SurveyPage() {
           loading={submitting}
           disabled={submitting}
         >
-          {submitting ? '提交中...' : '提交评价'}
+          {submitting ? '提交中...' : '匿名提交'}
         </Button>
       </View>
     </View>

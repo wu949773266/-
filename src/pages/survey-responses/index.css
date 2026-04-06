@@ -1,0 +1,281 @@
+/* 评价详情页面样式 */
+.container {
+  min-height: 100vh;
+  background: #f5f8f6;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: linear-gradient(135deg, #2f6f4f 0%, #4a8f6d 100%);
+  padding: 32px;
+  color: #fff;
+}
+
+.header-title {
+  font-size: 36px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.header-sub {
+  font-size: 26px;
+  opacity: 0.9;
+}
+
+.tab-bar {
+  display: flex;
+  background: #fff;
+  padding: 0 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 0;
+  font-size: 28px;
+  color: #666;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-item.active {
+  color: #2f6f4f;
+  border-bottom-color: #2f6f4f;
+}
+
+.content {
+  flex: 1;
+  padding: 24px;
+}
+
+/* 统计视图 */
+.stats-content {
+  padding-bottom: 40px;
+}
+
+.total-card {
+  background: linear-gradient(135deg, #2f6f4f 0%, #4a8f6d 100%);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.total-num {
+  font-size: 72px;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+}
+
+.total-label {
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.9);
+  display: block;
+  margin-top: 8px;
+}
+
+.questions-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.question-stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.q-stat-text {
+  font-size: 28px;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+/* 打分统计 */
+.rating-stat {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.rating-score {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.score-num {
+  font-size: 48px;
+  font-weight: 700;
+  color: #2f6f4f;
+}
+
+.score-max {
+  font-size: 24px;
+  color: #999;
+}
+
+.rating-bar-container {
+  flex: 1;
+  height: 16px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rating-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2f6f4f 0%, #4a8f6d 100%);
+  border-radius: 8px;
+  transition: width 0.3s;
+}
+
+/* 选项统计 */
+.options-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.option-name {
+  width: 120px;
+  font-size: 26px;
+  color: #666;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.option-bar-container {
+  flex: 1;
+  height: 12px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.option-bar {
+  height: 100%;
+  background: #2f6f4f;
+  border-radius: 6px;
+}
+
+.option-count {
+  width: 80px;
+  font-size: 24px;
+  color: #999;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* 文本回复 */
+.text-responses {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.text-item {
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.text-content {
+  font-size: 26px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.no-text {
+  font-size: 26px;
+  color: #999;
+  text-align: center;
+  padding: 20px;
+}
+
+/* 列表视图 */
+.list-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 40px;
+}
+
+.response-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.response-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.response-num {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2f6f4f;
+}
+
+.response-time {
+  font-size: 24px;
+  color: #999;
+}
+
+.response-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.answer-item {
+  padding: 8px 0;
+}
+
+.answer-text {
+  font-size: 26px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.empty-list {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.empty-text {
+  font-size: 28px;
+  color: #999;
+}
+
+.loading {
+  padding: 80px;
+  text-align: center;
+  color: #666;
+}
