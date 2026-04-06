@@ -12,6 +12,7 @@ interface Activity {
   description: string | null
   is_active: boolean
   created_at: string
+  admin_password?: string
 }
 
 interface Question {
@@ -26,6 +27,9 @@ export default function SurveyAdminPage() {
   const [loading, setLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
   const [showQuestionModal, setShowQuestionModal] = useState(false)
+  const [showPasswordModal, setShowPasswordModal] = useState(false)
+  const [passwordActivity, setPasswordActivity] = useState<Activity | null>(null)
+  const [passwordInput, setPasswordInput] = useState('')
   const [selectedActivity, setSelectedActivity] = useState<Activity | null>(null)
   
   // 表单状态
@@ -187,6 +191,32 @@ export default function SurveyAdminPage() {
     })
   }
 
+  const handleSetPassword = (activity: Activity) => {
+    setPasswordActivity(activity)
+    setPasswordInput('')
+    setShowPasswordModal(true)
+  }
+
+  const handleSavePassword = async () => {
+    if (!passwordActivity) return
+    if (!passwordInput.trim() || passwordInput.trim().length < 6) {
+      Taro.showToast({ title: '密码至少6位', icon: 'none' })
+      return
+    }
+    try {
+      await Network.request({
+        url: `/api/activity-survey/activity/${passwordActivity.id}/password`,
+        method: 'POST',
+        data: { password: passwordInput.trim() },
+      })
+      Taro.showToast({ title: '密码设置成功', icon: 'success' })
+      setShowPasswordModal(false)
+      loadActivities()
+    } catch (e) {
+      Taro.showToast({ title: '设置失败', icon: 'none' })
+    }
+  }
+
   const resetForm = () => {
     setFormName('')
     setFormDate('')
@@ -275,6 +305,12 @@ export default function SurveyAdminPage() {
                   <ChevronRight size={16} color="#999" />
                 </View>
                 <View 
+                  className="action-btn"
+                  onClick={() => handleSetPassword(activity)}
+                >
+                  <Text className="action-text text-sm">{activity.admin_password ? '改密码' : '设密码'}</Text>
+                </View>
+                <View 
                   className="action-btn delete"
                   onClick={() => handleDeleteActivity(activity.id)}
                 >
@@ -324,6 +360,34 @@ export default function SurveyAdminPage() {
               </Button>
               <Button className="confirm-btn" onClick={handleCreateActivity}>
                 创建
+              </Button>
+            </View>
+          </View>
+        </View>
+      )}
+
+      {/* 设置密码弹窗 */}
+      {showPasswordModal && (
+        <View className="modal-overlay" onClick={() => setShowPasswordModal(false)}>
+          <View className="modal" onClick={(e) => e.stopPropagation()}>
+            <Text className="modal-title">设置管理密码</Text>
+            <Text className="modal-subtitle">{passwordActivity?.name}</Text>
+            <View className="form-item">
+              <Text className="form-label">新密码（至少6位）</Text>
+              <Input
+                className="form-input"
+                type={'password' as any}
+                placeholder="请输入新密码"
+                value={passwordInput}
+                onInput={(e) => setPasswordInput(e.detail.value)}
+              />
+            </View>
+            <View className="modal-actions">
+              <Button className="cancel-btn" onClick={() => setShowPasswordModal(false)}>
+                取消
+              </Button>
+              <Button className="confirm-btn" onClick={handleSavePassword}>
+                保存
               </Button>
             </View>
           </View>

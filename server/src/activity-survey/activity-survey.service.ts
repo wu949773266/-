@@ -5,10 +5,15 @@ import { getSupabaseClient } from '@/storage/database/supabase-client';
 export class ActivitySurveyService {
   private client = getSupabaseClient();
 
+  // 生成6位查询码
+  private generateQueryCode(): string {
+    return Math.random().toString(36).substring(2, 8).toUpperCase();
+  }
+
   // ===== 活动管理 =====
 
   // 创建活动
-  async createActivity(name: string, date?: string, description?: string) {
+  async createActivity(name: string, date?: string, description?: string, adminPassword?: string) {
     const { data, error } = await this.client
       .from('activities')
       .insert({
@@ -16,6 +21,7 @@ export class ActivitySurveyService {
         date: date || null,
         description: description || null,
         is_active: true,
+        admin_password: adminPassword || null,
       })
       .select()
       .single();
@@ -47,8 +53,24 @@ export class ActivitySurveyService {
     return data;
   }
 
+  // 验证管理员密码
+  async verifyAdminPassword(activityId: number, password: string): Promise<boolean> {
+    const { data, error } = await this.client
+      .from('activities')
+      .select('admin_password')
+      .eq('id', activityId)
+      .maybeSingle();
+
+    if (error) throw new Error(`验证失败: ${error.message}`);
+    
+    // 如果没有设置密码，任何密码都可以访问（兼容旧数据）
+    if (!data?.admin_password) return true;
+    
+    return data.admin_password === password;
+  }
+
   // 更新活动
-  async updateActivity(id: number, updates: { name?: string; date?: string; description?: string; is_active?: boolean }) {
+  async updateActivity(id: number, updates: { name?: string; date?: string; description?: string; is_active?: boolean; admin_password?: string }) {
     const { data, error } = await this.client
       .from('activities')
       .update({
@@ -74,11 +96,21 @@ export class ActivitySurveyService {
     return { success: true };
   }
 
+  // 设置活动管理密码
+  async setActivityPassword(id: number, password: string) {
+    const { error } = await this.client
+      .from('activities')
+      .update({ admin_password: password })
+      .eq('id', id);
+
+    if (error) throw new Error(`设置密码失败: ${error.message}`);
+    return { success: true };
+  }
+
   // ===== 问卷管理 =====
 
   // 为活动创建问卷
   async createSurvey(activityId: number, title: string, description?: string) {
-    // 检查是否已存在问卷
     const existing = await this.client
       .from('activity_surveys')
       .select('id')
@@ -162,7 +194,7 @@ export class ActivitySurveyService {
     return data;
   }
 
-  // 删除问卷（同时删除问题和回答）
+  // 删除问卷
   async deleteSurvey(id: number) {
     const { error } = await this.client
       .from('activity_surveys')
@@ -175,7 +207,6 @@ export class ActivitySurveyService {
 
   // ===== 问题管理 =====
 
-  // 添加问题
   async addQuestion(
     surveyId: number,
     questionText: string,
@@ -201,7 +232,6 @@ export class ActivitySurveyService {
     return data;
   }
 
-  // 更新问题
   async updateQuestion(id: number, updates: { question_text?: string; question_type?: string; options?: string[]; required?: boolean; order_index?: number }) {
     const { data, error } = await this.client
       .from('activity_survey_questions')
@@ -214,7 +244,6 @@ export class ActivitySurveyService {
     return data;
   }
 
-  // 删除问题
   async deleteQuestion(id: number) {
     const { error } = await this.client
       .from('activity_survey_questions')
@@ -225,7 +254,6 @@ export class ActivitySurveyService {
     return { success: true };
   }
 
-  // 批量添加问题
   async addQuestions(surveyId: number, questions: Array<{
     question_text: string;
     question_type: string;
@@ -253,22 +281,38 @@ export class ActivitySurveyService {
 
   // ===== 回答管理 =====
 
-  // 提交回答（匿名）
+  // 提交回答（匿名，返回查询码）
   async submitResponse(surveyId: number, answers: Record<string, any>) {
+    const queryCode = this.generateQueryCode();
+    
     const { data, error } = await this.client
       .from('activity_survey_responses')
       .insert({
         survey_id: surveyId,
         answers,
+        query_code: queryCode, // 添加查询码
       })
       .select()
       .single();
 
     if (error) throw new Error(`提交回答失败: ${error.message}`);
+    return { ...data, query_code: queryCode };
+  }
+
+  // 通过查询码获取自己的回答
+  async getResponseByCode(surveyId: number, queryCode: string) {
+    const { data, error } = await this.client
+      .from('activity_survey_responses')
+      .select('*')
+      .eq('survey_id', surveyId)
+      .eq('query_code', queryCode)
+      .maybeSingle();
+
+    if (error) throw new Error(`查询回答失败: ${error.message}`);
     return data;
   }
 
-  // 获取活动的所有回答
+  // 获取活动的所有回答（需要管理员密码）
   async getActivityResponses(activityId: number) {
     const survey = await this.getSurveyByActivityId(activityId);
     if (!survey) return [];
@@ -306,7 +350,6 @@ export class ActivitySurveyService {
       question_stats: {},
     };
 
-    // 获取活动名称
     const activityRes = await this.client
       .from('activities')
       .select('name')
@@ -316,10 +359,23 @@ export class ActivitySurveyService {
       stats.activity_name = activityRes.data.name;
     }
 
-    // 统计每个问题
+    // 辅助函数：从 answers 中提取指定问题的答案
+    const extractAnswers = (answersField: any, questionId: string): any[] => {
+      if (!answersField) return [];
+      if (Array.isArray(answersField)) {
+        // 数组格式: [{"questionId": 4, "value": "5"}, ...]
+        return answersField
+          .filter((a: any) => String(a.questionId) === questionId)
+          .map((a: any) => a.value);
+      }
+      // 对象格式: {"4": "5", "5": "4", ...}
+      const val = answersField[questionId];
+      return val ? [val] : [];
+    };
+
     for (const question of surveyWithQuestions.questions) {
       const questionId = String(question.id);
-      const answers = data?.map((r) => r.answers?.[questionId]).filter(Boolean) || [];
+      const answers = data?.flatMap((r) => extractAnswers(r.answers, questionId)) || [];
 
       if (question.question_type === 'rating') {
         const numericAnswers = answers.map(Number).filter((n) => !isNaN(n));

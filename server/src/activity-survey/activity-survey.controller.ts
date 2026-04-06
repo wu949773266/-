@@ -10,9 +10,9 @@ export class ActivitySurveyController {
   // 创建活动
   @Post('activity')
   async createActivity(
-    @Body() body: { name: string; date?: string; description?: string }
+    @Body() body: { name: string; date?: string; description?: string; adminPassword?: string }
   ) {
-    const result = await this.service.createActivity(body.name, body.date, body.description);
+    const result = await this.service.createActivity(body.name, body.date, body.description, body.adminPassword);
     return { status: 'success', data: result };
   }
 
@@ -20,7 +20,12 @@ export class ActivitySurveyController {
   @Get('activities')
   async getActivities() {
     const data = await this.service.getActivities();
-    return { status: 'success', data };
+    // 不返回密码
+    const safeData = data?.map((a: any) => ({
+      ...a,
+      admin_password: undefined,
+    }));
+    return { status: 'success', data: safeData };
   }
 
   // 获取活跃活动（用户端用）
@@ -30,14 +35,34 @@ export class ActivitySurveyController {
     return { status: 'success', data };
   }
 
+  // 验证管理员密码
+  @Post('verify-password')
+  @HttpCode(HttpStatus.OK)
+  async verifyPassword(
+    @Body() body: { activityId: number; password: string }
+  ) {
+    const isValid = await this.service.verifyAdminPassword(body.activityId, body.password);
+    return { status: 'success', data: { isValid } };
+  }
+
   // 更新活动
   @Put('activity/:id')
   async updateActivity(
     @Param('id') id: string,
-    @Body() body: { name?: string; date?: string; description?: string; is_active?: boolean }
+    @Body() body: { name?: string; date?: string; description?: string; is_active?: boolean; admin_password?: string }
   ) {
     const result = await this.service.updateActivity(parseInt(id), body);
     return { status: 'success', data: result };
+  }
+
+  // 设置活动管理密码
+  @Post('activity/:id/password')
+  async setActivityPassword(
+    @Param('id') id: string,
+    @Body() body: { password: string }
+  ) {
+    await this.service.setActivityPassword(parseInt(id), body.password);
+    return { status: 'success', message: '密码设置成功' };
   }
 
   // 删除活动
@@ -49,7 +74,6 @@ export class ActivitySurveyController {
 
   // ===== 问卷管理接口 =====
 
-  // 为活动创建问卷
   @Post('survey')
   async createSurvey(
     @Body() body: { activityId: number; title: string; description?: string }
@@ -58,14 +82,12 @@ export class ActivitySurveyController {
     return { status: 'success', data: result };
   }
 
-  // 获取活动问卷（用户端用，通过活动ID）
   @Get('survey/activity/:activityId')
   async getActivitySurvey(@Param('activityId') activityId: string) {
     const data = await this.service.getActivitySurveyWithQuestions(parseInt(activityId));
     return { status: 'success', data };
   }
 
-  // 更新问卷
   @Put('survey/:id')
   async updateSurvey(
     @Param('id') id: string,
@@ -75,7 +97,6 @@ export class ActivitySurveyController {
     return { status: 'success', data: result };
   }
 
-  // 删除问卷
   @Delete('survey/:id')
   async deleteSurvey(@Param('id') id: string) {
     await this.service.deleteSurvey(parseInt(id));
@@ -84,7 +105,6 @@ export class ActivitySurveyController {
 
   // ===== 问题管理接口 =====
 
-  // 添加问题
   @Post('question')
   async addQuestion(
     @Body() body: {
@@ -107,7 +127,6 @@ export class ActivitySurveyController {
     return { status: 'success', data: result };
   }
 
-  // 批量添加问题
   @Post('questions')
   async addQuestions(
     @Body() body: {
@@ -125,7 +144,6 @@ export class ActivitySurveyController {
     return { status: 'success', data: result };
   }
 
-  // 更新问题
   @Put('question/:id')
   async updateQuestion(
     @Param('id') id: string,
@@ -135,7 +153,6 @@ export class ActivitySurveyController {
     return { status: 'success', data: result };
   }
 
-  // 删除问题
   @Delete('question/:id')
   async deleteQuestion(@Param('id') id: string) {
     await this.service.deleteQuestion(parseInt(id));
@@ -144,7 +161,7 @@ export class ActivitySurveyController {
 
   // ===== 回答管理接口 =====
 
-  // 提交回答（用户端用，匿名）
+  // 提交回答（用户端用，匿名，返回查询码）
   @Post('response')
   @HttpCode(HttpStatus.OK)
   async submitResponse(
@@ -158,21 +175,56 @@ export class ActivitySurveyController {
     const result = await this.service.submitResponse(survey.id, body.answers);
     return {
       status: 'success',
-      data: result,
+      data: { query_code: result.query_code },
       message: '提交成功，感谢您的反馈！',
     };
   }
 
-  // 获取活动的所有回答（后台用）
+  // 通过查询码查看自己的回答
+  @Get('my-response')
+  async getMyResponse(
+    @Query('activityId') activityId: string,
+    @Query('code') code: string
+  ) {
+    const survey = await this.service.getSurveyByActivityId(parseInt(activityId));
+    if (!survey) {
+      return { status: 'error', message: '该活动暂无可用问卷' };
+    }
+
+    const data = await this.service.getResponseByCode(survey.id, code);
+    if (!data) {
+      return { status: 'error', message: '未找到对应的回答，请核对查询码' };
+    }
+
+    return { status: 'success', data };
+  }
+
+  // 获取活动的所有回答（后台用，需要密码）
   @Get('responses/activity/:activityId')
-  async getActivityResponses(@Param('activityId') activityId: string) {
+  async getActivityResponses(
+    @Param('activityId') activityId: string,
+    @Query('password') password: string
+  ) {
+    const isValid = await this.service.verifyAdminPassword(parseInt(activityId), password);
+    if (!isValid) {
+      return { status: 'error', message: '管理员密码错误' };
+    }
+
     const data = await this.service.getActivityResponses(parseInt(activityId));
     return { status: 'success', data };
   }
 
-  // 获取活动的统计数据（后台用）
+  // 获取活动的统计数据（后台用，需要密码）
   @Get('stats/activity/:activityId')
-  async getActivityStats(@Param('activityId') activityId: string) {
+  async getActivityStats(
+    @Param('activityId') activityId: string,
+    @Query('password') password: string
+  ) {
+    const isValid = await this.service.verifyAdminPassword(parseInt(activityId), password);
+    if (!isValid) {
+      return { status: 'error', message: '管理员密码错误' };
+    }
+
     const data = await this.service.getActivityStats(parseInt(activityId));
     return { status: 'success', data };
   }

@@ -147,6 +147,10 @@
   color: #2f6f4f;
 }
 
+.action-text.text-sm {
+  font-size: 22px;
+}
+
 /* 空状态 */
 .empty {
   text-align: center;

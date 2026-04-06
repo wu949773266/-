@@ -76,6 +76,38 @@
   padding: 0 40px;
 }
 
+/* 查询码 */
+.query-code-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 48px;
+  margin: 0 32px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(47, 111, 79, 0.1);
+}
+
+.query-code-label {
+  font-size: 26px;
+  color: #666;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.query-code {
+  font-size: 48px;
+  font-weight: 700;
+  color: #2f6f4f;
+  letter-spacing: 8px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.query-code-tip {
+  font-size: 22px;
+  color: #999;
+  display: block;
+}
+
 /* 问卷头部 */
 .survey-header {
   background: linear-gradient(135deg, #2f6f4f 0%, #4a8f6d 100%);

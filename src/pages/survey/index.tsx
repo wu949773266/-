@@ -29,6 +29,7 @@ export default function SurveyPage() {
   const [loading, setLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [queryCode, setQueryCode] = useState('')
 
   useEffect(() => {
     if (activityId) {
@@ -101,6 +102,7 @@ export default function SurveyPage() {
       })
       console.log('提交评价:', res)
       if (res.data?.status === 'success') {
+        setQueryCode(res.data?.data?.query_code || '')
         setSubmitted(true)
         Taro.showToast({ title: '提交成功，感谢您的反馈！', icon: 'success' })
       } else {
@@ -240,6 +242,13 @@ export default function SurveyPage() {
         <View className="success-icon">✓</View>
         <Text className="success-title">提交成功</Text>
         <Text className="success-text">感谢您的反馈，我们将不断改进</Text>
+        {queryCode && (
+          <View className="query-code-section">
+            <Text className="query-code-label">您的查询码</Text>
+            <Text className="query-code">{queryCode}</Text>
+            <Text className="query-code-tip">请保存此查询码，可用于查看您的回答</Text>
+          </View>
+        )}
         <Button className="back-btn" onClick={() => Taro.navigateBack()}>
           返回
         </Button>
