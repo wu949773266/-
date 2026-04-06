@@ -2,7 +2,7 @@ import { View, Text } from '@tarojs/components'
 import Taro, { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
-import { LogOut, Mountain } from 'lucide-react-taro'
+import { LogOut, Mountain, ClipboardList } from 'lucide-react-taro'
 import './index.css'
 
 const AboutPage: FC = () => {
@@ -42,6 +42,13 @@ const AboutPage: FC = () => {
   const handleGoToRecruit = () => {
     Taro.navigateTo({
       url: '/pages/recruit/index'
+    })
+  }
+
+  // 跳转到评价问卷
+  const handleGoToSurvey = () => {
+    Taro.navigateTo({
+      url: '/pages/survey/index'
     })
   }
 
@@ -144,6 +151,23 @@ const AboutPage: FC = () => {
           <View className="recruit-entry-content">
             <Text className="recruit-entry-title">招贤纳士</Text>
             <Text className="recruit-entry-desc">年轻人的团队 · 透明化 · 人性化</Text>
+          </View>
+          <View className="recruit-entry-arrow">→</View>
+        </View>
+      </View>
+
+      {/* 满意度调查入口 */}
+      <View 
+        className="recruit-entry-section"
+        onClick={handleGoToSurvey}
+      >
+        <View className="recruit-entry-card">
+          <View className="recruit-entry-icon">
+            <ClipboardList size={40} color="#2f6f4f" />
+          </View>
+          <View className="recruit-entry-content">
+            <Text className="recruit-entry-title">满意度调查</Text>
+            <Text className="recruit-entry-desc">您的反馈是我们改进的动力</Text>
           </View>
           <View className="recruit-entry-arrow">→</View>
         </View>

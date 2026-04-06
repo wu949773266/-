@@ -5,7 +5,8 @@ export default {
     'pages/custom/index',
     'pages/contact/index',
     'pages/about/index',
-    'pages/recruit/index'
+    'pages/recruit/index',
+    'pages/survey/index'
   ],
   subpackages: [
     {
