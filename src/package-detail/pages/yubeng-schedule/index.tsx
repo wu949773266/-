@@ -46,13 +46,13 @@ const YubengSchedulePage: FC = () => {
 
   const faqs = [
     {
+      question: '住宿环境',
+      icon: '🏨'
+    },
+    {
       question: '什么时候适合去雨崩？',
       icon: '📅',
       image: 'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/yubeng/season_19cb5353.jpg?sign=1778179241-03f48782c1-0-8383bf5627bc5f01882ee3829e2c2f6124170a92312a91a7ad9bd7142c19e335'
-    },
-    {
-      question: '住宿环境',
-      icon: '🏨'
     }
   ]
 
@@ -65,10 +65,16 @@ const YubengSchedulePage: FC = () => {
 
   return (
     <ScrollView scrollY className="detail-page">
-      {/* 头部 */}
+      {/* 头部 - 透明打底 */}
       <View className="page-header">
-        <Text className="page-title">雨崩徒步</Text>
-        <Text className="page-subtitle">香格里拉秘境 · 四天四晚轻奢小团</Text>
+        <View className="header-bg">
+          <Image className="header-bg-image" mode="aspectFill" src={posterImages[0]} />
+          <View className="header-bg-overlay" />
+        </View>
+        <View className="header-content">
+          <Text className="page-title">雨崩徒步</Text>
+          <Text className="page-subtitle">香格里拉秘境 · 四天四晚轻奢小团</Text>
+        </View>
       </View>
 
       {/* 海报 */}
@@ -102,10 +108,7 @@ const YubengSchedulePage: FC = () => {
               {expandedFAQ === index && (
                 <>
                   <View className="faq-divider" />
-                  {faq.image && (
-                    <Image className="faq-image" mode="widthFix" src={faq.image} lazyLoad showMenuByLongpress />
-                  )}
-                  {index === 1 && (
+                  {index === 0 && (
                     <View className="hotel-content">
                       {hotelInfo.map((hotel, hIndex) => (
                         <View key={hIndex} className="hotel-card">
@@ -119,6 +122,9 @@ const YubengSchedulePage: FC = () => {
                         </View>
                       ))}
                     </View>
+                  )}
+                  {faq.image && (
+                    <Image className="faq-image" mode="widthFix" src={faq.image} lazyLoad showMenuByLongpress />
                   )}
                 </>
               )}
