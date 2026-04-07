@@ -65,16 +65,10 @@ const YubengSchedulePage: FC = () => {
 
   return (
     <ScrollView scrollY className="detail-page">
-      {/* 头部 - 透明打底 */}
+      {/* 头部 - 白色透明打底 */}
       <View className="page-header">
-        <View className="header-bg">
-          <Image className="header-bg-image" mode="aspectFill" src={posterImages[0]} />
-          <View className="header-bg-overlay" />
-        </View>
-        <View className="header-content">
-          <Text className="page-title">雨崩徒步</Text>
-          <Text className="page-subtitle">香格里拉秘境 · 四天四晚轻奢小团</Text>
-        </View>
+        <Text className="page-title">雨崩徒步</Text>
+        <Text className="page-subtitle">香格里拉秘境 · 四天四晚轻奢小团</Text>
       </View>
 
       {/* 海报 */}
