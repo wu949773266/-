@@ -49,8 +49,8 @@ const YubengSchedulePage: FC = () => {
     },
     {
       question: '什么时候适合去雨崩？',
-      icon: '📅'
-      // 季节图片需要用户手动添加
+      icon: '📅',
+      image: HOTEL_IMAGES.SEASON
     }
   ]
 
@@ -115,7 +115,9 @@ const YubengSchedulePage: FC = () => {
                       ))}
                     </View>
                   )}
-                  {/* 第二个FAQ暂无图片，季节图片待补充 */}
+                  {faq.image && (
+                    <Image className="faq-image" mode="widthFix" src={faq.image} lazyLoad showMenuByLongpress />
+                  )}
                 </>
               )}
             </View>
