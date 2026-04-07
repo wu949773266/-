@@ -96,98 +96,57 @@
   font-weight: 500;
 }
 
-/* ========== 主内容区域 ========== */
-.content-section {
-  padding: 24px 20px;
-  padding-bottom: 60px;
+/* ========== 摄影美图区 ========== */
+.gallery-section {
+  padding: 40px 20px;
 }
 
-/* ========== 信息卡片 ========== */
-.info-card {
-  background: #ffffff;
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.poster-item {
+  background: white;
   border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 20px rgba(47, 111, 79, 0.08);
-  border: 1px solid rgba(47, 111, 79, 0.06);
+  overflow: hidden;
+  box-shadow: 0 10px 30px -5px rgba(20, 60, 30, 0.15);
 }
 
-.card-fade-in-1 {
-  animation: fadeInUp 0.5s ease-out 0.1s both;
+.poster-fade-in-1 {
+  animation: posterFadeIn 0.5s ease-out 0s both;
 }
 
-@keyframes fadeInUp {
+.poster-fade-in-2 {
+  animation: posterFadeIn 0.5s ease-out 0.1s both;
+}
+
+.poster-fade-in-3 {
+  animation: posterFadeIn 0.5s ease-out 0.2s both;
+}
+
+.poster-fade-in-4 {
+  animation: posterFadeIn 0.5s ease-out 0.3s both;
+}
+
+@keyframes posterFadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.card-icon {
-  font-size: 28px;
-  flex-shrink: 0;
-}
-
-.card-title-box {
-  flex: 1;
-}
-
-.card-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #2f6f4f;
+.poster-image {
+  width: 100%;
   display: block;
-  line-height: 1.4;
 }
 
-.card-divider {
-  height: 1px;
-  background: linear-gradient(90deg, rgba(47, 111, 79, 0.15) 0%, transparent 100%);
-  margin: 16px 0;
-}
-
-/* ========== 服务列表 ========== */
-.service-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.service-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  background: #f8faf9;
-  border-radius: 12px;
-}
-
-.service-icon {
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.service-text {
-  font-size: 15px;
-  color: #3d5a4c;
-  line-height: 1.4;
-}
-
-/* ========== FAQ 问答区 ========== */
-.faq-section {
-  margin-top: 16px;
-}
-
+/* ========== 通用 Section Header ========== */
 .section-header {
   text-align: center;
   margin-bottom: 24px;
@@ -202,9 +161,15 @@
 }
 
 .section-subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #6b7f76;
   display: block;
+  letter-spacing: 2px;
+}
+
+/* ========== FAQ 问答区 ========== */
+.faq-section {
+  padding: 0 20px 40px;
 }
 
 .faq-list {
@@ -252,6 +217,12 @@
   font-weight: 600;
   color: #2f6f4f;
   line-height: 1.4;
+}
+
+.expand-icon {
+  font-size: 18px;
+  color: #6b7f76;
+  flex-shrink: 0;
 }
 
 .faq-divider {
@@ -319,6 +290,30 @@
   width: 100%;
   border-radius: 10px;
   display: block;
+}
+
+/* ========== 卡片动画 ========== */
+.card-fade-in-1 {
+  animation: fadeInUp 0.5s ease-out 0.1s both;
+}
+
+.card-fade-in-2 {
+  animation: fadeInUp 0.5s ease-out 0.2s both;
+}
+
+.card-fade-in-3 {
+  animation: fadeInUp 0.5s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ========== 返回按钮 ========== */

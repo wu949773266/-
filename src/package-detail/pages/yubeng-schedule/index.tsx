@@ -3,6 +3,7 @@ import { View, Text, Image, ScrollView } from '@tarojs/components'
 import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState, useEffect } from 'react'
 import type { FC } from 'react'
+import { YUBENG_IMAGES } from '../../config/images'
 import './index.css'
 
 // Q&A 数据
@@ -11,7 +12,6 @@ interface FAQItem {
   answer: string
   icon: string
   image?: string
-  isHtml?: boolean
 }
 
 const YubengSchedulePage: FC = () => {
@@ -156,6 +156,13 @@ D4:德钦 → 飞来寺观景台 → 香格里拉独克宗古城 → 丽江解�
     }
   ]
 
+  const posterImages = [
+    YUBENG_IMAGES.YUBENG_POSTER_1,
+    YUBENG_IMAGES.YUBENG_POSTER_2,
+    YUBENG_IMAGES.YUBENG_POSTER_3,
+    YUBENG_IMAGES.YUBENG_POSTER_4
+  ]
+
   return (
     <ScrollView scrollY className="detail-page">
       {/* 头部展示区 */}
@@ -181,109 +188,93 @@ D4:德钦 → 飞来寺观景台 → 香格里拉独克宗古城 → 丽江解�
         </View>
       </View>
 
-      {/* 主内容区域 */}
-      <View className="content-section">
-        {/* 服务亮点 */}
-        <View className="info-card card-fade-in-1">
-          <View className="card-header">
-            <View className="card-icon">✨</View>
-            <View className="card-title-box">
-              <Text className="card-title">服务内容</Text>
+      {/* 摄影美图 */}
+      <View className="gallery-section">
+        <View className="section-header">
+          <Text className="section-title">摄影美图</Text>
+          <Text className="section-subtitle">SHANDU PHOTO</Text>
+        </View>
+        <View className="gallery-container">
+          {posterImages.map((image, index) => (
+            <View
+              key={index}
+              className={`poster-item poster-fade-in-${index + 1}`}
+            >
+              <Image
+                className="poster-image"
+                mode="widthFix"
+                src={image}
+                lazyLoad
+                showMenuByLongpress
+              />
             </View>
-          </View>
-          <View className="card-divider" />
-          <View className="service-list">
-            <View className="service-item">
-              <Text className="service-icon">📷</Text>
-              <Text className="service-text">2-6人配备一位摄影领队（富士xh2/xt5）</Text>
-            </View>
-            <View className="service-item">
-              <Text className="service-icon">🏨</Text>
-              <Text className="service-text">4天4晚住宿</Text>
-            </View>
-            <View className="service-item">
-              <Text className="service-icon">🛡️</Text>
-              <Text className="service-text">高原户外意外险（保额50万）</Text>
-            </View>
-            <View className="service-item">
-              <Text className="service-icon">🎽</Text>
-              <Text className="service-text">提供：冲锋衣、登山杖、雨衣</Text>
-            </View>
-            <View className="service-item">
-              <Text className="service-icon">🚗</Text>
-              <Text className="service-text">2-4人5座车 / 5-6人7座商务车</Text>
-            </View>
-            <View className="service-item">
-              <Text className="service-icon">🎫</Text>
-              <Text className="service-text">门票+上下雨崩越野车</Text>
-            </View>
-          </View>
+          ))}
+        </View>
+      </View>
+
+      {/* FAQ 问答区 */}
+      <View className="faq-section">
+        <View className="section-header">
+          <Text className="section-title">常见问题</Text>
+          <Text className="section-subtitle">Q & A</Text>
         </View>
 
-        {/* FAQ 问答区 */}
-        <View className="faq-section">
-          <View className="section-header">
-            <Text className="section-title">常见问题</Text>
-            <Text className="section-subtitle">Q & A</Text>
-          </View>
-
-          <View className="faq-list">
-            {faqs.map((faq, index) => (
-              <View
-                key={index}
-                className={`faq-card card-fade-in-${(index % 3) + 1} ${expandedFAQ === index ? 'expanded' : ''}`}
-                onClick={() => toggleFAQ(index)}
-              >
-                <View className="faq-header">
-                  <View className="faq-icon">{faq.icon}</View>
-                  <View className="faq-question-box">
-                    <Text className="faq-question">{faq.question}</Text>
-                  </View>
-                  <Text className="expand-icon">{expandedFAQ === index ? '▲' : '▼'}</Text>
+        <View className="faq-list">
+          {faqs.map((faq, index) => (
+            <View
+              key={index}
+              className={`faq-card card-fade-in-${(index % 3) + 1} ${expandedFAQ === index ? 'expanded' : ''}`}
+              onClick={() => toggleFAQ(index)}
+            >
+              <View className="faq-header">
+                <View className="faq-icon">{faq.icon}</View>
+                <View className="faq-question-box">
+                  <Text className="faq-question">{faq.question}</Text>
                 </View>
-                {expandedFAQ === index && (
-                  <>
-                    {(faq.answer || faq.image) && <View className="faq-divider" />}
-                    <View className="faq-answer-box">
-                      {faq.answer && <Text className="faq-answer">{faq.answer}</Text>}
-                      {faq.image && (
-                        <Image
-                          className="faq-image"
-                          mode="widthFix"
-                          src={faq.image}
-                          lazyLoad
-                          showMenuByLongpress
-                        />
-                      )}
-                    </View>
-                    {/* 住宿环境内容 */}
-                    {index === 4 && (
-                      <View className="hotel-content">
-                        {hotelInfo.map((hotel, hIndex) => (
-                          <View key={hIndex} className="hotel-card">
-                            <Text className="hotel-title">{hotel.title}</Text>
-                            <Text className="hotel-note">{hotel.note}</Text>
-                            <View className="hotel-images">
-                              {hotelImages.slice(hIndex * 3, hIndex * 3 + 3).map((img, i) => (
-                                <Image
-                                  key={i}
-                                  className="hotel-image"
-                                  mode="widthFix"
-                                  src={img}
-                                  lazyLoad
-                                  showMenuByLongpress
-                                />
-                              ))}
-                            </View>
-                          </View>
-                        ))}
-                      </View>
-                    )}
-                  </>
-                )}
+                <Text className="expand-icon">{expandedFAQ === index ? '▲' : '▼'}</Text>
               </View>
-            ))}
-          </View>
+              {expandedFAQ === index && (
+                <>
+                  {(faq.answer || faq.image) && <View className="faq-divider" />}
+                  <View className="faq-answer-box">
+                    {faq.answer && <Text className="faq-answer">{faq.answer}</Text>}
+                    {faq.image && (
+                      <Image
+                        className="faq-image"
+                        mode="widthFix"
+                        src={faq.image}
+                        lazyLoad
+                        showMenuByLongpress
+                      />
+                    )}
+                  </View>
+                  {/* 住宿环境内容 */}
+                  {index === 4 && (
+                    <View className="hotel-content">
+                      {hotelInfo.map((hotel, hIndex) => (
+                        <View key={hIndex} className="hotel-card">
+                          <Text className="hotel-title">{hotel.title}</Text>
+                          <Text className="hotel-note">{hotel.note}</Text>
+                          <View className="hotel-images">
+                            {hotelImages.slice(hIndex * 3, hIndex * 3 + 3).map((img, i) => (
+                              <Image
+                                key={i}
+                                className="hotel-image"
+                                mode="widthFix"
+                                src={img}
+                                lazyLoad
+                                showMenuByLongpress
+                              />
+                            ))}
+                          </View>
+                        </View>
+                      ))}
+                    </View>
+                  )}
+                </>
+              )}
+            </View>
+          ))}
         </View>
       </View>
 
