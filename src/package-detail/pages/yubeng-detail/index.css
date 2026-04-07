@@ -204,49 +204,11 @@
   letter-spacing: 1px;
 }
 
-/* ========== 住宿环境展示 ========== */
-.hotel-section {
-  padding: 0 20px 20px;
-}
-
-.hotel-btn {
-  background: linear-gradient(135deg, #e8a657 0%, #d4863d 100%);
-  border-radius: 16px;
-  padding: 20px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(212, 134, 61, 0.35);
-  transition: all 0.3s ease;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-}
-
-.hotel-btn:active {
-  transform: translateY(-3px) scale(0.98);
-  box-shadow: 0 12px 32px rgba(212, 134, 61, 0.45);
-}
-
-.hotel-btn-text {
-  font-size: 18px;
-  font-weight: 700;
-  color: white;
-  letter-spacing: 2px;
-}
-
+/* ========== 住宿环境展示（嵌套在 FAQ 中）========== */
 .hotel-content {
   margin-top: 20px;
-  animation: hotelFadeIn 0.4s ease-out;
-}
-
-@keyframes hotelFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  padding-left: 52px;
+  animation: fadeIn 0.3s ease-out;
 }
 
 .hotel-card {
@@ -285,5 +247,153 @@
   width: 100%;
   border-radius: 12px;
   display: block;
+}
+
+/* ========== Q&A 问答区 ========== */
+.faq-section {
+  margin-top: 48px;
+  padding: 0 20px 32px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2f6f4f;
+  margin-bottom: 8px;
+  display: block;
+  line-height: 1.4;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #6b7f76;
+  font-weight: 500;
+  display: block;
+}
+
+/* FAQ 卡片列表 */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 32px;
+}
+
+.faq-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(47, 111, 79, 0.08);
+  border: 1px solid rgba(107, 127, 118, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-card:active {
+  transform: scale(0.98);
+}
+
+.faq-card.expanded {
+  border-color: #2f6f4f;
+  box-shadow: 0 4px 16px rgba(47, 111, 79, 0.15);
+}
+
+.faq-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.faq-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.faq-question-box {
+  flex: 1;
+}
+
+.faq-question {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2f6f4f;
+  line-height: 1.5;
+}
+
+.expand-icon {
+  font-size: 20px;
+  color: #6b7f76;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faq-card.expanded .expand-icon {
+  transform: rotate(180deg);
+}
+
+.faq-divider {
+  height: 1px;
+  background: linear-gradient(90deg, #6b7f76 0%, rgba(107, 127, 118, 0.2) 100%);
+  margin: 20px 0;
+}
+
+.faq-answer-box {
+  padding-left: 52px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.faq-answer {
+  font-size: 18px;
+  color: #4a5549;
+  line-height: 1.8;
+  white-space: pre-line;
+  display: block;
+}
+
+.faq-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 16px;
+  display: block;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 卡片淡入动画 */
+.card-fade-in-1 {
+  animation: fadeInUp 0.5s ease-out 0.1s both;
+}
+
+.card-fade-in-2 {
+  animation: fadeInUp 0.5s ease-out 0.2s both;
+}
+
+.card-fade-in-3 {
+  animation: fadeInUp 0.5s ease-out 0.3s both;
 }
 

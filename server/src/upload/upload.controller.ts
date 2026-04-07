@@ -34,4 +34,25 @@ export class UploadController {
       },
     };
   }
+
+  /**
+   * 上传雨崩 Q&A 图片
+   * POST /api/upload/yubeng-qa
+   */
+  @Post('yubeng-qa')
+  async uploadYubengQA() {
+    const files = [
+      { localPath: '../assets/IMG_0286.JPG', destName: 'yubeng/season.jpg' },
+    ];
+
+    const urls = await this.uploadService.batchUploadFiles(files);
+
+    return {
+      code: 200,
+      msg: 'success',
+      data: {
+        urls: Object.values(urls),
+      },
+    };
+  }
 }

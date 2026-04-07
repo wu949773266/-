@@ -22,6 +22,14 @@ const HOTEL_INFO = [
   },
 ]
 
+// Q&A 数据
+interface FAQItem {
+  question: string
+  answer: string
+  icon: string
+  image?: string
+}
+
 const YubengDetailPage: FC = () => {
   // 配置分享给朋友（自动截取当前页面）
   useShareAppMessage(() => {
@@ -39,7 +47,7 @@ const YubengDetailPage: FC = () => {
     }
   })
 
-  const [showHotel, setShowHotel] = useState(false)
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
   const [hotelImages, setHotelImages] = useState<string[]>([])
 
   // 页面加载时获取住宿图片 URL
@@ -60,6 +68,24 @@ const YubengDetailPage: FC = () => {
     }
     fetchHotelImages()
   }, [])
+
+  const toggleFAQ = (index: number) => {
+    setExpandedFAQ(expandedFAQ === index ? null : index)
+  }
+
+  const faqs: FAQItem[] = [
+    {
+      question: '什么时候适合去雨崩？',
+      answer: '雨崩最佳季节是4-6月和9-11月🌸\n4-6月：杜鹃花盛开，满山遍野的花海\n9-11月：秋高气爽，层林尽染\n12-3月：雪景绝美，但部分路段可能有积雪\n5-8月：雨季，景色一般，不推荐\n\n⚠️ 雨崩目前不需要预约，但节假日可能限流，建议提前规划',
+      icon: '📅',
+      image: 'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/yubeng/season_19cb5353.jpg?sign=1778179241-03f48782c1-0-8383bf5627bc5f01882ee3829e2c2f6124170a92312a91a7ad9bd7142c19e335'
+    },
+    {
+      question: '雨崩住宿环境怎么样？',
+      answer: '雨崩村条件有限，请合理预期\n\n详情请查看下方住宿环境介绍👇',
+      icon: '🏨'
+    }
+  ]
 
   const posterImages = [
     YUBENG_IMAGES.YUBENG_POSTER_1,
@@ -92,38 +118,70 @@ const YubengDetailPage: FC = () => {
         ))}
       </View>
 
-      {/* 住宿环境按钮 */}
-      <View className="hotel-section">
-        <View 
-          className="hotel-btn"
-          onClick={() => setShowHotel(!showHotel)}
-        >
-          <Text className="hotel-btn-text">{showHotel ? '收起住宿环境' : '查看住宿环境'}</Text>
+      {/* Q&A 问答区 */}
+      <View className="faq-section">
+        <View className="section-header">
+          <Text className="section-title">常见问题</Text>
+          <Text className="section-subtitle">Q & A</Text>
         </View>
 
-        {/* 住宿环境内容 */}
-        {showHotel && (
-          <View className="hotel-content">
-            {HOTEL_INFO.map((hotel, hIndex) => (
-              <View key={hIndex} className="hotel-card">
-                <Text className="hotel-title">{hotel.title}</Text>
-                <Text className="hotel-note">{hotel.note}</Text>
-                <View className="hotel-images">
-                  {hotelImages.slice(hIndex * 3, hIndex * 3 + 3).map((img, i) => (
-                    <Image
-                      key={i}
-                      className="hotel-image"
-                      mode="widthFix"
-                      src={img}
-                      lazyLoad
-                      showMenuByLongpress
-                    />
-                  ))}
+        <View className="faq-list">
+          {faqs.map((faq, index) => (
+            <View
+              key={index}
+              className={`faq-card card-fade-in-${(index % 3) + 1} ${expandedFAQ === index ? 'expanded' : ''}`}
+              onClick={() => toggleFAQ(index)}
+            >
+              <View className="faq-header">
+                <View className="faq-icon">{faq.icon}</View>
+                <View className="faq-question-box">
+                  <Text className="faq-question">{faq.question}</Text>
                 </View>
+                <Text className="expand-icon">{expandedFAQ === index ? '▲' : '▼'}</Text>
               </View>
-            ))}
-          </View>
-        )}
+              {expandedFAQ === index && (
+                <>
+                  <View className="faq-divider" />
+                  <View className="faq-answer-box">
+                    <Text className="faq-answer">{faq.answer}</Text>
+                    {faq.image && (
+                      <Image
+                        className="faq-image"
+                        mode="widthFix"
+                        src={faq.image}
+                        lazyLoad
+                        showMenuByLongpress
+                      />
+                    )}
+                  </View>
+                  {/* 酒店环境内容 */}
+                  {index === 1 && (
+                    <View className="hotel-content">
+                      {HOTEL_INFO.map((hotel, hIndex) => (
+                        <View key={hIndex} className="hotel-card">
+                          <Text className="hotel-title">{hotel.title}</Text>
+                          <Text className="hotel-note">{hotel.note}</Text>
+                          <View className="hotel-images">
+                            {hotelImages.slice(hIndex * 3, hIndex * 3 + 3).map((img, i) => (
+                              <Image
+                                key={i}
+                                className="hotel-image"
+                                mode="widthFix"
+                                src={img}
+                                lazyLoad
+                                showMenuByLongpress
+                              />
+                            ))}
+                          </View>
+                        </View>
+                      ))}
+                    </View>
+                  )}
+                </>
+              )}
+            </View>
+          ))}
+        </View>
       </View>
 
       {/* 返回按钮 */}
