@@ -140,41 +140,19 @@ const YubengSchedulePage: FC = () => {
   const posterImages = [
     YUBENG_IMAGES.YUBENG_POSTER_1,
     YUBENG_IMAGES.YUBENG_POSTER_2,
-    YUBENG_IMAGES.YUBENG_POSTER_3,
     YUBENG_IMAGES.YUBENG_POSTER_4
   ]
 
   return (
     <ScrollView scrollY className="detail-page">
       {/* 头部展示区 */}
-      <View className="page-header-section">
-        <View className="header-bg-gradient" />
-        <View className="header-overlay" />
-        <View className="header-content">
-          <View className="tag">
-            <Text className="tag-text">4天4晚</Text>
-          </View>
-          <Text className="page-title">雨崩徒步摄影4日游</Text>
-          <View className="tag-container">
-            <View className="tag-small">
-              <Text className="tag-small-text">2-6人小团</Text>
-            </View>
-            <View className="tag-small">
-              <Text className="tag-small-text">全程拍摄</Text>
-            </View>
-            <View className="tag-small">
-              <Text className="tag-small-text">难度 ⭐⭐</Text>
-            </View>
-          </View>
-        </View>
+      <View className="page-header">
+        <Text className="page-title">雨崩徒步</Text>
+        <Text className="page-subtitle">香格里拉秘境 · 四天四晚轻奢小团</Text>
       </View>
 
       {/* 摄影美图 */}
       <View className="gallery-section">
-        <View className="section-header">
-          <Text className="section-title">摄影美图</Text>
-          <Text className="section-subtitle">SHANDU PHOTO</Text>
-        </View>
         <View className="gallery-container">
           {posterImages.map((image, index) => (
             <View

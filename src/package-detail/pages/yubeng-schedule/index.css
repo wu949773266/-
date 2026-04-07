@@ -4,66 +4,10 @@
 }
 
 /* ========== 头部展示区 ========== */
-.page-header-section {
-  position: relative;
-  height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.header-bg-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.page-header {
   background: linear-gradient(135deg, #1a4d3e 0%, #2f6f4f 50%, #4a8b6f 100%);
-}
-
-.header-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.header-content {
-  position: relative;
-  z-index: 1;
+  padding: 48px 24px 40px;
   text-align: center;
-  padding: 0 24px;
-  animation: headerFadeIn 0.6s ease-out;
-}
-
-@keyframes headerFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.tag {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 6px 16px;
-  margin-bottom: 16px;
-  backdrop-filter: blur(10px);
-}
-
-.tag-text {
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
 }
 
 .page-title {
@@ -71,29 +15,16 @@
   font-size: 2rem;
   font-weight: 700;
   color: white;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   letter-spacing: 2px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.tag-container {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.tag-small {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  padding: 6px 14px;
-  backdrop-filter: blur(8px);
-}
-
-.tag-small-text {
-  color: white;
-  font-size: 13px;
-  font-weight: 500;
+.page-subtitle {
+  display: block;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 1px;
 }
 
 /* ========== 摄影美图区 ========== */
