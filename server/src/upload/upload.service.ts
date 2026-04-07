@@ -71,4 +71,24 @@ export class UploadService {
 
     return result;
   }
+
+  /**
+   * 批量生成图片签名 URL
+   */
+  async generateImageUrls(keys: string[]): Promise<string[]> {
+    const urls: string[] = [];
+    for (const key of keys) {
+      try {
+        const url = await this.storage.generatePresignedUrl({
+          key,
+          expireTime: 30 * 24 * 60 * 60, // 30 天
+        });
+        urls.push(url);
+      } catch (error) {
+        console.error(`Failed to generate URL for ${key}:`, error);
+        urls.push('');
+      }
+    }
+    return urls;
+  }
 }
