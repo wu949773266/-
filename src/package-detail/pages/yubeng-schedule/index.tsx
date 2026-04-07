@@ -3,20 +3,20 @@ import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
 import { YUBENG_IMAGES } from '../../config/images'
-import { HOTEL_IMAGES } from '../../config/hotel_images'
+import imgData from '../../config/hotel_images'
 import './index.css'
 
 // 住宿图片直接使用本地 Base64
 const hotelImages = [
-  HOTEL_IMAGES.HOTEL_1,
-  HOTEL_IMAGES.HOTEL_2,
-  HOTEL_IMAGES.HOTEL_3,
-  HOTEL_IMAGES.HOTEL_4,
-  HOTEL_IMAGES.HOTEL_5,
-  HOTEL_IMAGES.HOTEL_6,
-  HOTEL_IMAGES.HOTEL_7,
-  HOTEL_IMAGES.HOTEL_8,
-  HOTEL_IMAGES.HOTEL_9,
+  imgData.HOTEL_1,
+  imgData.HOTEL_2,
+  imgData.HOTEL_3,
+  imgData.HOTEL_4,
+  imgData.HOTEL_5,
+  imgData.HOTEL_6,
+  imgData.HOTEL_7,
+  imgData.HOTEL_8,
+  imgData.HOTEL_9,
 ]
 
 const YubengSchedulePage: FC = () => {
@@ -50,7 +50,7 @@ const YubengSchedulePage: FC = () => {
     {
       question: '什么时候适合去雨崩？',
       icon: '📅',
-      image: HOTEL_IMAGES.SEASON
+      image: imgData.SEASON
     }
   ]
 
