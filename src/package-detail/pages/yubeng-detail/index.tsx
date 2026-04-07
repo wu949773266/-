@@ -5,17 +5,17 @@ import type { FC } from 'react'
 import { YUBENG_IMAGES } from '../../config/images'
 import './index.css'
 
-// 住宿环境图片
+// 住宿环境图片（来自 TOS 对象存储）
 const HOTEL_IMAGES = [
-  'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260408021401_340.jpg&nonce=b3ee52aa-9d25-45c6-811c-449bb02edec9&project_id=7616065616637886464&sign=cec66a812168a8c0bf4ec0a44397a8110457c1f8f38171a10c73237fd47f0d7c',
-  'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260408021401_342.jpg&nonce=7d92fd1a-44bf-4b96-b03b-6c391ea96262&project_id=7616065616637886464&sign=fc1e2e42dc62e233aecd130d18da0dd4fee55b1a1fa69d8ed0b7c19325335637',
-  'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260408021401_344.jpg&nonce=10b6e7e9-8125-4dc1-b5d5-1bcf510880c1&project_id=7616065616637886464&sign=e7a4f5989a3bba32c4b45902e50d99b9e79322895c820232296197293680194c',
-  'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260408021633_401.jpg&nonce=5681bd62-f39b-48d7-a152-3d22b1d67f12&project_id=7616065616637886464&sign=917ae30c32dfdf2f27c2fdb8040e60790cd3d3f24d013dffb96bebc9442702ff',
-  'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260408021723_414.jpg&nonce=fcf4a5f1-6784-4980-ab8d-98f71b15fd24&project_id=7616065616637886464&sign=cb6a3db321c0c6337816f97332b288d3ea7fa1305221537717e4445f09e2af7f',
-  'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260408021633_395.jpg&nonce=53268dd9-1c4b-4e13-9273-c38cfdcf24d7&project_id=7616065616637886464&sign=9af2204bac1898e5fa9ed24ecd99b83a5b6b04e0f6f26b471cb01150d15cecdc',
-  'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260408021401_350.jpg&nonce=c7c875f4-1444-4c09-a84e-093467680f64&project_id=7616065616637886464&sign=a21600c62302d737701a011752eebb2c86bb63a6398d7e4f52df5d5a58952335',
-  'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260408021401_352.jpg&nonce=d7025031-3570-4b6b-a93f-355b670bfe33&project_id=7616065616637886464&sign=33659910ee75926349550becdfff465b83705efbd2e4ecbbd7dd5ae3a18632c2',
-  'https://code.coze.cn/api/sandbox/coze_coding/file/proxy?expire_time=-1&file_path=assets%2F%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260408021401_354.jpg&nonce=53861942-5a8c-4f1f-b5a9-e0e80339ab93&project_id=7616065616637886464&sign=350d053ea214bb800802725433e5ae1fa43d8019a09f2ce54209e0230686b428',
+  'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/hotel/yubeng-1_ce2f7647.jpg?sign=1778178617-382f625685-0-89f3a9d824ab685bf000ea1a907444eb04e4a49e8a8365428a2209b7bc4bb07e',
+  'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/hotel/yubeng-2_b05f149a.jpg?sign=1778178617-eed4933e52-0-3c0173d194927c383de045deadfe82ea8cbdd0a6c3eba7e70113fcfba21982a7',
+  'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/hotel/yubeng-3_f64706a7.jpg?sign=1778178618-ffa3ece8fd-0-fec6bc46f0203c832700e7e329ab08b780fc2f00e340a157c7a7e45d73505a3b',
+  'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/hotel/yubeng-4_b55fa8b6.jpg?sign=1778178618-7afadb98d7-0-daf325aefdbbb46d5d83f3a5c3fe967592e9653beb290055320b3e6763b63a2d',
+  'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/hotel/yubeng-5_265bf4a3.jpg?sign=1778178618-8fab67d214-0-ab255910912d15cafc47fd6393229fc6b3c9d4c65921f42f410e0698972cac0d',
+  'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/hotel/yubeng-6_689981cb.jpg?sign=1778178618-4b3a09aba9-0-cc47e7ebf7c1be7182aaa9a0509e577323bcdb60e60300452efedcb4124760d8',
+  'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/hotel/yubeng-7_572cc2d8.jpg?sign=1778178618-ae735d6552-0-7e00df4faa957f9eef86a239c76a3ec529f53313c0cf682054aba318ba5645ab',
+  'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/hotel/yubeng-8_43234894.jpg?sign=1778178619-1d1a261063-0-f96cceac61bd6b4d800dd707f14ff282b82d7d1376b68d42afc5eb6c119ca4d5',
+  'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/hotel/yubeng-9_03c2c983.jpg?sign=1778178619-ba2764b412-0-b10b03b1c894b6e421db6a28d82ad31b2d4c0638370a8e141513f5dd46694521',
 ]
 
 // 住宿说明
