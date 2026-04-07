@@ -138,9 +138,7 @@ const YubengSchedulePage: FC = () => {
   ]
 
   const posterImages = [
-    YUBENG_IMAGES.YUBENG_POSTER_1,
-    YUBENG_IMAGES.YUBENG_POSTER_2,
-    YUBENG_IMAGES.YUBENG_POSTER_4
+    YUBENG_IMAGES.YUBENG_POSTER_1
   ]
 
   return (
@@ -168,6 +166,62 @@ const YubengSchedulePage: FC = () => {
               />
             </View>
           ))}
+        </View>
+      </View>
+
+      {/* 温馨提示 */}
+      <View className="content-section">
+        <View className="info-card card-fade-in-1 expanded">
+          <View className="card-header">
+            <View className="card-icon">📋</View>
+            <View className="card-title-box">
+              <Text className="card-title">温馨提示</Text>
+            </View>
+          </View>
+          <View className="card-divider" />
+          <View className="tips-section">
+            <Text className="tips-text">
+              {`1. 徒步日不用携带大件行李，徒步起点和终点是同一地点，仅携带徒步过程中的一些补充能量的零食及饮用水和干餐路餐即可。
+
+2. 如遇人力不可抗因素，如塌方、路阻、车辆故障、当地政府行为等造成行程延误，或不能完成完整线路游玩，领队有权取消行程或调整行程，领队不承担赔偿责任，由此产生的超支费用由游客自理。
+
+3. 注意安全，听从领队安排，遵守团队纪律，集合啦动，不稿离开队伍，违反纪律，后果自负。
+
+4. 迪庆州境内是藏民聚居区，要尊重藏族的宗教信仰和生活习惯，绝对不要与藏族同胞发生冲突，如因个人原因与当地居民发生冲突造成后果的，领队概不负责。`}
+            </Text>
+          </View>
+        </View>
+
+        {/* 费用包含 */}
+        <View className="info-card card-fade-in-2 expanded">
+          <View className="card-header">
+            <View className="card-icon">💰</View>
+            <View className="card-title-box">
+              <Text className="card-title">费用包含</Text>
+            </View>
+          </View>
+          <View className="card-divider" />
+          <View className="fee-section">
+            <Text className="fee-text">
+              {`1. 住宿：丽江/雨崩/雨崩/德钦 共4晚
+
+2. 用车：2-4人安排5座SUV/轿车，5-6人安排7座商务车
+
+3. 门票：雨崩景区门票费
+
+4. 领队：2-6人配备一位全职向导领队
+
+5. 保险：50万元保额旅游意外险
+
+6. 拍摄：相机、手机、无人机
+
+7. 接机：丽江三义机场免费接机
+
+8. 礼品：山渡户外俱乐部雨崩定制奖牌一枚
+
+9. 装备：免费提供冲锋衣、登山杖、护目镜（雨雪天免费提供雨衣、冰爪、雪套）`}
+            </Text>
+          </View>
         </View>
       </View>
 

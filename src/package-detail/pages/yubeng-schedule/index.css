@@ -181,6 +181,32 @@
   display: block;
 }
 
+/* ========== 温馨提示 ========== */
+.tips-section {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.tips-text {
+  font-size: 14px;
+  color: #4a5549;
+  line-height: 1.9;
+  white-space: pre-line;
+  display: block;
+}
+
+/* ========== 费用包含 ========== */
+.fee-section {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.fee-text {
+  font-size: 14px;
+  color: #4a5549;
+  line-height: 1.9;
+  white-space: pre-line;
+  display: block;
+}
+
 /* ========== 住宿环境 ========== */
 .hotel-content {
   margin-top: 16px;
