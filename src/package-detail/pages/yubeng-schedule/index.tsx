@@ -1,10 +1,23 @@
-import { Network } from '@/network'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
 import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import type { FC } from 'react'
 import { YUBENG_IMAGES } from '../../config/images'
+import { HOTEL_IMAGES } from '../../config/hotel_images'
 import './index.css'
+
+// 住宿图片直接使用本地 Base64
+const hotelImages = [
+  HOTEL_IMAGES.HOTEL_1,
+  HOTEL_IMAGES.HOTEL_2,
+  HOTEL_IMAGES.HOTEL_3,
+  HOTEL_IMAGES.HOTEL_4,
+  HOTEL_IMAGES.HOTEL_5,
+  HOTEL_IMAGES.HOTEL_6,
+  HOTEL_IMAGES.HOTEL_7,
+  HOTEL_IMAGES.HOTEL_8,
+  HOTEL_IMAGES.HOTEL_9,
+]
 
 const YubengSchedulePage: FC = () => {
   useShareAppMessage(() => ({
@@ -18,21 +31,6 @@ const YubengSchedulePage: FC = () => {
   }))
 
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
-  const [hotelImages, setHotelImages] = useState<string[]>([])
-
-  useEffect(() => {
-    const fetchHotelImages = async () => {
-      try {
-        const res = await Network.request({ url: '/api/hotel/images', method: 'GET' })
-        if (res.data?.code === 200 && res.data?.data?.images) {
-          setHotelImages(res.data.data.images)
-        }
-      } catch (error) {
-        console.error('获取住宿图片失败:', error)
-      }
-    }
-    fetchHotelImages()
-  }, [])
 
   const toggleFAQ = (index: number) => {
     setExpandedFAQ(expandedFAQ === index ? null : index)
@@ -51,8 +49,8 @@ const YubengSchedulePage: FC = () => {
     },
     {
       question: '什么时候适合去雨崩？',
-      icon: '📅',
-      image: 'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/yubeng/season_19cb5353.jpg?sign=1778179241-03f48782c1-0-8383bf5627bc5f01882ee3829e2c2f6124170a92312a91a7ad9bd7142c19e335'
+      icon: '📅'
+      // 季节图片需要用户手动添加
     }
   ]
 
@@ -117,9 +115,7 @@ const YubengSchedulePage: FC = () => {
                       ))}
                     </View>
                   )}
-                  {faq.image && (
-                    <Image className="faq-image" mode="widthFix" src={faq.image} lazyLoad showMenuByLongpress />
-                  )}
+                  {/* 第二个FAQ暂无图片，季节图片待补充 */}
                 </>
               )}
             </View>
