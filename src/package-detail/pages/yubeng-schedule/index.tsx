@@ -129,6 +129,11 @@ D4:德钦 → 飞来寺观景台 → 香格里拉独克宗古城 → 丽江解�
 
   const faqs: FAQItem[] = [
     {
+      question: '住宿环境',
+      answer: '',
+      icon: '🏨'
+    },
+    {
       question: '什么时候适合去雨崩？',
       answer: '',
       icon: '📅',
@@ -148,11 +153,6 @@ D4:德钦 → 飞来寺观景台 → 香格里拉独克宗古城 → 丽江解�
       question: '需要准备什么装备？',
       answer: gearText,
       icon: '🎒'
-    },
-    {
-      question: '住宿环境',
-      answer: '',
-      icon: '🏨'
     }
   ]
 
