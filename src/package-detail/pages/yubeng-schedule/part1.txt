@@ -1,0 +1,98 @@
+import { Network } from '@/network'
+import { View, Text, Image, ScrollView } from '@tarojs/components'
+import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
+import { useState, useEffect } from 'react'
+import type { FC } from 'react'
+import { YUBENG_IMAGES } from '../../config/images'
+import './index.css'
+
+const YubengSchedulePage: FC = () => {
+  useShareAppMessage(() => ({
+    title: '雨崩徒步摄影4日游 - 山渡户外',
+    path: '/package-detail/pages/yubeng-schedule/index'
+  }))
+
+  useShareTimeline(() => ({
+    title: '雨崩徒步摄影4日游 - 香格里拉秘境',
+    query: ''
+  }))
+
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({
+    schedule: true,
+    fee: true,
+    gear: false,
+    hotel: false,
+    tips: false
+  })
+  const [hotelImages, setHotelImages] = useState<string[]>([])
+
+  useEffect(() => {
+    const fetchHotelImages = async () => {
+      try {
+        const res = await Network.request({ url: '/api/hotel/images', method: 'GET' })
+        if (res.data?.code === 200 && res.data?.data?.images) {
+          setHotelImages(res.data.data.images)
+        }
+      } catch (error) {
+        console.error('获取住宿图片失败:', error)
+      }
+    }
+    fetchHotelImages()
+  }, [])
+
+  const toggleSection = (section: string) => {
+    setExpanded(prev => ({ ...prev, [section]: !prev[section] }))
+  }
+
+  const dailySchedule = [
+    { day: 'D0', title: '丽江集合', highlights: ['丽江机场接机', '入住丽江酒店'], desc: '出发前一晚买丽江三义国际机场机票，机场接机到酒店入住。' },
+    { day: 'D1', title: '丽江 → 雨崩', highlights: ['尼农峡谷徒步12.5KM', '乘坐越野车进村'], desc: '早上7点出发 → 奔子栏午餐 → 尼龙徒步起点 → 到达下雨崩乘越野车到上雨崩酒店休息。' },
+    { day: 'D2', title: '冰湖线', highlights: ['笑农大本营', '冰湖冲顶'], desc: '出发冰湖线 → 笑农大本营 → 冲顶冰湖 - 下撤 → 酒店晚餐休息。往返13KM，用时7-9小时。' },
+    { day: 'D3', title: '神瀑线 → 出村', highlights: ['神瀑大本营', '出村徒步'], desc: '乘越野车出发神瀑线 → 神瀑大本营 → 冲顶神瀑 - 下撤 → 出村 → 德钦酒店。' },
+    { day: 'D4', title: '德钦 → 丽江解散', highlights: ['梅里雪山日照金山', '香格里拉独克宗古城'], desc: '观梅里雪山日照金山 → 独克宗古城 → 午餐后返回丽江。' }
+  ]
+
+  const feeList = [
+    '住宿：丽江/雨崩/雨崩/德钦 共4晚',
+    '用车：2-4人安排5座SUV，5-6人安排7座商务车',
+    '门票：雨崩景区门票费',
+    '领队：2-6人配备一位全职向导领队',
+    '保险：50万元保额旅游意外险',
+    '拍摄：相机、手机、无人机',
+    '接机：丽江三义机场免费接机',
+    '礼品：山渡户外俱乐部雨崩定制奖牌一枚',
+    '装备：免费提供冲锋衣、登山杖、护目镜（雨雪天提供雨衣、冰爪、雪套）'
+  ]
+
+  const hotelInfo = [
+    { title: '雨崩酒店', note: '（独立入住+400/晚）' },
+    { title: '德钦酒店', note: '（独立入住+200/晚）' },
+    { title: '丽江酒店', note: '（独立入住+200/晚）' }
+  ]
+
+  const tipsList = [
+    '徒步日不用携带大件行李，仅携带零食及饮用水即可。',
+    '如遇人力不可抗因素，领队有权调整行程。',
+    '注意安全，听从领队安排，遵守团队纪律。',
+    '迪庆州境内是藏民聚居区，要尊重藏族宗教信仰。'
+  ]
+
+  const highlights = [
+    { icon: '🏔️', title: '专业向导', desc: '全职领队带队' },
+    { icon: '📷', title: '全程跟拍', desc: '相机+无人机' },
+    { icon: '👥', title: '轻奢小团', desc: '2-6人精品' },
+    { icon: '🎁', title: '赠送装备', desc: '冲锋衣+登山杖' }
+  ]
+
+  const steps = [
+    { num: '01', title: '预约报名', desc: '联系客服确认档期' },
+    { num: '02', title: '支付定金', desc: '预付1000元锁定名额' },
+    { num: '03', title: '出发徒步', desc: '剩余费用出发日付清' }
+  ]
+
+  return (
+    <ScrollView scrollY className="detail-page">
+      {/* 头部 */}
+      <View className="page-header">
+        <View className="header-bg">
+          <Image className="header-bg-image" mode="aspectFill" src={YUBENG_IMAGES.YUBENG

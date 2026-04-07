@@ -1,379 +1,107 @@
-.detail-page {
-  min-height: 100vh;
-  background: #f5f5f0;
-}
+.detail-page { min-height: 100vh; background: #f5f5f0; }
 
-/* ========== 头部 ========== */
-.page-header {
-  background: linear-gradient(180deg, #1a4d3e 0%, #2d5a47 100%);
-  padding: 60px 24px 40px;
-  text-align: center;
-  position: relative;
-}
+/* 头部 */
+.page-header { position: relative; height: 320px; overflow: hidden; }
+.header-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+.header-bg-image { width: 100%; height: 100%; }
+.header-bg-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(26,77,62,0.7) 0%, rgba(26,77,62,0.85) 100%); }
+.header-content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; }
+.header-badge { background: rgba(255,255,255,0.2); padding: 6px 16px; border-radius: 20px; margin-bottom: 12px; }
+.header-badge-text { color: white; font-size: 13px; font-weight: 600; }
+.page-title { font-size: 2.4rem; font-weight: 800; color: white; letter-spacing: 3px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.page-subtitle { font-size: 1rem; color: rgba(255,255,255,0.9); margin-top: 8px; }
+.header-stats { display: flex; align-items: center; gap: 16px; margin-top: 20px; background: rgba(0,0,0,0.2); padding: 12px 24px; border-radius: 30px; }
+.stat-item { text-align: center; }
+.stat-num { font-size: 1.3rem; font-weight: 800; color: #ffd700; }
+.stat-label { font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 2px; }
+.stat-divider { width: 1px; height: 30px; background: rgba(255,255,255,0.3); }
 
-.page-header::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 24px;
-  background: #f5f5f0;
-  border-radius: 24px 24px 0 0;
-}
+/* 亮点 */
+.highlights-section { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 16px; margin-top: -40px; position: relative; z-index: 2; }
+.highlight-card { background: white; border-radius: 16px; padding: 16px 8px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.highlight-icon { font-size: 28px; }
+.highlight-title { display: block; font-size: 14px; font-weight: 700; color: #1a4d3e; margin-top: 6px; }
+.highlight-desc { display: block; font-size: 11px; color: #888; margin-top: 2px; }
 
-.page-title {
-  display: block;
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 8px;
-  letter-spacing: 3px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
+/* 价格 */
+.price-section { margin: 0 16px; background: linear-gradient(135deg, #2f6f4f, #1a4d3e); border-radius: 20px; padding: 20px; box-shadow: 0 6px 24px rgba(47,111,79,0.3); }
+.price-main { display: flex; align-items: center; justify-content: space-between; }
+.price-left { display: flex; align-items: baseline; gap: 4px; }
+.price-value { font-size: 2.5rem; font-weight: 800; color: #ffd700; }
+.price-unit { font-size: 1rem; color: rgba(255,255,255,0.8); }
+.price-right { text-align: right; }
+.price-tag { background: #ffd700; padding: 6px 14px; border-radius: 20px; display: inline-block; }
+.price-tag-text { font-size: 14px; font-weight: 700; color: #1a4d3e; }
+.price-tip { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+.price-limit { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.2); }
+.price-limit-icon { font-size: 18px; }
+.price-limit-text { font-size: 14px; color: #ff6b6b; font-weight: 600; }
 
-.page-subtitle {
-  display: inline-block;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.15);
-  padding: 8px 20px;
-  border-radius: 20px;
-  backdrop-filter: blur(4px);
-}
+/* 流程 */
+.steps-section { display: flex; align-items: center; justify-content: space-between; padding: 20px 16px; }
+.step-item { display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; position: relative; }
+.step-num { width: 48px; height: 48px; background: linear-gradient(135deg, #2f6f4f, #1a4d3e); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: white; box-shadow: 0 4px 12px rgba(47,111,79,0.3); }
+.step-title { font-size: 14px; font-weight: 600; color: #1a4d3e; margin-top: 8px; }
+.step-desc { font-size: 11px; color: #888; margin-top: 4px; }
+.step-arrow { position: absolute; right: -10px; font-size: 20px; color: #ccc; z-index: 1; }
 
-/* ========== 海报 ========== */
-.poster-section {
-  padding: 0;
-  margin-top: -12px;
-}
+/* 卡片 */
+.section { padding: 12px 16px; }
+.section-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.section-header { display: flex; align-items: center; padding: 18px 20px; gap: 12px; }
+.section-icon { font-size: 22px; }
+.section-title { flex: 1; font-size: 1.1rem; font-weight: 700; color: #1a4d3e; }
+.section-arrow { font-size: 14px; color: #aaa; }
 
-.poster-image {
-  width: 100%;
-  display: block;
-}
+/* 行程 */
+.schedule-list { padding: 0 20px 20px; }
+.schedule-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+.schedule-item:last-child { border-bottom: none; }
+.schedule-badge { width: 44px; height: 44px; background: linear-gradient(135deg, #2f6f4f, #1a4d3e); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: white; flex-shrink: 0; box-shadow: 0 4px 10px rgba(47,111,79,0.3); }
+.schedule-body { flex: 1; }
+.schedule-title { display: block; font-size: 1rem; font-weight: 600; color: #1a4d3e; margin-bottom: 6px; }
+.schedule-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.schedule-tag { font-size: 11px; color: #2f6f4f; background: rgba(47,111,79,0.1); padding: 3px 10px; border-radius: 10px; }
+.schedule-desc { font-size: 14px; color: #666; line-height: 1.6; }
 
-/* ========== 卡片区块 ========== */
-.section {
-  padding: 16px;
-}
+/* 费用 */
+.fee-content { padding: 0 20px 20px; }
+.fee-list { margin-bottom: 16px; }
+.fee-item { display: flex; gap: 10px; padding: 8px 0; }
+.fee-dot { color: #22c55e; font-weight: 700; font-size: 16px; }
+.fee-text { font-size: 14px; color: #444; line-height: 1.5; }
+.refund-box { background: #f8f9f8; border-radius: 14px; padding: 14px; border: 1px solid #e8e8e8; }
+.refund-title { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 10px; }
+.refund-item { display: flex; align-items: center; gap: 8px; padding: 4px 0; }
+.refund-ok { color: #22c55e; font-weight: 700; }
+.refund-no { color: #ef4444; font-weight: 700; }
+.refund-text { font-size: 13px; color: #555; }
 
-.section-card {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
+/* 装备 */
+.gear-content { padding: 0 20px 20px; }
+.gear-label { font-size: 13px; font-weight: 600; color: #666; margin: 14px 0 10px; }
+.gear-label:first-child { margin-top: 0; }
+.gear-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.gear-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 8px; background: #f8f9f8; border-radius: 12px; border: 1px solid #eee; }
+.gear-icon { font-size: 26px; }
+.gear-text { font-size: 12px; color: #444; text-align: center; }
 
-.section-header {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  gap: 12px;
-}
+/* 住宿 */
+.hotel-content { padding: 0 20px 20px; }
+.hotel-item { margin-bottom: 16px; }
+.hotel-title { font-size: 15px; font-weight: 600; color: #1a4d3e; margin-bottom: 4px; }
+.hotel-note { font-size: 13px; color: #888; margin-bottom: 10px; }
+.hotel-images { display: flex; flex-direction: column; gap: 8px; }
+.hotel-image { width: 100%; border-radius: 10px; }
 
-.section-icon {
-  font-size: 24px;
-  width: 36px;
-  height: 36px;
-  background: rgba(47, 111, 79, 0.1);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* 提示 */
+.tips-content { padding: 0 20px 20px; }
+.tips-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+.tips-item:last-child { border-bottom: none; }
+.tips-num { width: 24px; height: 24px; background: #2f6f4f; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.tips-text { flex: 1; font-size: 14px; color: #555; line-height: 1.6; }
 
-.section-title {
-  flex: 1;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1a4d3e;
-}
-
-.section-price {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #e55a3a;
-  margin-right: 8px;
-}
-
-.section-arrow {
-  font-size: 16px;
-  color: #aaa;
-}
-
-/* ========== 每日行程 ========== */
-.schedule-list {
-  padding: 0 20px 20px;
-}
-
-.schedule-item {
-  display: flex;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.schedule-item:last-child {
-  border-bottom: none;
-}
-
-.schedule-badge {
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, #2f6f4f, #1a4d3e);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 700;
-  color: white;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(47, 111, 79, 0.3);
-}
-
-.schedule-body {
-  flex: 1;
-}
-
-.schedule-title {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1a4d3e;
-  margin-bottom: 8px;
-}
-
-.schedule-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.schedule-tag {
-  font-size: 12px;
-  color: #2f6f4f;
-  background: rgba(47, 111, 79, 0.1);
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-weight: 500;
-}
-
-.schedule-desc {
-  display: block;
-  font-size: 15px;
-  color: #555;
-  line-height: 1.7;
-}
-
-/* ========== 费用说明 ========== */
-.fee-content {
-  padding: 0 20px 20px;
-}
-
-.fee-list {
-  margin-bottom: 20px;
-}
-
-.fee-item {
-  display: flex;
-  gap: 10px;
-  padding: 10px 0;
-}
-
-.fee-dot {
-  color: #2f6f4f;
-  font-weight: 700;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.fee-text {
-  font-size: 15px;
-  color: #444;
-  line-height: 1.6;
-}
-
-.refund-box {
-  background: #f8f9f8;
-  border-radius: 16px;
-  padding: 16px;
-  border: 1px solid #e8e8e8;
-}
-
-.refund-title {
-  display: block;
-  font-size: 15px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 12px;
-}
-
-.refund-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 0;
-}
-
-.refund-ok {
-  color: #22c55e;
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.refund-no {
-  color: #ef4444;
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.refund-text {
-  font-size: 14px;
-  color: #555;
-}
-
-/* ========== 装备建议 ========== */
-.gear-content {
-  padding: 0 20px 20px;
-}
-
-.gear-label {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 14px;
-  margin-top: 16px;
-}
-
-.gear-label:first-child {
-  margin-top: 0;
-}
-
-.gear-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.gear-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 8px;
-  background: #f8f9f8;
-  border-radius: 14px;
-  border: 1px solid #eee;
-}
-
-.gear-icon {
-  font-size: 28px;
-}
-
-.gear-text {
-  font-size: 13px;
-  color: #444;
-  text-align: center;
-}
-
-/* ========== 住宿环境 ========== */
-.hotel-content {
-  padding: 0 20px 20px;
-}
-
-.hotel-item {
-  margin-bottom: 20px;
-}
-
-.hotel-item:last-child {
-  margin-bottom: 0;
-}
-
-.hotel-title {
-  display: block;
-  font-size: 16px;
-  font-weight: 600;
-  color: #1a4d3e;
-  margin-bottom: 6px;
-}
-
-.hotel-note {
-  display: block;
-  font-size: 14px;
-  color: #777;
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
-
-.hotel-images {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.hotel-image {
-  width: 100%;
-  border-radius: 12px;
-}
-
-/* ========== 温馨提示 ========== */
-.tips-content {
-  padding: 0 20px 20px;
-}
-
-.tips-item {
-  display: flex;
-  gap: 14px;
-  padding: 12px 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.tips-item:last-child {
-  border-bottom: none;
-}
-
-.tips-num {
-  width: 26px;
-  height: 26px;
-  background: #2f6f4f;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.tips-text {
-  flex: 1;
-  font-size: 15px;
-  color: #444;
-  line-height: 1.7;
-}
-
-/* ========== 返回按钮 ========== */
-.back-button-container {
-  padding: 24px 16px 48px;
-}
-
-.back-button {
-  background: linear-gradient(135deg, #2f6f4f, #1a4d3e);
-  border-radius: 30px;
-  padding: 18px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 20px rgba(47, 111, 79, 0.3);
-}
-
-.back-button-text {
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-}
+/* 返回 */
+.back-button-container { padding: 20px 16px 48px; }
+.back-button { background: linear-gradient(135deg, #2f6f4f, #1a4d3e); border-radius: 30px; padding: 16px 24px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(47,111,79,0.3); }
+.back-button-text { font-size: 15px; font-weight: 600; color: white; }
