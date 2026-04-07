@@ -94,6 +94,45 @@ const YubengDetailPage: FC = () => {
     YUBENG_IMAGES.YUBENG_POSTER_4
   ]
 
+  // 每日行程数据
+  const dailySchedule = [
+    {
+      day: 'D0',
+      title: '丽江集合',
+      desc: '丽江机场接机，入住丽江酒店'
+    },
+    {
+      day: 'D1',
+      title: '丽江 → 雨崩',
+      desc: '尼农峡谷徒步12.5KM，乘坐越野车进村'
+    },
+    {
+      day: 'D2',
+      title: '冰湖线',
+      desc: '笑农大本营 → 冰湖冲顶，往返13KM'
+    },
+    {
+      day: 'D3',
+      title: '神瀑线',
+      desc: '神瀑大本营 → 神瀑冲顶，11KM'
+    },
+    {
+      day: 'D4',
+      title: '德钦 → 丽江',
+      desc: '观梅里雪山日照金山，返回丽江解散'
+    }
+  ]
+
+  // 装备数据
+  const gearItems = [
+    { icon: '👟', text: '登山鞋' },
+    { icon: '👕', text: '速干衣' },
+    { icon: '🧥', text: '抓绒/羽绒' },
+    { icon: '🎿', text: '冲锋裤' },
+    { icon: '🎒', text: '背包30L' },
+    { icon: '🧢', text: '帽子/墨镜' },
+  ]
+
   return (
     <ScrollView scrollY className="detail-page">
       <View className="page-header">
@@ -114,6 +153,52 @@ const YubengDetailPage: FC = () => {
               lazyLoad
               showMenuByLongpress
             />
+            
+            {/* 第一张图片下面添加行程和装备 */}
+            {index === 0 && (
+              <View className="poster-info-section">
+                {/* 行程概览 */}
+                <View className="info-block">
+                  <View className="info-block-header">
+                    <Text className="info-block-icon">📅</Text>
+                    <Text className="info-block-title">行程概览</Text>
+                  </View>
+                  <View className="schedule-mini">
+                    {dailySchedule.map((day, dIndex) => (
+                      <View key={dIndex} className="schedule-mini-item">
+                        <View className="schedule-mini-badge">{day.day}</View>
+                        <View className="schedule-mini-content">
+                          <Text className="schedule-mini-title">{day.title}</Text>
+                          <Text className="schedule-mini-desc">{day.desc}</Text>
+                        </View>
+                      </View>
+                    ))}
+                  </View>
+                </View>
+
+                {/* 装备清单 */}
+                <View className="info-block">
+                  <View className="info-block-header">
+                    <Text className="info-block-icon">🎒</Text>
+                    <Text className="info-block-title">装备建议</Text>
+                  </View>
+                  <View className="gear-mini">
+                    {gearItems.map((gear, gIndex) => (
+                      <View key={gIndex} className="gear-mini-item">
+                        <Text className="gear-mini-icon">{gear.icon}</Text>
+                        <Text className="gear-mini-text">{gear.text}</Text>
+                      </View>
+                    ))}
+                  </View>
+                </View>
+
+                {/* 费用提示 */}
+                <View className="info-block price-block">
+                  <Text className="price-main">¥3280</Text>
+                  <Text className="price-sub">/ 人 · 4天4晚 · 含摄影</Text>
+                </View>
+              </View>
+            )}
           </View>
         ))}
       </View>
