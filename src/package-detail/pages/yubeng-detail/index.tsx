@@ -76,13 +76,13 @@ const YubengDetailPage: FC = () => {
   const faqs: FAQItem[] = [
     {
       question: '什么时候适合去雨崩？',
-      answer: '雨崩最佳季节是4-6月和9-11月🌸\n4-6月：杜鹃花盛开，满山遍野的花海\n9-11月：秋高气爽，层林尽染\n12-3月：雪景绝美，但部分路段可能有积雪\n5-8月：雨季，景色一般，不推荐\n\n⚠️ 雨崩目前不需要预约，但节假日可能限流，建议提前规划',
+      answer: '',
       icon: '📅',
       image: 'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/yubeng/season_19cb5353.jpg?sign=1778179241-03f48782c1-0-8383bf5627bc5f01882ee3829e2c2f6124170a92312a91a7ad9bd7142c19e335'
     },
     {
       question: '雨崩住宿环境怎么样？',
-      answer: '雨崩村条件有限，请合理预期\n\n详情请查看下方住宿环境介绍👇',
+      answer: '',
       icon: '🏨'
     }
   ]
@@ -141,9 +141,9 @@ const YubengDetailPage: FC = () => {
               </View>
               {expandedFAQ === index && (
                 <>
-                  <View className="faq-divider" />
+                  {(faq.answer || faq.image) && <View className="faq-divider" />}
                   <View className="faq-answer-box">
-                    <Text className="faq-answer">{faq.answer}</Text>
+                    {faq.answer && <Text className="faq-answer">{faq.answer}</Text>}
                     {faq.image && (
                       <Image
                         className="faq-image"
