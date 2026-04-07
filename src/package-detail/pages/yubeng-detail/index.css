@@ -211,25 +211,26 @@
 
 .hotel-btn {
   background: linear-gradient(135deg, #e8a657 0%, #d4863d 100%);
-  border-radius: 50px;
-  padding: 14px 28px;
+  border-radius: 16px;
+  padding: 20px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(212, 134, 61, 0.3);
+  box-shadow: 0 8px 24px rgba(212, 134, 61, 0.35);
   transition: all 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.3);
 }
 
 .hotel-btn:active {
-  transform: translateY(-2px) scale(0.98);
-  box-shadow: 0 8px 24px rgba(212, 134, 61, 0.4);
+  transform: translateY(-3px) scale(0.98);
+  box-shadow: 0 12px 32px rgba(212, 134, 61, 0.45);
 }
 
 .hotel-btn-text {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   color: white;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .hotel-content {
