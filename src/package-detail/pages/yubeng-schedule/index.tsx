@@ -6,13 +6,12 @@ import type { FC } from 'react'
 import { YUBENG_IMAGES } from '../../config/images'
 import './index.css'
 
-// 每日行程数据
-interface DailySchedule {
-  day: string
-  title: string
-  time: string
-  highlights: string[]
-  desc: string
+// Q&A 数据
+interface FAQItem {
+  question: string
+  answer: string
+  icon: string
+  image?: string
 }
 
 const YubengSchedulePage: FC = () => {
@@ -32,11 +31,6 @@ const YubengSchedulePage: FC = () => {
     }
   })
 
-  const [expandedSection, setExpandedSection] = useState<Record<string, boolean>>({
-    schedule: true,
-    price: true,
-    gear: true
-  })
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
   const [hotelImages, setHotelImages] = useState<string[]>([])
 
@@ -59,13 +53,6 @@ const YubengSchedulePage: FC = () => {
     fetchHotelImages()
   }, [])
 
-  const toggleSection = (section: string) => {
-    setExpandedSection(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }))
-  }
-
   const toggleFAQ = (index: number) => {
     setExpandedFAQ(expandedFAQ === index ? null : index)
   }
@@ -86,42 +73,86 @@ const YubengSchedulePage: FC = () => {
     },
   ]
 
-  // 每日行程数据
-  const dailySchedule: DailySchedule[] = [
+  // 每日行程文本
+  const scheduleText = `D0：丽江集合
+丽江机场接机 → 入住丽江酒店
+酒店离丽江古城和束河古镇车程10分钟左右
+
+D1：丽江 → 尼农村 → 尼农峡谷 → 雨崩村
+早上7点丽江酒店用完早餐后集合出发
+12点左右奔子栏用午餐 → 2点左右尼龙徒步起点
+7-8点到达下雨崩乘坐越野车到上雨崩酒店用餐休息
+尼龙线徒步12.5KM，用时5H左右
+
+D2：雨崩酒店 → 笑农大本营 → 冰湖 → 雨崩村
+8点下楼用餐集合出发冰湖线
+到达笑农大本营（有泡面炒饭水等补给）
+用完餐冲顶冰湖 - 下撤 → 到达酒店用晚餐休息
+往返13KM，用时7-9小时
+可乘骡子455/往返（体重超85kg需两匹骡子）
+
+D3：雨崩 → 神瀑线 → 出村 → 德钦
+8点下楼用餐集合乘坐越野车到下雨崩出发神瀑线
+到达神瀑大本营（有泡面水等补给）
+休息冲顶神瀑 - 下撤 → 到达下雨崩咖啡店内用餐
+出村 → 尼农徒步起点 → 德钦酒店
+神瀑往返11KM，用时5小时；出村徒步约3小时
+
+D4:德钦 → 飞来寺观景台 → 香格里拉独克宗古城 → 丽江解散
+根据当季时段起床观梅里雪山日照金山
+日照金山结束前往香格里拉独克宗古城
+可去世界上最大的转经筒或自由活动
+用完午餐返回丽江，途径纳帕海观景平台等`
+
+  // 装备文本
+  const gearText = `需自备：
+· 登山鞋（中帮防水最佳）
+· 速干衣、抓绒衣、羽绒内胆
+· 冲锋裤、背包30升左右
+· 帽子、护目镜、防晒用品
+
+可选提供：
+· 冲锋衣
+· 登山杖
+· 冰爪、雪套`
+
+  // 费用文本
+  const priceText = `总费用：人民币3280元
+
+付款方式：
+· 首付款定金1000元
+· 尾款需在出发当日支付完成
+
+退款规则：
+· 出发前15日取消，退全款
+· 出发前7日取消，不退费可改期`
+
+  const faqs: FAQItem[] = [
     {
-      day: 'D0',
-      title: '丽江集合',
-      time: 'Day 0',
-      highlights: ['丽江机场接机', '入住丽江酒店'],
-      desc: '出发前一晚买丽江三义国际机场机票，机场接机到酒店入住。酒店离丽江古城和束河古镇车程10分钟左右。'
+      question: '什么时候适合去雨崩？',
+      answer: '',
+      icon: '📅',
+      image: 'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/yubeng/season_19cb5353.jpg?sign=1778179241-03f48782c1-0-8383bf5627bc5f01882ee3829e2c2f6124170a92312a91a7ad9bd7142c19e335'
     },
     {
-      day: 'D1',
-      title: '丽江 → 雨崩',
-      time: 'Day 1',
-      highlights: ['尼农峡谷徒步', '乘坐越野车进村'],
-      desc: '早上7点丽江酒店用完早餐后集合出发 → 12点左右奔子栏用午餐 → 2点左右尼龙徒步起点 → 7-8点到达下雨崩乘坐越野车到上雨崩酒店用餐休息。尼龙线徒步12.5KM，用时5H左右。'
+      question: '每日行程怎么安排？',
+      answer: scheduleText,
+      icon: '📅'
     },
     {
-      day: 'D2',
-      title: '冰湖线',
-      time: 'Day 2',
-      highlights: ['笑农大本营', '冰湖冲顶'],
-      desc: '8点下楼用餐集合出发冰湖线 → 到达笑农大本营（有泡面炒饭水等补给） → 用完餐冲顶冰湖 - 下撤 → 到达酒店用晚餐休息。往返13KM，用时7-9小时。可乘骡子455/往返（体重超85kg需两匹骡子）。'
+      question: '费用怎么算？',
+      answer: priceText,
+      icon: '💰'
     },
     {
-      day: 'D3',
-      title: '神瀑线 → 出村',
-      time: 'Day 3',
-      highlights: ['神瀑大本营', '出村徒步'],
-      desc: '8点下楼用餐集合乘坐越野车到下雨崩出发神瀑线 → 到达神瀑大本营 → 休息冲顶神瀑 - 下撤 → 到达下雨崩咖啡店内用餐 → 出村 → 尼农徒步起点 → 德钦酒店。神瀑往返11KM，用时5小时。'
+      question: '需要准备什么装备？',
+      answer: gearText,
+      icon: '🎒'
     },
     {
-      day: 'D4',
-      title: '德钦 → 丽江解散',
-      time: 'Day 4',
-      highlights: ['梅里雪山日照金山', '香格里拉独克宗古城'],
-      desc: '根据当季时段起床观梅里雪山日照金山。日照金山结束前往香格里拉独克宗古城，可去世界上最大的转经筒或自由活动，用完午餐返回丽江。途径纳帕海观景平台等。'
+      question: '住宿环境',
+      answer: '',
+      icon: '🏨'
     }
   ]
 
@@ -181,7 +212,7 @@ const YubengSchedulePage: FC = () => {
         </View>
       </View>
 
-      {/* Q&A 问答区 */}
+      {/* FAQ 问答区 */}
       <View className="faq-section">
         <View className="section-header">
           <Text className="section-title">常见问题</Text>
@@ -189,223 +220,61 @@ const YubengSchedulePage: FC = () => {
         </View>
 
         <View className="faq-list">
-          {/* 什么时候适合去 */}
-          <View
-            className={`faq-card card-fade-in-1 ${expandedFAQ === 0 ? 'expanded' : ''}`}
-            onClick={() => toggleFAQ(0)}
-          >
-            <View className="faq-header">
-              <View className="faq-icon">📅</View>
-              <View className="faq-question-box">
-                <Text className="faq-question">什么时候适合去雨崩？</Text>
+          {faqs.map((faq, index) => (
+            <View
+              key={index}
+              className={`faq-card card-fade-in-${(index % 3) + 1} ${expandedFAQ === index ? 'expanded' : ''}`}
+              onClick={() => toggleFAQ(index)}
+            >
+              <View className="faq-header">
+                <View className="faq-icon">{faq.icon}</View>
+                <View className="faq-question-box">
+                  <Text className="faq-question">{faq.question}</Text>
+                </View>
+                <Text className="expand-icon">{expandedFAQ === index ? '▲' : '▼'}</Text>
               </View>
-              <Text className="expand-icon">{expandedFAQ === 0 ? '▲' : '▼'}</Text>
-            </View>
-            {expandedFAQ === 0 && (
-              <View className="faq-answer-box">
-                <View className="faq-divider" />
-                <Image
-                  className="faq-image"
-                  mode="widthFix"
-                  src="https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/yubeng/season_19cb5353.jpg?sign=1778179241-03f48782c1-0-8383bf5627bc5f01882ee3829e2c2f6124170a92312a91a7ad9bd7142c19e335"
-                  lazyLoad
-                  showMenuByLongpress
-                />
-              </View>
-            )}
-          </View>
-
-          {/* 每日行程 */}
-          <View
-            className={`info-card card-fade-in-2 ${expandedSection.schedule ? 'expanded' : ''}`}
-            onClick={() => toggleSection('schedule')}
-          >
-            <View className="card-header">
-              <View className="card-icon">📅</View>
-              <View className="card-title-box">
-                <Text className="card-title">每日行程怎么安排？</Text>
-              </View>
-              <Text className="expand-icon">{expandedSection.schedule ? '▲' : '▼'}</Text>
-            </View>
-            <View className="card-divider" />
-            {expandedSection.schedule && (
-              <View className="schedule-timeline">
-                {dailySchedule.map((day, index) => (
-                  <View key={index} className="schedule-day">
-                    <View className="day-marker">
-                      <View className="day-badge">{day.day}</View>
-                      <View className="day-line" />
-                    </View>
-                    <View className="day-content">
-                      <View className="day-header">
-                        <Text className="day-title">{day.title}</Text>
-                        <Text className="day-time">{day.time}</Text>
-                      </View>
-                      <View className="day-highlights">
-                        {day.highlights.map((h, i) => (
-                          <View key={i} className="highlight-tag">
-                            <Text className="highlight-text">{h}</Text>
+              {expandedFAQ === index && (
+                <>
+                  {(faq.answer || faq.image) && <View className="faq-divider" />}
+                  <View className="faq-answer-box">
+                    {faq.answer && <Text className="faq-answer">{faq.answer}</Text>}
+                    {faq.image && (
+                      <Image
+                        className="faq-image"
+                        mode="widthFix"
+                        src={faq.image}
+                        lazyLoad
+                        showMenuByLongpress
+                      />
+                    )}
+                  </View>
+                  {/* 住宿环境内容 */}
+                  {index === 4 && (
+                    <View className="hotel-content">
+                      {hotelInfo.map((hotel, hIndex) => (
+                        <View key={hIndex} className="hotel-card">
+                          <Text className="hotel-title">{hotel.title}</Text>
+                          <Text className="hotel-note">{hotel.note}</Text>
+                          <View className="hotel-images">
+                            {hotelImages.slice(hIndex * 3, hIndex * 3 + 3).map((img, i) => (
+                              <Image
+                                key={i}
+                                className="hotel-image"
+                                mode="widthFix"
+                                src={img}
+                                lazyLoad
+                                showMenuByLongpress
+                              />
+                            ))}
                           </View>
-                        ))}
-                      </View>
-                      <Text className="day-desc">{day.desc}</Text>
+                        </View>
+                      ))}
                     </View>
-                  </View>
-                ))}
-              </View>
-            )}
-          </View>
-
-          {/* 费用说明 */}
-          <View
-            className={`info-card card-fade-in-3 ${expandedSection.price ? 'expanded' : ''}`}
-            onClick={() => toggleSection('price')}
-          >
-            <View className="card-header">
-              <View className="card-icon">💰</View>
-              <View className="card-title-box">
-                <Text className="card-title">费用怎么算？</Text>
-              </View>
-              <Text className="expand-icon">{expandedSection.price ? '▲' : '▼'}</Text>
+                  )}
+                </>
+              )}
             </View>
-            <View className="card-divider" />
-            {expandedSection.price && (
-              <View className="price-section">
-                <View className="price-main">
-                  <Text className="price-label">总费用</Text>
-                  <Text className="price-value">¥3280</Text>
-                </View>
-                <View className="price-divider" />
-                <View className="price-detail">
-                  <View className="price-row">
-                    <Text className="price-item">首付款定金</Text>
-                    <Text className="price-amount">¥1000</Text>
-                  </View>
-                  <View className="price-row">
-                    <Text className="price-item">尾款</Text>
-                    <Text className="price-amount">出发当日支付</Text>
-                  </View>
-                </View>
-                <View className="price-divider" />
-                <View className="refund-rules">
-                  <Text className="refund-title">退款规则</Text>
-                  <View className="refund-item">
-                    <Text className="refund-icon">✓</Text>
-                    <Text className="refund-text">出发前15日取消，退全款</Text>
-                  </View>
-                  <View className="refund-item">
-                    <Text className="refund-icon">✗</Text>
-                    <Text className="refund-text">出发前7日取消，不退费可改期</Text>
-                  </View>
-                </View>
-              </View>
-            )}
-          </View>
-
-          {/* 装备建议 */}
-          <View
-            className={`info-card card-fade-in-4 ${expandedSection.gear ? 'expanded' : ''}`}
-            onClick={() => toggleSection('gear')}
-          >
-            <View className="card-header">
-              <View className="card-icon">🎒</View>
-              <View className="card-title-box">
-                <Text className="card-title">需要准备什么装备？</Text>
-              </View>
-              <Text className="expand-icon">{expandedSection.gear ? '▲' : '▼'}</Text>
-            </View>
-            <View className="card-divider" />
-            {expandedSection.gear && (
-              <View className="gear-section">
-                <Text className="gear-subtitle">需自备</Text>
-                <View className="gear-grid">
-                  <View className="gear-item">
-                    <Text className="gear-icon">👟</Text>
-                    <Text className="gear-text">登山鞋</Text>
-                  </View>
-                  <View className="gear-item">
-                    <Text className="gear-icon">👕</Text>
-                    <Text className="gear-text">速干衣</Text>
-                  </View>
-                  <View className="gear-item">
-                    <Text className="gear-icon">🧥</Text>
-                    <Text className="gear-text">抓绒/羽绒</Text>
-                  </View>
-                  <View className="gear-item">
-                    <Text className="gear-icon">🎿</Text>
-                    <Text className="gear-text">冲锋裤</Text>
-                  </View>
-                  <View className="gear-item">
-                    <Text className="gear-icon">🎒</Text>
-                    <Text className="gear-text">背包30L</Text>
-                  </View>
-                  <View className="gear-item">
-                    <Text className="gear-icon">🧢</Text>
-                    <Text className="gear-text">帽子/墨镜</Text>
-                  </View>
-                </View>
-                <View className="gear-divider" />
-                <Text className="gear-subtitle">可选提供</Text>
-                <View className="gear-grid">
-                  <View className="gear-item provide">
-                    <Text className="gear-icon">🧥</Text>
-                    <Text className="gear-text">冲锋衣</Text>
-                  </View>
-                  <View className="gear-item provide">
-                    <Text className="gear-icon">🦯</Text>
-                    <Text className="gear-text">登山杖</Text>
-                  </View>
-                  <View className="gear-item provide">
-                    <Text className="gear-icon">🦶</Text>
-                    <Text className="gear-text">冰爪</Text>
-                  </View>
-                  <View className="gear-item provide">
-                    <Text className="gear-icon">🧦</Text>
-                    <Text className="gear-text">雪套</Text>
-                  </View>
-                </View>
-              </View>
-            )}
-          </View>
-
-          {/* 住宿环境 */}
-          <View
-            className={`faq-card card-fade-in-1 ${expandedFAQ === 4 ? 'expanded' : ''}`}
-            onClick={() => toggleFAQ(4)}
-          >
-            <View className="faq-header">
-              <View className="faq-icon">🏨</View>
-              <View className="faq-question-box">
-                <Text className="faq-question">住宿环境</Text>
-              </View>
-              <Text className="expand-icon">{expandedFAQ === 4 ? '▲' : '▼'}</Text>
-            </View>
-            {expandedFAQ === 4 && (
-              <View className="faq-answer-box">
-                <View className="faq-divider" />
-                <View className="hotel-content">
-                  {hotelInfo.map((hotel, hIndex) => (
-                    <View key={hIndex} className="hotel-card">
-                      <Text className="hotel-title">{hotel.title}</Text>
-                      <Text className="hotel-note">{hotel.note}</Text>
-                      <View className="hotel-images">
-                        {hotelImages.slice(hIndex * 3, hIndex * 3 + 3).map((img, i) => (
-                          <Image
-                            key={i}
-                            className="hotel-image"
-                            mode="widthFix"
-                            src={img}
-                            lazyLoad
-                            showMenuByLongpress
-                          />
-                        ))}
-                      </View>
-                    </View>
-                  ))}
-                </View>
-              </View>
-            )}
-          </View>
+          ))}
         </View>
       </View>
 
