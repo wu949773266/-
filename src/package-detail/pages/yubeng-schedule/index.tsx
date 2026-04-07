@@ -188,12 +188,8 @@ D4:德钦 → 飞来寺观景台 → 香格里拉独克宗古城 → 丽江解�
         </View>
       </View>
 
-      {/* 摄影美图 */}
+      {/* 行程海报 */}
       <View className="gallery-section">
-        <View className="section-header">
-          <Text className="section-title">摄影美图</Text>
-          <Text className="section-subtitle">SHANDU PHOTO</Text>
-        </View>
         <View className="gallery-container">
           {posterImages.map((image, index) => (
             <View
@@ -249,7 +245,7 @@ D4:德钦 → 飞来寺观景台 → 香格里拉独克宗古城 → 丽江解�
                     )}
                   </View>
                   {/* 住宿环境内容 */}
-                  {index === 4 && (
+                  {index === 0 && (
                     <View className="hotel-content">
                       {hotelInfo.map((hotel, hIndex) => (
                         <View key={hIndex} className="hotel-card">
