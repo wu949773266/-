@@ -274,3 +274,47 @@
 .custom-card:active .custom-arrow {
   transform: translateX(8px);
 }
+
+/* ========== 雨崩专属入口按钮 ========== */
+.yubeng-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(47, 111, 79, 0.2);
+}
+
+.yubeng-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.yubeng-btn:active {
+  transform: scale(0.96);
+}
+
+.yubeng-btn-primary {
+  background: linear-gradient(135deg, #2f6f4f 0%, #4a8b6f 100%);
+  box-shadow: 0 4px 12px rgba(47, 111, 79, 0.25);
+}
+
+.yubeng-btn-secondary {
+  background: #f0f7f2;
+  border: 1px solid rgba(47, 111, 79, 0.2);
+}
+
+.yubeng-btn-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.yubeng-btn-primary .yubeng-btn-text {
+  color: white;
+}
+
+.yubeng-btn-secondary .yubeng-btn-text {
+  color: #2f6f4f;
+}
+

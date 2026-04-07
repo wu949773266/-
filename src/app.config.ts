@@ -15,6 +15,7 @@ export default {
       root: 'package-detail',
       pages: [
         'pages/yubeng-detail/index',
+        'pages/yubeng-schedule/index',
         'pages/hutiaoxia-detail/index',
         'pages/nanlu-detail/index'
       ],

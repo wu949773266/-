@@ -77,6 +77,18 @@ const RoutesPage: FC = () => {
     }
   }
 
+  const handleYubengSchedule = () => {
+    Taro.navigateTo({
+      url: '/package-detail/pages/yubeng-schedule/index'
+    })
+  }
+
+  const handleYubengGallery = () => {
+    Taro.navigateTo({
+      url: '/package-detail/pages/yubeng-detail/index'
+    })
+  }
+
   const handleCustomPage = () => {
     Taro.navigateTo({
       url: '/pages/custom/index'
@@ -95,8 +107,8 @@ const RoutesPage: FC = () => {
         {routes.map((route, index) => (
           <View
             key={`${route.id}-${animationTrigger}`}
-            className={`route-card card-enter-${index + 1}`}
-            onTap={() => handleRouteDetail(route.id)}
+            className={`route-card card-enter-${index + 1} ${route.id === 1 ? 'route-card-yubeng' : ''}`}
+            onTap={() => route.id === 1 ? null : handleRouteDetail(route.id)}
           >
             <View className="image-wrapper">
               <Image
@@ -114,6 +126,18 @@ const RoutesPage: FC = () => {
                 <Text className="difficulty-text">{route.difficulty}</Text>
               </View>
             </View>
+
+            {/* 雨崩专属入口按钮 */}
+            {route.id === 1 && (
+              <View className="yubeng-buttons">
+                <View className="yubeng-btn yubeng-btn-primary" onTap={handleYubengSchedule}>
+                  <Text className="yubeng-btn-text">📅 详细行程</Text>
+                </View>
+                <View className="yubeng-btn yubeng-btn-secondary" onTap={handleYubengGallery}>
+                  <Text className="yubeng-btn-text">📷 摄影美图</Text>
+                </View>
+              </View>
+            )}
           </View>
         ))}
       </View>
