@@ -41,7 +41,7 @@ const IndexPage: FC = () => {
         <Image
           className="hero-bg"
           mode="aspectFill"
-          src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=1600&q=95"
+          src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=1200&q=80"
         />
         <View className="hero-overlay" />
         <View className="hero-content">
