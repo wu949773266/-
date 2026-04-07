@@ -81,7 +81,7 @@ const YubengDetailPage: FC = () => {
       image: 'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/yubeng/season_19cb5353.jpg?sign=1778179241-03f48782c1-0-8383bf5627bc5f01882ee3829e2c2f6124170a92312a91a7ad9bd7142c19e335'
     },
     {
-      question: '雨崩住宿环境怎么样？',
+      question: '住宿环境',
       answer: '',
       icon: '🏨'
     }

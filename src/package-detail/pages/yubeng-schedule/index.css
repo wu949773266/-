@@ -110,31 +110,10 @@
   margin-bottom: 20px;
   box-shadow: 0 4px 20px rgba(47, 111, 79, 0.08);
   border: 1px solid rgba(47, 111, 79, 0.06);
-  transition: all 0.3s ease;
-}
-
-.info-card:active {
-  transform: scale(0.99);
-}
-
-.info-card.expanded {
-  border-color: rgba(47, 111, 79, 0.2);
 }
 
 .card-fade-in-1 {
   animation: fadeInUp 0.5s ease-out 0.1s both;
-}
-
-.card-fade-in-2 {
-  animation: fadeInUp 0.5s ease-out 0.2s both;
-}
-
-.card-fade-in-3 {
-  animation: fadeInUp 0.5s ease-out 0.3s both;
-}
-
-.card-fade-in-4 {
-  animation: fadeInUp 0.5s ease-out 0.4s both;
 }
 
 @keyframes fadeInUp {
@@ -171,19 +150,6 @@
   line-height: 1.4;
 }
 
-.card-subtitle {
-  font-size: 0.9rem;
-  color: #6b7f76;
-  display: block;
-  margin-top: 2px;
-}
-
-.expand-icon {
-  font-size: 18px;
-  color: #6b7f76;
-  flex-shrink: 0;
-}
-
 .card-divider {
   height: 1px;
   background: linear-gradient(90deg, rgba(47, 111, 79, 0.15) 0%, transparent 100%);
@@ -217,242 +183,9 @@
   line-height: 1.4;
 }
 
-/* ========== 每日行程时间线 ========== */
-.schedule-timeline {
-  display: flex;
-  flex-direction: column;
-}
-
-.schedule-day {
-  display: flex;
-  gap: 16px;
-  padding-bottom: 24px;
-}
-
-.schedule-day:last-child {
-  padding-bottom: 0;
-}
-
-.day-marker {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.day-badge {
-  width: 44px;
-  height: 44px;
-  background: linear-gradient(135deg, #2f6f4f 0%, #4a8b6f 100%);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  color: white;
-}
-
-.day-line {
-  flex: 1;
-  width: 2px;
-  background: linear-gradient(180deg, #2f6f4f 0%, rgba(47, 111, 79, 0.2) 100%);
-  margin-top: 8px;
-  min-height: 40px;
-}
-
-.schedule-day:last-child .day-line {
-  display: none;
-}
-
-.day-content {
-  flex: 1;
-  background: #f8faf9;
-  border-radius: 16px;
-  padding: 16px;
-}
-
-.day-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.day-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #2f6f4f;
-}
-
-.day-time {
-  font-size: 0.85rem;
-  color: #6b7f76;
-}
-
-.day-highlights {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-.highlight-tag {
-  background: rgba(47, 111, 79, 0.1);
-  border-radius: 8px;
-  padding: 4px 10px;
-}
-
-.highlight-text {
-  font-size: 12px;
-  color: #2f6f4f;
-  font-weight: 500;
-}
-
-.day-desc {
-  font-size: 14px;
-  color: #5a6b5e;
-  line-height: 1.7;
-}
-
-/* ========== 费用说明 ========== */
-.price-section {
-  animation: fadeIn 0.3s ease-out;
-}
-
-.price-main {
-  text-align: center;
-  padding: 16px 0;
-}
-
-.price-label {
-  display: block;
-  font-size: 14px;
-  color: #6b7f76;
-  margin-bottom: 8px;
-}
-
-.price-value {
-  display: block;
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #2f6f4f;
-  letter-spacing: -1px;
-}
-
-.price-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(47, 111, 79, 0.15) 50%, transparent 100%);
-  margin: 16px 0;
-}
-
-.price-detail {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.price-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 14px;
-  background: #f8faf9;
-  border-radius: 10px;
-}
-
-.price-item {
-  font-size: 15px;
-  color: #4a5549;
-}
-
-.price-amount {
-  font-size: 15px;
-  font-weight: 600;
-  color: #2f6f4f;
-}
-
-.refund-rules {
-  margin-top: 16px;
-}
-
-.refund-title {
-  display: block;
-  font-size: 15px;
-  font-weight: 600;
-  color: #4a5549;
-  margin-bottom: 12px;
-}
-
-.refund-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-
-.refund-icon {
-  font-size: 16px;
-  width: 24px;
-  text-align: center;
-}
-
-.refund-text {
-  font-size: 14px;
-  color: #5a6b5e;
-}
-
-/* ========== 装备清单 ========== */
-.gear-section {
-  animation: fadeIn 0.3s ease-out;
-}
-
-.gear-subtitle {
-  display: block;
-  font-size: 15px;
-  font-weight: 600;
-  color: #4a5549;
-  margin-bottom: 14px;
-}
-
-.gear-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.gear-item {
-  background: #f8faf9;
-  border-radius: 12px;
-  padding: 14px 8px;
-  text-align: center;
-}
-
-.gear-item.provide {
-  background: rgba(47, 111, 79, 0.08);
-}
-
-.gear-icon {
-  font-size: 24px;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.gear-text {
-  font-size: 12px;
-  color: #5a6b5e;
-  display: block;
-}
-
-.gear-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(47, 111, 79, 0.15) 50%, transparent 100%);
-  margin: 20px 0;
-}
-
 /* ========== FAQ 问答区 ========== */
 .faq-section {
-  margin-top: 32px;
+  margin-top: 16px;
 }
 
 .section-header {
@@ -534,7 +267,7 @@
 .faq-answer {
   font-size: 15px;
   color: #4a5549;
-  line-height: 1.7;
+  line-height: 1.8;
   white-space: pre-line;
   display: block;
 }
