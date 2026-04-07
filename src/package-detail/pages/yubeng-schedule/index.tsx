@@ -73,6 +73,55 @@ const YubengSchedulePage: FC = () => {
     },
   ]
 
+  // 住宿答案文本
+  const hotelAnswerText = `🏨 雨崩村住宿
+雨崩村住宿条件有限，均为当地特色客栈
+客栈位置靠近村中心，步行至主要景点方便
+
+💡 住宿说明：
+① 雨崩村客栈部分房间可能无独立卫浴
+② 部分房间窗户朝向不同，介意者请提前告知
+③ 独立入住需额外支付房差
+④ 如遇旺季满房，会安排同等标准住宿
+
+📍 德钦/丽江住宿
+出村后入住德钦县城酒店
+最后一天返回丽江入住舒适型酒店
+
+🏷️ 特殊需求：
+· 大床房/标间请提前说明
+· 高海拔地区建议选择供暖房间
+· 有任何过敏史请提前告知`
+
+  // 季节答案文本
+  const seasonAnswerText = `🌸 春季（3-5月）
+推荐指数：⭐⭐⭐⭐
+🌷 杜鹃花盛开，漫山遍野的粉色花海
+❄️ 部分高海拔路段可能有积雪
+🧥 早晚温差大，需要羽绒服+防晒
+
+☀️ 夏季（6-8月）
+推荐指数：⭐⭐⭐⭐⭐
+🌿 雨季来临，云雾缭绕，如诗如画
+⛈️ 偶有暴雨，建议带好雨具
+🌡️ 气温适宜，是避暑圣地
+
+🍂 秋季（9-11月）
+推荐指数：⭐⭐⭐⭐⭐
+✨ 天气最稳定，看日照金山概率最高
+🍁 秋高气爽，能见度极佳
+📸 拍照效果最佳的季节
+
+❄️ 冬季（12-2月）
+推荐指数：⭐⭐⭐
+🏔️ 可能遇到大雪，部分路段封闭
+🌅 更容易看到壮观的雪景
+🧊 需要做好防寒防滑准备
+
+💡 温馨提示：
+最佳观景时间建议选择日出时分
+雨季虽美但需注意山体滑坡风险
+
   // 每日行程文本
   const scheduleText = `D0：丽江集合
 丽江机场接机 → 入住丽江酒店
@@ -130,13 +179,13 @@ D4:德钦 → 飞来寺观景台 → 香格里拉独克宗古城 → 丽江解�
   const faqs: FAQItem[] = [
     {
       question: '住宿环境',
-      answer: '',
+      answer: hotelAnswerText,
       icon: '🏨'
     },
     {
       question: '什么时候适合去雨崩？',
-      answer: '',
-      icon: '📅',
+      answer: seasonAnswerText,
+      icon: '🌤️',
       image: 'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/yubeng/season_19cb5353.jpg?sign=1778179241-03f48782c1-0-8383bf5627bc5f01882ee3829e2c2f6124170a92312a91a7ad9bd7142c19e335'
     },
     {
@@ -210,11 +259,6 @@ D4:德钦 → 飞来寺观景台 → 香格里拉独克宗古城 → 丽江解�
 
       {/* FAQ 问答区 */}
       <View className="faq-section">
-        <View className="section-header">
-          <Text className="section-title">常见问题</Text>
-          <Text className="section-subtitle">Q & A</Text>
-        </View>
-
         <View className="faq-list">
           {faqs.map((faq, index) => (
             <View
