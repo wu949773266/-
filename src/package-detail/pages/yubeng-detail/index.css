@@ -204,3 +204,85 @@
   letter-spacing: 1px;
 }
 
+/* ========== 住宿环境展示 ========== */
+.hotel-section {
+  padding: 0 20px 20px;
+}
+
+.hotel-btn {
+  background: linear-gradient(135deg, #e8a657 0%, #d4863d 100%);
+  border-radius: 50px;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(212, 134, 61, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hotel-btn:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 8px 24px rgba(212, 134, 61, 0.4);
+}
+
+.hotel-btn-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.hotel-content {
+  margin-top: 20px;
+  animation: hotelFadeIn 0.4s ease-out;
+}
+
+@keyframes hotelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hotel-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1d3d2c;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.hotel-note {
+  display: block;
+  font-size: 0.9rem;
+  color: #6b7f76;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  white-space: pre-line;
+}
+
+.hotel-images {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hotel-image {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
