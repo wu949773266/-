@@ -30,7 +30,7 @@ const YubengSchedulePage: FC = () => {
     query: ''
   }))
 
-  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(0) // 默认展开住宿环境
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null) // 默认全部收起
 
   const toggleFAQ = (index: number) => {
     setExpandedFAQ(expandedFAQ === index ? null : index)
