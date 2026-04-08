@@ -3,20 +3,20 @@ import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
 import { YUBENG_IMAGES } from '../../config/images'
-import imgData from '../../config/hotel_images'
+import * as HotelImagesModule from '../../config/hotel_images'
 import './index.css'
 
 // 住宿图片直接使用本地 Base64
 const hotelImages = [
-  imgData.HOTEL_1,
-  imgData.HOTEL_2,
-  imgData.HOTEL_3,
-  imgData.HOTEL_4,
-  imgData.HOTEL_5,
-  imgData.HOTEL_6,
-  imgData.HOTEL_7,
-  imgData.HOTEL_8,
-  imgData.HOTEL_9,
+  HotelImagesModule.default.HOTEL_1,
+  HotelImagesModule.default.HOTEL_2,
+  HotelImagesModule.default.HOTEL_3,
+  HotelImagesModule.default.HOTEL_4,
+  HotelImagesModule.default.HOTEL_5,
+  HotelImagesModule.default.HOTEL_6,
+  HotelImagesModule.default.HOTEL_7,
+  HotelImagesModule.default.HOTEL_8,
+  HotelImagesModule.default.HOTEL_9,
 ]
 
 const YubengSchedulePage: FC = () => {
@@ -30,7 +30,7 @@ const YubengSchedulePage: FC = () => {
     query: ''
   }))
 
-  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null)
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(0) // 默认展开住宿环境
 
   const toggleFAQ = (index: number) => {
     setExpandedFAQ(expandedFAQ === index ? null : index)
@@ -50,7 +50,7 @@ const YubengSchedulePage: FC = () => {
     {
       question: '什么时候适合去雨崩？',
       icon: '📅',
-      image: imgData.SEASON
+      image: HotelImagesModule.default.SEASON
     }
   ]
 
@@ -107,9 +107,25 @@ const YubengSchedulePage: FC = () => {
                           <Text className="hotel-title">{hotel.title}</Text>
                           <Text className="hotel-note">{hotel.note}</Text>
                           <View className="hotel-images">
-                            {hotelImages.slice(hIndex * 3, hIndex * 3 + 3).map((img, i) => (
-                              <Image key={i} className="hotel-image" mode="widthFix" src={img} lazyLoad showMenuByLongpress />
-                            ))}
+                            {hotelImages.slice(hIndex * 3, hIndex * 3 + 3).map((img, i) => {
+                              const globalIndex = hIndex * 3 + i + 1
+                              return (
+                                <View key={i} className="hotel-image-wrapper">
+                                  <Text className="hotel-image-debug">酒店图片 {globalIndex}</Text>
+                                  <Image
+                                    className="hotel-image"
+                                    mode="widthFix"
+                                    src={img}
+                                    lazyLoad
+                                    showMenuByLongpress
+                                    onError={(e) => {
+                                      console.error('Image error', globalIndex, e)
+                                      Taro.showToast({ title: `图片${globalIndex}加载失败`, icon: 'none' })
+                                    }}
+                                  />
+                                </View>
+                              )
+                            })}
                           </View>
                         </View>
                       ))}
