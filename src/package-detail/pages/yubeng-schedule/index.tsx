@@ -20,15 +20,21 @@ const hotelImages = [
 ]
 
 const YubengSchedulePage: FC = () => {
-  useShareAppMessage(() => ({
-    title: '雨崩徒步摄影4日游 - 山渡户外',
-    path: '/package-detail/pages/yubeng-schedule/index'
-  }))
+  // 配置分享给朋友（自动截取当前页面）
+  useShareAppMessage(() => {
+    return {
+      title: '雨崩徒步摄影4日游 - 山渡户外',
+      path: '/package-detail/pages/yubeng-schedule/index'
+    }
+  })
 
-  useShareTimeline(() => ({
-    title: '雨崩徒步摄影4日游 - 香格里拉秘境',
-    query: ''
-  }))
+  // 配置分享到朋友圈（自动截取当前页面）
+  useShareTimeline(() => {
+    return {
+      title: '雨崩徒步摄影4日游 - 香格里拉秘境',
+      query: ''
+    }
+  })
 
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null) // 默认全部收起
 
