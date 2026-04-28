@@ -36,7 +36,7 @@ const IndexPage: FC = () => {
 
   const handleMbtiTest = () => {
     Taro.navigateTo({
-      url: '/pages/outdoor-mbti/outdoor-mbti'
+      url: '/pages/outdoor-mbti/index'
     })
   }
 

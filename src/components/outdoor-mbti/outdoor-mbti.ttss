@@ -1,0 +1,2 @@
+/* 抖音小程序样式文件 - 与 wxss 相同 */
+@import "./outdoor-mbti.wxss";

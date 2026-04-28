@@ -1,0 +1,65 @@
+<view class="outdoor-mbti">
+  <view class="hero">
+    <view class="eyebrow">HIKING TYPE TEST</view>
+    <view class="title">{{title}}</view>
+    <view class="subtitle">{{subtitle}}</view>
+  </view>
+
+  <view class="panel" wx:if="{{!result}}">
+    <view class="progress-row">
+      <button class="icon-btn" bindtap="goBack" disabled="{{current === 0}}" aria-label="上一题">‹</button>
+      <view class="progress-wrap">
+        <view class="progress-meta">
+          <text>第 {{progressText}} 题</text>
+          <text>{{progressPercent}}%</text>
+        </view>
+        <view class="progress-track">
+          <view class="progress-fill" style="width: {{progressPercent}}%;"></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="question">{{questions[current].title}}</view>
+
+    <view class="options">
+      <button
+        wx:for="{{questions[current].options}}"
+        wx:key="text"
+        class="option"
+        data-side="{{item.side}}"
+        bindtap="chooseOption"
+      >
+        <text class="option-mark">{{index + 1}}</text>
+        <text class="option-text">{{item.text}}</text>
+      </button>
+    </view>
+  </view>
+
+  <view class="result-panel" wx:else>
+    <view class="type-code">{{typeCode}}</view>
+    <view class="result-name">{{result.name}}</view>
+    <view class="result-role">{{result.role}}</view>
+    <view class="result-summary">{{result.summary}}</view>
+
+    <view class="insight-list">
+      <view class="insight">
+        <text class="label">适合路线</text>
+        <text class="value">{{result.route}}</text>
+      </view>
+      <view class="insight">
+        <text class="label">你的优势</text>
+        <text class="value">{{result.strength}}</text>
+      </view>
+      <view class="insight">
+        <text class="label">山野提醒</text>
+        <text class="value">{{result.watch}}</text>
+      </view>
+      <view class="insight">
+        <text class="label">装备灵感</text>
+        <text class="value">{{result.gear}}</text>
+      </view>
+    </view>
+
+    <button class="restart" bindtap="restart">{{restartText}}</button>
+  </view>
+</view>

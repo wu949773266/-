@@ -9,7 +9,7 @@ export default {
     'pages/survey/index',
     'pages/survey-admin/index',
     'pages/survey-responses/index',
-    'pages/outdoor-mbti/outdoor-mbti'
+    'pages/outdoor-mbti/index'
   ],
   subpackages: [
     {
