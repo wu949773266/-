@@ -101,6 +101,10 @@ export default defineConfig<'vite'>(async (merge, _env) => {
           from: 'src/assets/tabbar',
           to: 'assets/tabbar',
         },
+        {
+          from: 'src/data',
+          to: 'data',
+        },
       ],
       options: {},
     },
