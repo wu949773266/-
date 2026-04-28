@@ -1,0 +1,4 @@
+# 排除原生小程序组件（使用 require/module.exports 语法）
+**/components/outdoor-mbti/**
+**/data/outdoor-mbti.js
+**/pages/outdoor-mbti/**

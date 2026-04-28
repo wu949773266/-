@@ -8,7 +8,8 @@ export default {
     'pages/recruit/index',
     'pages/survey/index',
     'pages/survey-admin/index',
-    'pages/survey-responses/index'
+    'pages/survey-responses/index',
+    'pages/outdoor-mbti/outdoor-mbti'
   ],
   subpackages: [
     {

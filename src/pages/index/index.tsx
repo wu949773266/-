@@ -34,6 +34,12 @@ const IndexPage: FC = () => {
     })
   }
 
+  const handleMbtiTest = () => {
+    Taro.navigateTo({
+      url: '/pages/outdoor-mbti/outdoor-mbti'
+    })
+  }
+
   return (
     <View key={`index-${animationTrigger}`} className="index-page">
       {/* 全屏头部横幅 */}
@@ -52,6 +58,12 @@ const IndexPage: FC = () => {
             onClick={handleViewRoutes}
           >
             查看徒步线路
+          </Button>
+          <Button
+            className="hero-btn secondary"
+            onClick={handleMbtiTest}
+          >
+            测测你的户外人格
           </Button>
         </View>
       </View>

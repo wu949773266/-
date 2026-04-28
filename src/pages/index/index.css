@@ -135,6 +135,7 @@
   animation: buttonScale 0.5s ease-out 0.3s forwards;
   transition: all 0.3s ease;
   min-width: 280px;
+  margin-top: 16px;
 }
 
 .hero-btn::after {
@@ -147,6 +148,21 @@
   -webkit-backdrop-filter: blur(25px);
   transform: scale(0.95);
   box-shadow: 0 4px 16px rgba(30, 70, 40, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+}
+
+.hero-btn.secondary {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  animation: buttonScale 0.5s ease-out 0.4s forwards;
+}
+
+.hero-btn.secondary:active {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
 }
 
 @keyframes buttonScale {
