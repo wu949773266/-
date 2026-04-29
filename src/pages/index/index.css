@@ -123,7 +123,7 @@
 
 .hero-btn {
   padding: 18px 80px;
-  background: rgba(47, 111, 79, 0.6);
+  background: rgba(47, 111, 79, 0.35);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   color: white;
@@ -131,7 +131,7 @@
   font-weight: 500;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 24px rgba(30, 70, 40, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 8px 24px rgba(30, 70, 40, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   animation: buttonScale 0.5s ease-out 0.3s forwards;
   transition: all 0.3s ease;
   min-width: 280px;
@@ -143,11 +143,11 @@
 }
 
 .hero-btn:active {
-  background: rgba(62, 128, 96, 0.7);
+  background: rgba(62, 128, 96, 0.5);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   transform: scale(0.95);
-  box-shadow: 0 4px 16px rgba(30, 70, 40, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+  box-shadow: 0 4px 16px rgba(30, 70, 40, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
 }
 
 .hero-btn.secondary {
