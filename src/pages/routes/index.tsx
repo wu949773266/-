@@ -2,7 +2,7 @@ import { View, Text, Image } from '@tarojs/components'
 import Taro, { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
-import { IMAGE_CONFIG } from '@/config/images'
+import { HUTIAOXIA_CARD, YUBENG_CARD, NANLU_CARD } from '@/config/route-cards'
 import './index.css'
 
 interface RouteItem {
@@ -20,21 +20,21 @@ const RoutesPage: FC = () => {
       name: '虎跳峡徒步',
       description: '云南虎跳峡经典路线 · 1天摄影徒步',
       difficulty: '难度 ⭐',
-      image: IMAGE_CONFIG.HUTIAOXIA_CARD
+      image: HUTIAOXIA_CARD
     },
     {
       id: 1,
       name: '雨崩徒步',
       description: '云南梅里秘境 · 4天摄影徒步',
       difficulty: '难度 ⭐⭐',
-      image: IMAGE_CONFIG.YUBENG_CARD
+      image: YUBENG_CARD
     },
     {
       id: 3,
       name: '南极洛徒步',
       description: '秘境湖泊群 · 3天徒步',
       difficulty: '难度 ⭐⭐',
-      image: IMAGE_CONFIG.NANLU_CARD
+      image: NANLU_CARD
     }
   ])
 

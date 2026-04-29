@@ -2,7 +2,7 @@ import { View, Text } from '@tarojs/components'
 import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import type { FC } from 'react'
 import { ArrowLeft, Camera, Car, Mountain, Sparkles } from 'lucide-react-taro'
-import { RECRUIT_BG } from '@/config/images'
+import { RECRUIT_BG } from '@/config/recruit-bg'
 import './index.css'
 
 const RecruitPage: FC = () => {

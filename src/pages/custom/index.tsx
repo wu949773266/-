@@ -1,7 +1,7 @@
 import { View, Text, Image } from '@tarojs/components'
 import { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
-import { IMAGE_CONFIG } from '@/config/images'
+import { NANLU_IMAGE } from '@/config/nanlu-image'
 import './index.css'
 
 const CustomPage = () => {
@@ -33,7 +33,7 @@ const CustomPage = () => {
       {/* 头部图片 */}
       <View className="header-image">
         <Image
-          src={IMAGE_CONFIG.NANLU_IMAGE}
+          src={NANLU_IMAGE}
           mode="aspectFill"
           className="image"
         />

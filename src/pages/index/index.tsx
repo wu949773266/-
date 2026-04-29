@@ -2,7 +2,7 @@ import { View, Text, Image, Button } from '@tarojs/components'
 import Taro, { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
-import { HERO_BG } from '@/config/images'
+import { HERO_BG } from '@/config/hero-bg'
 import './index.css'
 
 const IndexPage: FC = () => {

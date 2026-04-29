@@ -1,6 +1,6 @@
 import { View, Text, Image } from '@tarojs/components'
 import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
-import { IMAGE_CONFIG } from '@/config/images'
+import { NANLU_IMAGE } from '../../config/nanlu-image'
 import './index.css'
 
 const NanluDetailPage = () => {
@@ -39,7 +39,7 @@ const NanluDetailPage = () => {
           <Image
             className="nanlu-image"
             mode="widthFix"
-            src={IMAGE_CONFIG.NANLU_IMAGE}
+            src={NANLU_IMAGE}
           />
         </View>
 
