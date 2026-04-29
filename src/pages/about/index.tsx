@@ -1,78 +1,146 @@
-import { View, Text, ScrollView } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
+import Taro, { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
+import { useState } from 'react'
+import type { FC } from 'react'
+import { Mountain } from 'lucide-react-taro'
 import './index.css'
 
-const VALUES = [
-  { title: '敬畏自然', desc: '每一次出发，都是对山的朝圣' },
-  { title: '专业护航', desc: '持证领队 + 完善安全体系' },
-  { title: '深度体验', desc: '不走马观花，只做沉浸式徒步' },
-  { title: '品质服务', desc: '精选住宿与餐饮，山野不将就' }
-]
+const AboutPage: FC = () => {
+  const [animationTrigger, setAnimationTrigger] = useState(0)
 
-const TEAM = [
-  { name: '阿旺', role: '高山领队', exp: '12年高海拔经验' },
-  { name: '小舟', role: '户外摄影师', exp: '国家地理签约' },
-  { name: '卓玛', role: '后勤管家', exp: '8年营地管理' }
-]
+  // 每次页面显示时触发动画
+  useDidShow(() => {
+    setAnimationTrigger(prev => prev + 1)
+  })
 
-export default function About() {
+  // 配置分享给朋友
+  useShareAppMessage(() => {
+    return {
+      title: '山渡户外 - 关于我们',
+      path: '/pages/about/index'
+    }
+  })
+
+  // 配置分享到朋友圈
+  useShareTimeline(() => {
+    return {
+      title: '山渡户外 - 走山渡心，走进真正的山野',
+      query: ''
+    }
+  })
+
+  // 跳转到招聘页面
+  const handleGoToRecruit = () => {
+    Taro.navigateTo({
+      url: '/pages/recruit/index'
+    })
+  }
+
+  const stats = [
+    { value: '3000+', label: '累计带队', icon: '👥' },
+    { value: '2023', label: '成立年份', icon: '🎯' },
+    { value: '100%', label: '安全出行', icon: '✅' }
+  ]
+
+  const values = [
+    {
+      icon: '🏔️',
+      title: '专业探索',
+      desc: '专注户外探索与徒步摄影，每条路线都经过精心设计'
+    },
+    {
+      icon: '💪',
+      title: '全程陪伴',
+      desc: '经验丰富的领队全程陪伴，确保您的安全与体验'
+    },
+    {
+      icon: '✨',
+      title: '品质服务',
+      desc: '最多6人小团，摄影服务，让您的旅行更加难忘'
+    }
+  ]
+
   return (
-    <ScrollView scrollY className="about-page">
-      {/* 头部 */}
-      <View className="about-hero">
-        <Text className="about-eyebrow">ABOUT SHANDU</Text>
-        <Text className="about-title">关于山渡</Text>
-        <Text className="about-desc">
-          山渡户外扎根滇西北，专注梅里雪山、虎跳峡、南极洛等经典徒步线路。
-          我们相信，真正的户外不是征服，而是被山接纳。
-        </Text>
+    <View key={`about-${animationTrigger}`} className="about-page">
+      {/* 页面头部 */}
+      <View className="page-header">
+        <View className="header-decoration" />
+        <View className="header-content">
+          <Text className="page-subtitle">ABOUT US</Text>
+          <Text className="page-title">关于山渡</Text>
+          <Text className="page-desc">走进山野，也找回自己</Text>
+        </View>
+        <View className="header-gradient" />
       </View>
 
-      {/* 价值观 */}
-      <View className="section">
-        <View className="section-header">
-          <Text className="section-eyebrow">OUR VALUES</Text>
-          <Text className="section-title">山渡理念</Text>
-        </View>
-        <View className="value-list">
-          {VALUES.map((v, i) => (
-            <View key={i} className="value-item">
-              <Text className="value-num">{String(i + 1).padStart(2, '0')}</Text>
-              <View className="value-text">
-                <Text className="value-title">{v.title}</Text>
-                <Text className="value-desc">{v.desc}</Text>
+      {/* 数据统计卡片 */}
+      <View className="stats-container">
+        <View className="stats-card">
+          <View className="stats-grid">
+            {stats.map((stat, index) => (
+              <View
+                key={`stat-${index}-${animationTrigger}`}
+                className={`stat-item stat-enter-${index + 1}`}
+              >
+                <View className="stat-icon">{stat.icon}</View>
+                <Text className="stat-value">{stat.value}</Text>
+                <Text className="stat-label">{stat.label}</Text>
               </View>
+            ))}
+          </View>
+        </View>
+      </View>
+
+      {/* 品牌理念 */}
+      <View className="philosophy-section">
+        <Text className="section-title">品牌理念</Text>
+        <Text className="philosophy-text">
+          山渡户外成立于2023年，我们相信真正的旅行不是逃离城市，而是走进山野，重新认识自己。
+        </Text>
+        <View className="philosophy-decoration">
+          <Text className="quote-mark">&ldquo;</Text>
+          <Text className="quote-text">走山渡心</Text>
+          <Text className="quote-mark">&rdquo;</Text>
+        </View>
+      </View>
+
+      {/* 核心价值 */}
+      <View className="values-section">
+        <Text className="section-title">核心价值</Text>
+        <View className="values-container">
+          {values.map((value, index) => (
+            <View
+              key={`value-${index}-${animationTrigger}`}
+              className={`value-card value-enter-${index + 1}`}
+            >
+              <View className="value-icon-wrapper">
+                <Text className="value-icon">{value.icon}</Text>
+              </View>
+              <Text className="value-title">{value.title}</Text>
+              <Text className="value-desc">{value.desc}</Text>
             </View>
           ))}
         </View>
       </View>
 
-      {/* 团队 */}
-      <View className="section section-dark">
-        <View className="section-header">
-          <Text className="section-eyebrow light">OUR TEAM</Text>
-          <Text className="section-title light">核心团队</Text>
+      {/* 招贤纳士入口 */}
+      <View 
+        className="recruit-entry-section"
+        onClick={handleGoToRecruit}
+      >
+        <View className="recruit-entry-card">
+          <View className="recruit-entry-icon">
+            <Mountain size={40} color="#2f6f4f" />
+          </View>
+          <View className="recruit-entry-content">
+            <Text className="recruit-entry-title">招贤纳士</Text>
+            <Text className="recruit-entry-desc">年轻人的团队 · 透明化 · 人性化</Text>
+          </View>
+          <View className="recruit-entry-arrow">→</View>
         </View>
-        <View className="team-grid">
-          {TEAM.map((t) => (
-            <View key={t.name} className="team-item">
-              <Text className="team-name">{t.name}</Text>
-              <Text className="team-role">{t.role}</Text>
-              <Text className="team-exp">{t.exp}</Text>
-            </View>
-          ))}
-        </View>
       </View>
-
-      {/* 联系 */}
-      <View className="contact-banner">
-        <Text className="contact-title">与我们同行</Text>
-        <Text className="contact-desc">每一次出发，都是与山的约定</Text>
-      </View>
-
-      <View className="footer">
-        <Text className="footer-text">山渡户外 · 走山渡心</Text>
-        <Text className="footer-sub">滇西北高端户外徒步品牌</Text>
-      </View>
-    </ScrollView>
+    </View>
   )
 }
+
+export default AboutPage

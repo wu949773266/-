@@ -1,80 +1,139 @@
-import { View, Text, ScrollView } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import { View, Text, Image } from '@tarojs/components'
+import Taro, { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
+import { useState } from 'react'
+import type { FC } from 'react'
+import { IMAGE_CONFIG } from '@/config/images'
 import './index.css'
 
-const ROUTES = [
-  {
-    id: 'yubeng',
-    name: '雨崩徒步',
-    desc: '梅里雪山脚下，藏地圣境',
-    days: '6天5晚',
-    difficulty: '中等',
-    tag: '经典',
-    path: '/package-detail/pages/yubeng-schedule/index'
-  },
-  {
-    id: 'hutiaoxia',
-    name: '虎跳峡徒步',
-    desc: '世界最深峡谷，金沙江怒吼',
-    days: '3天2晚',
-    difficulty: '挑战',
-    tag: '挑战',
-    path: '/package-detail/pages/hutiaoxia-detail/index'
-  },
-  {
-    id: 'nanlu',
-    name: '南极洛徒步',
-    desc: '碧湖群山，最后的秘境',
-    days: '4天3晚',
-    difficulty: '中等',
-    tag: '秘境',
-    path: '/package-detail/pages/nanlu-detail/index'
+interface RouteItem {
+  id: number
+  name: string
+  description: string
+  difficulty: string
+  image: string
+}
+
+const RoutesPage: FC = () => {
+  const [routes] = useState<RouteItem[]>([
+    {
+      id: 2,
+      name: '虎跳峡徒步',
+      description: '云南虎跳峡经典路线 · 1天摄影徒步',
+      difficulty: '难度 ⭐',
+      image: IMAGE_CONFIG.HUTIAOXIA_CARD
+    },
+    {
+      id: 1,
+      name: '雨崩徒步',
+      description: '云南梅里秘境 · 4天摄影徒步',
+      difficulty: '难度 ⭐⭐',
+      image: IMAGE_CONFIG.YUBENG_CARD
+    },
+    {
+      id: 3,
+      name: '南极洛徒步',
+      description: '秘境湖泊群 · 3天徒步',
+      difficulty: '难度 ⭐⭐',
+      image: IMAGE_CONFIG.NANLU_CARD
+    }
+  ])
+
+  const [animationTrigger, setAnimationTrigger] = useState(0)
+
+  // 每次页面显示时触发动画
+  useDidShow(() => {
+    setAnimationTrigger(prev => prev + 1)
+  })
+
+  // 配置分享给朋友（自动截取当前页面）
+  useShareAppMessage(() => {
+    return {
+      title: '山渡户外 - 热门徒步线路',
+      path: '/pages/routes/index'
+    }
+  })
+
+  // 配置分享到朋友圈（自动截取当前页面）
+  useShareTimeline(() => {
+    return {
+      title: '山渡户外 - 热门徒步线路',
+      query: ''
+    }
+  })
+
+  const handleRouteDetail = (id: number) => {
+    if (id === 1) {
+      Taro.navigateTo({
+        url: '/package-detail/pages/yubeng-schedule/index'
+      })
+    } else if (id === 2) {
+      Taro.navigateTo({
+        url: '/package-detail/pages/hutiaoxia-detail/index'
+      })
+    } else if (id === 3) {
+      Taro.navigateTo({
+        url: '/package-detail/pages/nanlu-detail/index'
+      })
+    }
   }
-]
 
-const CATEGORIES = ['全部', '经典', '挑战', '秘境']
-
-export default function Routes() {
-  const handleRouteClick = (route: typeof ROUTES[0]) => {
-    Taro.navigateTo({ url: route.path })
+  const handleCustomPage = () => {
+    Taro.navigateTo({
+      url: '/pages/custom/index'
+    })
   }
 
   return (
-    <ScrollView scrollY className="routes-page">
-      <View className="page-header">
-        <Text className="page-eyebrow">ROUTES</Text>
-        <Text className="page-title">徒步线路</Text>
+    <View className="routes-page">
+      {/* 页面标题 */}
+      <View className="page-title-wrapper">
+        <Text className="page-title">热门徒步线路</Text>
       </View>
 
-      <View className="category-bar">
-        {CATEGORIES.map((cat) => (
-          <View key={cat} className={`category-chip ${cat === '全部' ? 'active' : ''}`}>
-            <Text className={`category-chip-text ${cat === '全部' ? 'active' : ''}`}>{cat}</Text>
-          </View>
-        ))}
-      </View>
-
-      <View className="route-list">
-        {ROUTES.map((route) => (
-          <View key={route.id} className="route-card" onClick={() => handleRouteClick(route)}>
-            <View className="route-card-top">
-              <View className="route-tag">
-                <Text className="route-tag-text">{route.tag}</Text>
-              </View>
-              <View className="route-meta">
-                <Text className="route-meta-text">{route.days}</Text>
-                <Text className="route-meta-dot">·</Text>
-                <Text className="route-meta-text">{route.difficulty}</Text>
-              </View>
+      {/* 线路列表 */}
+      <View className="routes-container">
+        {routes.map((route, index) => (
+          <View
+            key={`${route.id}-${animationTrigger}`}
+            className={`route-card card-enter-${index + 1}`}
+            onTap={() => handleRouteDetail(route.id)}
+          >
+            <View className="image-wrapper">
+              <Image
+                className="route-image"
+                mode="aspectFill"
+                src={route.image}
+                lazyLoad
+              />
             </View>
-            <Text className="route-name">{route.name}</Text>
-            <Text className="route-desc">{route.desc}</Text>
-            <View className="route-bottom">
-              <Text className="route-cta">查看详情 →</Text>
+
+            <View className="route-content">
+              <Text className="route-name">{route.name}</Text>
+              <Text className="route-desc">{route.description}</Text>
+              <View className="difficulty-badge">
+                <Text className="difficulty-text">{route.difficulty}</Text>
+              </View>
             </View>
           </View>
         ))}
       </View>
-    </ScrollView>
+
+      {/* 私人订制入口 */}
+      <View key={`custom-${animationTrigger}`} className="custom-section">
+        <Text className="custom-title">私人订制</Text>
+        <Text className="custom-subtitle">为您量身定制专属旅行体验</Text>
+
+        <View className="custom-card" onTap={handleCustomPage}>
+          <View className="custom-content">
+            <View className="custom-icon">✨</View>
+            <Text className="custom-main-text">专属行程定制</Text>
+            <Text className="custom-desc-text">根据您的需求，设计独一无二的外旅行计划</Text>
+            <View className="custom-arrow">→</View>
+          </View>
+        </View>
+      </View>
+    </View>
   )
 }
+
+export default RoutesPage
