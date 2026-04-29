@@ -41,7 +41,7 @@ const IndexPage: FC = () => {
         <Image
           className="hero-bg"
           mode="aspectFill"
-          src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=1200&q=80"
+          src="https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/proxy_a91632b3?sign=2092815157-fe826f0621-0-bbed33005e555c08ab1bd71537a87b9651d9043d74ec53bb379518bb4d5f7d8a"
         />
         <View className="hero-overlay" />
         <View className="hero-content">
