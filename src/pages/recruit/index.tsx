@@ -2,6 +2,7 @@ import { View, Text } from '@tarojs/components'
 import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import type { FC } from 'react'
 import { ArrowLeft, Camera, Car, Mountain, Sparkles } from 'lucide-react-taro'
+import { RECRUIT_BG } from '@/config/images'
 import './index.css'
 
 const RecruitPage: FC = () => {
@@ -50,7 +51,7 @@ const RecruitPage: FC = () => {
       <View className="bg-container">
         <View 
           className="bg-image"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=1200&q=80)' }}
+          style={{ backgroundImage: `url(${RECRUIT_BG})` }}
         />
         <View className="bg-gradient" />
       </View>

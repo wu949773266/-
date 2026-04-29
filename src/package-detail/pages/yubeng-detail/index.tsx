@@ -3,7 +3,7 @@ import { View, Text, Image, ScrollView } from '@tarojs/components'
 import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState, useEffect } from 'react'
 import type { FC } from 'react'
-import { YUBENG_IMAGES } from '../../config/images'
+import { YUBENG_IMAGES, YUBENG_SEASON } from '../../config/images'
 import './index.css'
 
 // 住宿说明
@@ -78,7 +78,7 @@ const YubengDetailPage: FC = () => {
       question: '什么时候适合去雨崩？',
       answer: '',
       icon: '📅',
-      image: 'https://coze-coding-project.tos.coze.site/coze_storage_7616074772820262912/yubeng/season_19cb5353.jpg?sign=1778179241-03f48782c1-0-8383bf5627bc5f01882ee3829e2c2f6124170a92312a91a7ad9bd7142c19e335'
+      image: YUBENG_SEASON
     },
     {
       question: '住宿环境',
