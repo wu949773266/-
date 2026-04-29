@@ -1,5 +1,28 @@
 @import url('tailwindcss');
 
+:root, page, root-portal {
+  --background: #f5f2ed;
+  --foreground: #1b2e24;
+  --card: #faf8f5;
+  --card-foreground: #1b2e24;
+  --popover: #faf8f5;
+  --popover-foreground: #1b2e24;
+  --primary: #2c5f45;
+  --primary-foreground: #ffffff;
+  --secondary: #e8e3db;
+  --secondary-foreground: #1b3a2d;
+  --muted: #e8e3db;
+  --muted-foreground: #5a6e63;
+  --accent: #c8a45c;
+  --accent-foreground: #1b3a2d;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2ddd5;
+  --input: #e2ddd5;
+  --ring: #2c5f45;
+  --radius: 0.75rem;
+}
+
 /*
  * H5 端 rem 适配：与小程序 rpx 缩放一致
  * 375px 屏幕：1rem = 16px，小程序 32rpx = 16px
@@ -12,6 +35,7 @@ html {
 /* stylelint-disable-next-line selector-type-no-unknown */
 page {
   height: 100%;
+  background-color: #f5f2ed;
 }
 
 /* H5 端组件默认样式修复 */

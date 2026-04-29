@@ -23,15 +23,15 @@ export default {
   ],
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#ffffff',
+    navigationBarBackgroundColor: '#f5f2ed',
     navigationBarTitleText: '山渡户外',
     navigationBarTextStyle: 'black'
   },
   tabBar: {
-    color: '#6b7f76',
-    selectedColor: '#2f6f4f',
-    backgroundColor: '#ffffff',
-    borderStyle: 'black',
+    color: '#8a9990',
+    selectedColor: '#2c5f45',
+    backgroundColor: '#faf8f5',
+    borderStyle: 'white',
     list: [
       {
         pagePath: 'pages/index/index',
@@ -42,14 +42,14 @@ export default {
       {
         pagePath: 'pages/routes/index',
         text: '线路',
-        iconPath: './assets/tabbar/map.png',
-        selectedIconPath: './assets/tabbar/map-active.png',
+        iconPath: './assets/tabbar/mountain.png',
+        selectedIconPath: './assets/tabbar/mountain-active.png',
       },
       {
         pagePath: 'pages/about/index',
         text: '关于',
-        iconPath: './assets/tabbar/info.png',
-        selectedIconPath: './assets/tabbar/info-active.png',
+        iconPath: './assets/tabbar/user.png',
+        selectedIconPath: './assets/tabbar/user-active.png',
       },
     ]
   }
