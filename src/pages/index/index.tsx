@@ -2,6 +2,7 @@ import { View, Text, Image, Button } from '@tarojs/components'
 import Taro, { useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro'
 import { useState } from 'react'
 import type { FC } from 'react'
+import { HERO_BG } from '@/config/images'
 import './index.css'
 
 const IndexPage: FC = () => {
@@ -41,7 +42,7 @@ const IndexPage: FC = () => {
         <Image
           className="hero-bg"
           mode="aspectFill"
-          src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=1200&q=80"
+          src={HERO_BG}
         />
         <View className="hero-overlay" />
         <View className="hero-content">
