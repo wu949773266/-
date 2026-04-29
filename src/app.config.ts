@@ -12,9 +12,15 @@ export default {
   ],
   subpackages: [
     {
+      root: 'package-yubeng',
+      pages: [
+        'pages/yubeng-schedule/index'
+      ],
+      name: 'yubeng'
+    },
+    {
       root: 'package-detail',
       pages: [
-        'pages/yubeng-schedule/index',
         'pages/hutiaoxia-detail/index',
         'pages/nanlu-detail/index'
       ],

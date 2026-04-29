@@ -64,7 +64,7 @@ const RoutesPage: FC = () => {
   const handleRouteDetail = (id: number) => {
     if (id === 1) {
       Taro.navigateTo({
-        url: '/package-detail/pages/yubeng-schedule/index'
+        url: '/package-yubeng/pages/yubeng-schedule/index'
       })
     } else if (id === 2) {
       Taro.navigateTo({

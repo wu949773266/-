@@ -24,7 +24,7 @@ const YubengSchedulePage: FC = () => {
   useShareAppMessage(() => {
     return {
       title: '雨崩徒步摄影4日游 - 山渡户外',
-      path: '/package-detail/pages/yubeng-schedule/index'
+      path: '/package-yubeng/pages/yubeng-schedule/index'
     }
   })
 
